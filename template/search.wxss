@@ -7,15 +7,20 @@
     display: inline-block;
     margin-left: 40rpx;
     width: 580rpx;
-    height: 10rpx;
+    height: 76rpx;
     border-bottom: 1px solid #fff;
 }
 .input image{
     width: 50rpx;
     height: 50rpx;
+    margin-top: 20rpx;
 }
 .shopCar{
     display: inline-block;
-    margin-left: 30rpx;
-
+    margin-left: 50rpx;
+    margin-top: 20rpx;
+}
+.shopCar image{
+    width: 50rpx;
+    height: 50rpx;
 }

@@ -1,4 +1,4 @@
 <view class="search">
-  <view class="input"><image src="../image/icon/searchwhite.png"></image></view>
-  <view class="shopCar"><image scr="../image/icon/cartWhite.png"></image></view>
+  <view class="input" bindtap="search"><image src="../image/searcwhite.png"></image></view>
+  <view class="shopCar" bindtap="cart"><image src="../image/cartWhite.png"></image></view>
 </view>
