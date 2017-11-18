@@ -1,4 +1,7 @@
 /**app.wxss**/
+page{
+  font-family: "Microsoft YaHei";
+}
 .container {
   height: 100%;
   display: flex;

@@ -1,5 +1,7 @@
 /**index.wxss**/
 @import '../../template/search.wxss';
+@import "../../template/promotion.wxss";
+@import "../../template/TBD.wxss";
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -33,4 +35,86 @@ background:#00a79e;
   display: inline-block;
   height: 50rpx;
   background:#fafafa;
+}
+.border{
+  width: 100%;
+  height: 20rpx;
+  background: #eee;
+}
+/*活动*/
+.main{
+  width: 100%;
+  height: 90rpx;
+  border-bottom: 1px  solid #f6f6f6;
+  display: flex;
+  align-items: center;
+}
+.main_name{
+  display: flex;
+  margin-left: 20rpx;
+}
+.main_name image{
+    width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+.main_name .main_title{
+  font-size: 36rpx;
+  color:#EA4736;
+}
+.main_name .main_num{
+  font-size: 28rpx;
+  color:#989898;
+  margin-left: 5rpx;
+  display: flex;
+  justify-items: center;
+}
+.main_more{
+  font-size: 36rpx;
+  color:#EA4736;
+  margin-left: 375rpx;
+}
+/*广告位*/
+.AD{
+  width: 100%;
+  height: 200rpx;
+}
+.AD image{
+  width: 100%;
+  height: 100%;
+}
+/*众筹*/
+.TBD{
+  width: 100%;
+  height: 90rpx;
+  border-bottom: 1px  solid #fafafa;
+  display: flex;
+  align-items: center;
+}
+.TBD_name{
+  display: flex;
+  margin-left: 20rpx;
+}
+.TBD_name image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+.TBD_name .TBD_title{
+  font-size: 36rpx;
+  color:#00a79e;
+}
+.TBD_name .TBD_num{
+  font-size: 28rpx;
+  color:#989898;
+  margin-left: 5rpx;
+  display: flex;
+  justify-items: center;
+  display: flex;
+  justify-items: center;
+}
+.TBD_more{
+  font-size: 36rpx;
+  color:#00a79e;
+  margin-left: 375rpx;
 }

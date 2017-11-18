@@ -8,10 +8,8 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view> -->
- <include src="../../template/search.wxml"/> 
-<view class="header">
-  <view class="classname"></view>
-</view>
+ <include src="../../template/search.wxml"/>
+
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}">
@@ -20,14 +18,23 @@
     </swiper-item>
   </block>
 </swiper>
-
-
-<!--<button bindtap="changeIndicatorDots"> indicator-dots </button>-->
-<!--<button bindtap="changeAutoplay"> autoplay </button>-->
-<!--<slider bindchange="intervalChange" show-value min="500" max="2000"/> interval-->
-<!--<slider bindchange="durationChange" show-value min="1000" max="10000"/> duration-->
-<view class="show" bindtap="show">show</view>
-
-<progress stroke-width='12' color='red' percent="{{num}}"/>        
-<view class="choose" bindtap="click">choose</view>
-<image src="{{order}}" bindtap='look'></image>
+<view class="border"></view>
+<view class="main">
+  <view class="main_name">
+    <image src="../image/hot.png"></image>
+    <text class="main_title">活动商品</text>
+    <span class="main_num">(15)</span>
+  </view>
+  <view class="main_more">更多</view>
+</view>
+<include src="../../template/promotion.wxml"/>
+<view class="AD"><image src="../image/AD.png"></image></view>
+<view class="TBD">
+  <view class="TBD_name">
+    <image src="../image/hot.png"></image>
+    <text class="TBD_title">众筹商品</text>
+    <span class="TBD_num">(15)</span>
+  </view>
+  <view class="TBD_more">更多</view>
+</view>
+<include src="../../template/TBD.wxml"/>
