@@ -35,21 +35,27 @@
     font-size: 36rpx;
 }
 .progress{
-    margin-top: 30rpx;
+    margin-top: 10rpx;
+}
+.point{
+    font-size: 36rpx;
+    color:#00a79e;
+    margin-left: 20rpx;
 }
 .title .promotion_main{
     font-size: 36rpx;
 }
-.title .promotion_scale{
-    font-size: 28rpx;
-    color:#ff9388;
-}
+
 .promotion_button{
     margin-top: 50rpx;
 }
 .promotion_price{
     color:#EA4736;
     font-size: 32rpx;
+}
+.promotion_people{
+    font-size: 28rpx;
+    color:#989898;
 }
 .promotion_price_del{
     color:#989898;

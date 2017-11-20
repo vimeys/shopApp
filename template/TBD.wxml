@@ -5,11 +5,11 @@
             <image class="image_small" src="../image/TBD.png"></image>
         </view>
         <view class="title">
-            <view class="promotion_main">无敌风火轮超级厉害萨达阿</view>
-            <view class="progress"><progress percent="50" color="#00a79e" stroke-width="10" style="width: 300rpx"/></view>
-            <view class="promotion_scale">3445人支持/已筹12万</view>
+            <view class="TbD_main">无敌风火轮超级厉害萨达阿</view>
+            <view class="progress"><progress percent="50" color="#00a79e" stroke-width="10" style="width: 300rpx; display: inline-block"/><text class="point">85%</text></view>
+            <view class="TbD_people">3445人支持/已筹12万</view>
             <view class="promotion_button">
-                <text class="promotion_price">￥2222.00</text>
+                <text class="promotion_price">2222.00元起</text>
             </view>
         </view>
     </view>
