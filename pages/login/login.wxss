@@ -296,3 +296,46 @@
     display: flex;
     flex-direction:column;
 }
+.grade_level1{
+    display:flex;
+    justify-content: space-between;
+}
+.grade_level2{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 79rpx;
+}
+.grade_choose{
+    width:50rpx;
+    height: 50rpx;
+    border-radius:50rpx;
+    background: #eee;
+}
+.grade_choose image{
+    width: 30rpx;
+    height: 30rpx;
+    text-align: center;
+    margin-left: 10rpx;
+}
+.red{
+    background: #EC4734;
+}
+.explain{
+    margin-top: 50rpx;
+    font-size: 30rpx;
+    color:#222;
+    padding-bottom: 20rxp;
+    border-bottom: 1px solid #222;
+    width: 180rpx;
+    margin-left: 520rpx;
+}
+.fix{
+    margin-top: 45rpx;
+    width: 100%;
+    height: 100rpx;
+    background: #00A79F;
+    color:#fff;
+    font-size: 40rpx;
+    text-align: center;
+    line-height: 100rpx;
+}

@@ -102,14 +102,16 @@
     <view class="photo_image3"><image src="../image/goods.png"></image></view>
     <view class="photo_plus"><image src="../image/plus.png"></image>重新上传</view>
     <view class="grade">
-        <view class>
+        <view class="grade_level1">
             <view>普通会员</view>
-            <view class="grade_choose"><image src="../image/chose.png"></image></view>
+            <view class="grade_choose red"><image src="../image/chose.png"></image></view>
         </view>
-        <view>
+        <view class="grade_level2">
             <view>高级会员</view>
-            <view class="grade_noChose"><image src="../image/chose.png"></image></view>
+            <view class="grade_choose red"><image src="../image/chose.png"></image></view>
         </view>
     </view>
+    <view  class="explain">查看会员权益</view>
+    <view class="fix">确认</view>
 </view>
 
