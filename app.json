@@ -1,5 +1,6 @@
 {
   "pages":[
+      "pages/brand/brand",
     "pages/search/search",
     "pages/login/login",
     "pages/logs/logs",

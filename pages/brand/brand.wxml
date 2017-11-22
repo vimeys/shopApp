@@ -1,0 +1,12 @@
+<!--pages/brand/brand.wxml-->
+<view wx:if="{{listShow}}" class="model">
+    <view>厂商品牌</view>
+    <view class="list">
+        <view class="goods choose">安尔达电动车</view>
+        <view class="goods">小米电动车</view>
+        <view class="goods">小米电动车</view>
+    </view>
+</view>
+<view class="fix">
+    品牌生成长商所有品牌123
+</view>
