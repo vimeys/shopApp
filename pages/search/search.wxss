@@ -45,6 +45,7 @@
     font-size: 30rpx;
     color:#989898;
     height: 60rpx;
+    overflow: hidden;
     text-align: center;
     line-height: 60rpx;
     border: 1px solid #989898;

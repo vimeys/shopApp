@@ -1,7 +1,9 @@
 {
   "pages":[
-      "pages/brand/brand",
+    "pages/goodsDetail/goodsDetail",
+    "pages/searchGoods/searchGoods",
     "pages/search/search",
+    "pages/brand/brand",
     "pages/login/login",
     "pages/logs/logs",
     "pages/index/index"

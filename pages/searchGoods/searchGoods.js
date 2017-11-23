@@ -1,22 +1,13 @@
-// pages/brand/brand.js
+// pages/searchGoods/searchGoods.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listShow:false,
+  
   },
-  more:function (e) {
-    this.setData({
-        listShow:true
-    })
-  },
-    hide:function (e) {
-        this.setData({
-            listShow:false
-        })
-    },
+
   /**
    * 生命周期函数--监听页面加载
    */

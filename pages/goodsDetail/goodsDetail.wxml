@@ -1,0 +1,44 @@
+<!--pages/goodsDetail/goodsDetail.wxml-->
+<swiper class="swiper" indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="true">
+    <block wx:for="{{imgUrls}}">
+        <swiper-item >
+            <image src="../image/goods.png" class="slide-image" width="100%" height="150"/>
+        </swiper-item>
+    </block>
+</swiper>
+<view class="goods_title">
+    <view class="title">傻大姐法拉时间了房价啊来就了解爱上了房价加上了房间爱就是房价啊</view>
+    <view class="main">
+        <text class="new_price">活动价：1999元</text>
+        <text class="del_price">原价：1500</text>
+        <text class="sales">销量：3250</text>
+    </view>
+</view>
+<!--<view>-->
+    <!--<block wx:for="{{imgUrls}}">-->
+        <!--<view class="main">-->
+            <!--<image src="{{item}}" bindload="loadImage" style="width:{{width}}rpx"></image>-->
+        <!--</view>-->
+    <!--</block>-->
+<!--</view>-->
+<view class="TBD">
+    <view class="title">傻大姐法拉时间了房价啊来就了解爱上了房价加上了房间爱就是房价啊</view>
+    <view class="progress">
+        <progress percent="50" color="#00a79e" stroke-width="10" style="width: 600rpx; display: inline-block"/><text class="point">85%</text>
+    </view>
+    <view class="TBD_people">3445人支持/已筹12万</view>
+    <view class="TBD_price"><text class="money">1999元起</text> <text class="time">2017-12-25至2017-12-30</text></view>
+</view>
+<view class="bar fix">
+    <view class="cart">
+        <image src="../image/cartBlock.png"></image>
+        <view>购物车</view>
+    </view>
+
+    <view class="collect">
+        <image src="../image/collected.png"></image>
+        <view class="">收藏</view>
+    </view>
+    <view class="joinCart">加入购物车</view>
+</view>

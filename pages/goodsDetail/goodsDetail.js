@@ -1,29 +1,38 @@
-// pages/brand/brand.js
+// pages/goodsDetail/goodsDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listShow:false,
+      imgUrls: [
+          'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+          'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+      ],
+      indicatorDots: false,
+      autoplay: true,
+      interval: 5000,
+      duration: 1000,
+      width:450
   },
-  more:function (e) {
-    this.setData({
-        listShow:true
-    })
-  },
-    hide:function (e) {
-        this.setData({
-            listShow:false
-        })
-    },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
   
   },
-
+  // loadImage:function (e) {
+  //   let  that=this;
+  //      wx.getImageInfo({
+  //            src:'../image/goods.png',
+  //          success:function (res) {
+  //              that.data.width.push(res.width);
+  //              console.log(that.data.width)
+  //          }
+  //       });
+  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
