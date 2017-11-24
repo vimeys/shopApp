@@ -1,5 +1,5 @@
 <!-- 活动商品的列表页面 -->
-<view class="promotion">
+<!-- <view class="promotion">
     <view class="list">
         <view class="image">
             <image class='image_main' src="../image/goods.png"></image>
@@ -15,4 +15,25 @@
             </view>
         </view>
     </view>
-</view>
+</view> -->
+ <view>
+            <view class="promotion">
+                <view class="list">
+                    <view class="image">
+                        <image class='image_main' src="../image/goods.png"></image>
+                        <image class="image_small" src="../image/promto.png"></image>
+                    </view>
+                    <view class="title">
+                       <view class="promotion_all">
+                            <view class="promotion_main">无敌风火轮超级厉害萨达啊考</view>
+                            <view class="promotion_scale">降价50%</view>
+                       </view>
+                        <view class="promotion_button">
+                            <text class="promotion_price">￥2222.00</text>
+                            <text class="promotion_price_del">￥2222.00</text>
+                            <text class="promotion_num">销量:2345</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+      </view>
