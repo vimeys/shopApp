@@ -1,0 +1,27 @@
+<!--pages/profits/profits.wxml-->
+<view class='body'>
+      <view class='top'>
+           <view class='top-title'>
+                 <view>你的等级
+                       <image style='width:44rpx;height:58rpx;' src='../image/icon01.png'></image>
+                       高级卡
+                 </view>
+           </view>
+           <view class='text'>阿萨德能否建卡时对方撒点开了积分卡舍不得分开就撒地方萨克雷的计分板卡上的部分就卡丝蛋白</view>
+      </view>
+      <view class='Katakana'>
+           <view>
+                <image style='width:44rpx;height:58rpx;' src='../image/icon02.png'></image>
+           </view>
+           <view>普卡</view>
+           <view class='text01'>阿萨德骷髅法师可理解的烦恼蓝色的弗兰克拿手里看到飞鸟卢卡斯的拉萨等你方兰生李开复那拉氏</view>
+      </view>
+      <view class='Katakana'>
+           <view>
+                <image style='width:44rpx;height:58rpx;' src='../image/icon02.png'></image>
+                 <image style='width:44rpx;height:58rpx;' src='../image/icon02.png'></image>
+           </view>
+           <view>高级卡</view>
+           <view class='text01'>阿萨德骷髅法师可理解的烦恼蓝色的弗兰克拿手里看到飞鸟卢卡斯的拉萨等你方兰生李开复那拉氏</view>
+      </view>
+</view>

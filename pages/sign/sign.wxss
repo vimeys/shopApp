@@ -1,0 +1,54 @@
+/* pages/sign/sign.wxss */
+.bg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+.bg image{
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.main{
+    z-index: 11;
+
+}
+.logo{
+    width: 200rpx;
+    height: 200rpx;
+    margin: 100rpx auto 100rpx;
+}
+.logo image{
+    width: 200rpx;
+    height: 200rpx;
+}
+.sign_input{
+    display:flex;
+    width: 100%;
+
+}
+.sign_tel{
+    background: rgba(0,0,0,.85);
+    width: 655rpx;
+    margin-left: 50rpx;
+    position: relative;
+    height: 90rpx;
+    border-radius: 90rpx;
+}
+.sign_tel image{
+    width: 50rpx;
+    position: absolute;
+    top: 20rpx;
+    left: 25rpx;
+    height: 50rpx;
+}
+.sign_tel input{
+    padding-left: 100rpx;
+    font-size: 30rpx;
+    color:#fff;
+    height: 90rpx;
+    min-height: 90rpx;
+}

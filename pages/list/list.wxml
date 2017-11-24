@@ -1,0 +1,17 @@
+<!--pages/list/list.wxml-->
+<view class="title">
+    <view class="image"><image src="../image/list_all.png"></image></view>
+    <view class="word">推荐品牌</view>
+</view>
+<block wx:for="{{[1,2,3]}}">
+    <view class="item">
+        <view class="item_image"><image src="../image/goods.png"></image></view>
+        <view class="item_list">
+            <view>爱尔达电动车王中王</view>
+            <view>产品数量：22</view>
+        </view>
+    </view>
+</block>
+<view class="fix" bindtap="more">
+    <image src="../image/goods.png"></image>
+</view>

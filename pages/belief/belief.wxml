@@ -1,0 +1,45 @@
+<!--pages/belief/belief.wxml-->
+<view class='body'>
+      <view class='body-news'>
+        <view class='body-news-top'>
+             <view class='body-img'>
+                   <image style='width:100rpx;height:100rpx;' src='../image/Avatar.png'></image>
+             </view>
+             <view class='name'>农信达电子商城</view>
+             <view class='yuan'></view>
+        </view>
+        <view class='body-text'>您的众筹已经众筹成功阿萨德均可发病拉开思念对方拉开南山大佛</view>
+        <view class='body-time'>
+             <text class='body-time-time'>2017.12.25 </text>
+             <text>12:24:12</text>
+        </view>
+      </view>
+      <view class='body-news'>
+        <view class='body-news-top'>
+             <view class='body-img'>
+                   <image style='width:100rpx;height:100rpx;' src='../image/Avatar.png'></image>
+             </view>
+             <view class='name'>农信达电子商城</view>
+             <view class='yuan'></view>
+        </view>
+        <view class='body-text'>您的众筹已经众筹成功阿萨德均可发病拉开思念对方拉开南山大佛</view>
+        <view class='body-time'>
+             <text class='body-time-time'>2017.12.25 </text>
+             <text>12:24:12</text>
+        </view>
+      </view>
+      <view class='body-news'>
+        <view class='body-news-top'>
+             <view class='body-img'>
+                   <image style='width:100rpx;height:100rpx;' src='../image/Avatar.png'></image>
+             </view>
+             <view class='name'>农信达电子商城</view>
+             <view class='yuan'></view>
+        </view>
+        <view class='body-text'>您的众筹已经众筹成功阿萨德均可发病拉开思念对方拉开南山大佛</view>
+        <view class='body-time'>
+             <text class='body-time-time'>2017.12.25 </text>
+             <text>12:24:12</text>
+        </view>
+      </view>
+</view>

@@ -1,0 +1,23 @@
+<!--pages/Appeal/Appeal.wxml-->
+<view class='Appeal'>
+      <view class='text-T'>
+           <view class='text'>
+                <textarea style='height:260rpx;' placeholder='问题描述'></textarea>
+           </view>
+      </view>
+      <view class='title'>
+            <view class='title-text'>三包合同/合格证</view>
+            <view class='img' bindtap="takePhoto">
+                  <image src='../image/photo.png'></image>
+            </view>
+            <view class='Kamishi'>重新上传</view>
+      </view>
+      <view class='title'>
+            <view class='title-text'>破损零件图片</view>
+            <view class='img'>
+                  <image src='../image/photo.png'></image>
+            </view>
+            <view class='Kamishi'>重新上传</view>                                                       
+      </view>
+      <view class='bottom'>提交</view>
+</view>

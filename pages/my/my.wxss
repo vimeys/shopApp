@@ -1,0 +1,116 @@
+/* pages/my/my.wxss */
+.top{
+    color: #fff;
+    background-color: #eb4735;
+}
+.top-information{
+    padding-top: 30rpx;
+    overflow: hidden;
+}
+.top-information>view{
+    float: left;
+}
+.information{
+    margin-left: 20rpx;
+}
+.name{
+    margin-bottom: 20rpx;
+    font-size: 36rpx;
+}
+.member{
+    font-size: 30rpx;
+    display:flex;
+    
+}
+.member-time{
+    padding-left: 10rpx;
+    display: flex;
+    font-size: 24rpx;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.upgrade{
+    justify-content: center;
+    width: 187rpx;
+    height: 57rpx;
+    border-radius: 40rpx;
+    background-color: #ff9388;
+    font-size: 36rpx;
+    display: flex;
+}
+.upgrade-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.upgrade-shengji{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Profit-Profit{
+    font-size: 30rpx;
+}
+.top{
+    padding-left: 20rpx;
+}
+.Profit{
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.profit-right{
+    display: flex;
+}
+.Profit-top{
+    color: #eb4735;
+    position: fixed;
+    top: 164rpx;
+    right: 162rpx;
+    line-height: 36rpx;
+    text-align: center;
+    width: 36rpx;
+    height: 36rpx;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.Profit-image{
+    padding-right: 20rpx;
+}
+.Profit-News{
+    padding-right: 20rpx;
+    font-size: 34rpx;
+}
+.Clothing{
+    font-size: 30rpx;
+    padding-bottom: 50rpx;
+}
+.Column-Unity{
+    justify-content: space-between;
+    line-height: 120rpx;
+    display: flex;
+    border-bottom: 2rpx #eee solid;
+}
+.Column-Unity-left{
+    display: flex;
+    flex-direction: row;
+
+    padding-left: 40rpx;
+}
+.image-box{
+    width: 65rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Column-Unity-zhong{
+    display: flex;
+    padding-left: 40rpx;
+}
+.Column-Unity-right{
+    padding-right: 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
