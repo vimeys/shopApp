@@ -15,31 +15,9 @@ Page({
         order:"",
         num:50
     },
-    changeIndicatorDots: function (e) {
-        this.setData({
-            indicatorDots: !this.data.indicatorDots
-        })
-    },
-    changeAutoplay: function (e) {
-        this.setData({
-            autoplay: !this.data.autoplay
-        })
-    },
-    intervalChange: function (e) {
-        this.setData({
-            interval: e.detail.value
-        })
-    },
-    durationChange: function (e) {
-        this.setData({
-            duration: e.detail.value
-        })
-    },
-    show:function(e){
-        wx.showToast({
-            title: '成功',
-            icon: 'success',
-            duration: 2000
+    search:function (e) {
+        wx.navigateTo({
+          url: '../searchGoods/searchGoods'
         })
     },
     click:function(e){
@@ -53,6 +31,15 @@ Page({
                 },
             })
         
+    },
+    cart:function (e) {
+        console.log(123)
+        // wx.navigateTo({
+        //     url:'../shoppingcart/shoppingcart'
+        // })
+        wx.switchTab({
+            url: '../shoppingcart/shoppingcart?'
+        })
     },
   //事件处理函数
   bindViewTap: function() {
@@ -72,8 +59,23 @@ Page({
 
 
   onLoad: function () {
-    console.log('onLoad')
-    var that = this
+    console.log('onLoad');
+      var i=0;
+    var checkUser=setInterval(function () {
+        console.log(i)
+        i++;
+        if(i>20){
+            let user=wx.getStorageSync('userNmae');
+            if(!user){
+                console.log(123);
+                wx.navigateTo({
+                  url: '../sign/sign'
+                })
+            }
+            clearInterval(checkUser);
+        }
+    },100);
+    var that = this;
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
       //更新数据

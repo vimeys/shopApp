@@ -1,8 +1,12 @@
 /* pages/sign/sign.wxss */
+page{
+  border-top: 2rpx #eee solid;
+}
 .bg{
     width: 100%;
     height: 100%;
-    position: fixed;
+    /*position: relative;*/
+    float:left;
 }
 .bg image{
     width: 100%;
@@ -10,16 +14,17 @@
     z-index: 10;
     position: absolute;
     top:0;
-    left: 0;
+    left:0;
 }
+
 .main{
     z-index: 11;
-
+    position: relative;
 }
 .logo{
     width: 200rpx;
     height: 200rpx;
-    margin: 100rpx auto 100rpx;
+    margin: 190rpx auto 100rpx;
 }
 .logo image{
     width: 200rpx;
@@ -28,22 +33,24 @@
 .sign_input{
     display:flex;
     width: 100%;
+    flex-direction: column;
 
 }
 .sign_tel{
-    background: rgba(0,0,0,.85);
+    background-color: rgba(0,0,0,.15);
     width: 655rpx;
     margin-left: 50rpx;
     position: relative;
     height: 90rpx;
     border-radius: 90rpx;
+    margin-bottom: 30rpx;
 }
 .sign_tel image{
-    width: 50rpx;
+    width: 52rpx;
     position: absolute;
     top: 20rpx;
     left: 25rpx;
-    height: 50rpx;
+    height: 42rpx;
 }
 .sign_tel input{
     padding-left: 100rpx;
@@ -51,4 +58,41 @@
     color:#fff;
     height: 90rpx;
     min-height: 90rpx;
+    width: 650rpx;
+}
+.code{
+    margin-left: 50rpx;
+
+}
+.code input{
+    margin-top: 30rpr;
+    width: 325rpx;
+    height: 90rpx;
+    border-radius: 90rpx;
+    text-align: center;
+    font-size: 30rpx;
+    display: inline-block;
+    background-color: rgba(0,0,0,.15);
+    color:#fff;
+}
+.fff{
+    color:#fff;
+}
+
+.code  text{
+    margin-top: 30rpr;
+    float:right;
+    font-size: 30rpx;
+    margin-right: 80rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+button{
+    margin-top: 30rpx;
+    width: 655rpx;
+    height: 90rpx;
+    border-radius: 90rpx;
+    background-color: #EA4736;
+    color:#fff;
+    font-size: 36rpx;
 }

@@ -1,22 +1,23 @@
 <!--pages/sign/sign.wxml-->
-<view class="bg">
+<!-- <view class="bg">
     <image src="../image/sign_bg.png"></image>
+</view> -->
     <view class="main">
         <view class="logo">
             <image src="../image/goods.png"></image>
         </view>
         <view class="sign_input">
             <view class="sign_tel">
-                <input type="tel" placeholder="注册手机号"/>
-                <image src="../image/sign.png"></image>
+                <input type="tel" placeholder="绑定手机号" placeholder-class="fff" bindblur="phoneNum"/>
+                <image src="../image/sign_index.png"></image>
+            </view>
+            <view class="code">
+                <input type="tel" placeholder="请输入验证码" placeholder-class="fff"/>
+                <text bindtap="getCode">获取验证码</text>
             </view>
             <view>
-                <input type="tel" placeholder="请输入验证码"/>
-                <text>获取验证码</text>
-            </view>
-            <view>
-                <button>注册</button>
+                <button>注   册</button>
             </view>
         </view>
     </view>
-</view>
+

@@ -10,17 +10,14 @@
     height: 76rpx;
     border-bottom: 1px solid #fff;
 }
-.input image{
-    width: 50rpx;
-    height: 50rpx;
-    margin-top: 20rpx;
+.input icon{
+    margin-top: 10rpx;
 }
 .shopCar{
     display: inline-block;
-    margin-left: 50rpx;
-    margin-top: 20rpx;
-}
-.shopCar image{
-    width: 50rpx;
-    height: 50rpx;
+    margin-left: 30rpx;
+    /*margin-top: 10rpx;*/
+    height: 90rpx;
+    line-height: 90rpx;
+    color:#fff;
 }

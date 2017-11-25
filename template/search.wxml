@@ -1,5 +1,8 @@
 <!-- 搜索页头页面 -->
-<view class="search">
-  <view class="input" bindtap="search"><image src="../image/searcwhite.png"></image></view>
-  <view class="shopCar" bindtap="cart"><image src="../image/cartWhite.png"></image></view>
+<view class="search" bindtap="search">
+  <view class="input" >
+    <!--<image src="../image/searcwhite.png"></image>-->
+    <icon type="search" size="30" color="white"/>
+  </view>
+  <view class="shopCar">搜索</view>
 </view>

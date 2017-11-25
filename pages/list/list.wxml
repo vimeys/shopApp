@@ -13,5 +13,5 @@
     </view>
 </block>
 <view class="fix" bindtap="more">
-    <image src="../image/goods.png"></image>
+    <image src="../image/more.png"></image>
 </view>
