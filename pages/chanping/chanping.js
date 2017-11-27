@@ -55,6 +55,7 @@ Page({
         })
     },
     hide:function (e) {
+        console.log(1);
         this.setData({
             listShow:false
         })

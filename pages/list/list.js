@@ -17,9 +17,11 @@ Page({
     },
     //点击品牌跳转品牌详情
     brandDetail:function (e) {
+        console.log(1);
         let Type=e.currentTarget.dataset.type;
         wx.navigateTo({
           url: '../chanping/chanping?id='+Type
+          // url: '../brand/brand?id='+Type
         })
     },
 

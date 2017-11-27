@@ -21,7 +21,7 @@
       </view>
 
 
-        <block wx:for="{{}}">
+        <block wx:for="{{[1,2]}}">
             <view class="promotion">
                 <view class="list">
                     <view class="image">
@@ -63,7 +63,7 @@
 </view>
 <view wx:if="{{listShow}}" class="model">
     <view class="model_name">厂商品牌</view>
-    <view class="list">
+    <view class="model_list">
         <view class="goods choose">安尔达电动车</view>
         <view class="goods">小米电动车</view>
         <view class="goods">小米电动车</view>

@@ -81,11 +81,14 @@
     display: flex;
     justify-content: space-between;
 }
-.people text:first-child{
+.people view:first-child{
     font-size: 36rpx;
 }
-.people text:last-child{
+.people input{
     font-size: 36rpx;
+    text-align: right;
+    height: 40rpx;
+    width: 400rpx;
 }
 .tel{
     margin-bottom: 20rpx;

@@ -1,7 +1,5 @@
 /* pages/chanping/chanping.wxss */
-page{
-    border-top: 2rpx #eee solid;
-}
+
 .chanping-top{
     line-height: 88rpx;
     border-bottom: 10rpx #eee solid;
@@ -61,7 +59,7 @@ page{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 11;
 }
 .title{
     display: flex;
@@ -97,21 +95,21 @@ page{
     font-size: 22rpx;
     margin-left: 80rpx;
 }
-/*bottom*/
-.bottom{
-    width: 750rpx;
-    height: 98rpx;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    z-index: 15;
-    color: #ffffff;
-    line-height: 98rpx;
-    background-color: #00a79e;
-}
+/*!*bottom*!*/
+/*.bottom{*/
+    /*width: 750rpx;*/
+    /*height: 98rpx;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*right: 0;*/
+    /*z-index: 15;*/
+    /*color: #ffffff;*/
+    /*line-height: 98rpx;*/
+    /*background-color: #00a79e;*/
+/*}*/
 
 
 
@@ -136,6 +134,7 @@ page{
     /*background: #fff;*/
     background-color: rgba(255,255,255,0.9);
     /*display: flex;*/
+    z-index: 12;
 }
 .model_name{
     text-align: center;

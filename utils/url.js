@@ -10,6 +10,11 @@ url.TBD=allUrl+'index/mass_goods';//首页众筹商品
 url.getDetail=allUrl+'goods/Particulars_of_goods';//商品详情接口
 url.getList=allUrl+'index/recommend_brand';//商品分类大项接口
 url.brandList=allUrl+'goods/goods_brand_search';//品牌列表接口
+url.getProvince=allUrl+'index/getProvince';//获取省份
+url.getCity=allUrl+'index/index/getParent';//
+
+
+
 module.exports={
     url:url
 }

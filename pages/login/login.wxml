@@ -1,84 +1,87 @@
 <!--pages/login/login.wxml-->
-<!--<view class="address">-->
-    <!--<view class="title">-->
-        <!--<view class="title_name">店铺地址</view>-->
-        <!--<view class="title_hint">（地址请慎重填写）</view>-->
-    <!--</view>-->
-    <!--<view class="addr_three">-->
-        <!--<view>-->
-            <!--<picker mode="selector" class="select before" disabled="{{select.use}}" value="{{select.listIndex}}"-->
-                    <!--data-type="3" bindchange="optionChange" range="{{select.list}}">-->
-                <!--{{select.list[select.listIndex]}}-->
-            <!--</picker>-->
-        <!--</view>-->
-        <!--<view class="middle">-->
-            <!--<picker mode="selector" class="select before" disabled="{{select.use}}" value="{{select.listIndex}}"-->
-                    <!--data-type="3" bindchange="optionChange" range="{{select.list}}">-->
-                <!--{{select.list[select.listIndex]}}-->
-            <!--</picker>-->
-        <!--</view>-->
-        <!--<view>-->
-            <!--<picker mode="selector" class="select before" disabled="{{select.use}}" value="{{select.listIndex}}"-->
-                    <!--data-type="3" bindchange="optionChange" range="{{select.list}}">-->
-                <!--{{select.list[select.listIndex]}}-->
-            <!--</picker>-->
-        <!--</view>-->
-    <!--</view>-->
-    <!--<view class="addr_one">-->
-            <!--<picker mode="selector" class="selectAll before" disabled="{{select.use}}" value="{{select.listIndex}}"-->
-                    <!--data-type="3" bindchange="optionChange" range="{{select.list}}">-->
-                <!--{{select.list[select.listIndex]}}-->
-            <!--</picker>-->
-    <!--</view>-->
-    <!--<view class="addr_input">-->
-        <!--<input type="text"/>-->
-    <!--</view>-->
-    <!--<view class="people margin64">-->
-        <!--<text class="people_people">-->
-            <!--联系人-->
-        <!--</text>-->
+<view class="address">
+    <view class="title">
+        <view class="title_name">店铺地址</view>
+        <view class="title_hint">（地址请慎重填写）</view>
+    </view>
+    <view class="addr_three">
+        <view>
+            <picker mode="selector" class="select before" disabled="{{select.provinceUse}}" value="{{select. provinceIndex}}"
+                    data-type="1" bindchange="optionChange" range="{{select.province}}">
+                {{select.province[select.provinceIndex]}}
+            </picker>
+        </view>
+        <view class="middle">
+            <picker mode="selector" class="select before" disabled="{{select.cityUse}}" value="{{select.cityIndex}}"
+                    data-type="2" bindchange="optionChange" range="{{select.city}}">
+                {{select.city[select.cityIndex]}}
+            </picker>
+        </view>
+        <view>
+            <picker mode="selector" class="select before" disabled="{{select.areaUse}}" value="{{select.listIndex}}"
+                    data-type="3" bindchange="optionChange" range="{{select.list}}">
+                {{select.list[select.listIndex]}}
+            </picker>
+        </view>
+    </view>
+    <view class="addr_one">
+            <picker mode="selector" class="selectAll before" disabled="{{select.stressUse}}" value="{{select.listIndex}}"
+                    data-type="4" bindchange="optionChange" range="{{select.list}}">
+                {{select.list[select.listIndex]}}
+            </picker>
+    </view>
+    <view class="addr_input">
+        <input type="text"/>
+    </view>
+    <view class="people margin64">
+        <view class="people_people">
+            联系人
+        </view>
+
         <!--<text class="people_name">-->
-            <!--冯川-->
+        <!--冯川-->
         <!--</text>-->
-    <!--</view>-->
-    <!--<view  class="people tel margin64">-->
-        <!--<text class="font36">联系电话</text>-->
+        <input class='people_name' type="text" placeholder="请输入姓名"/>
+    </view>
+    <view  class="people tel margin64">
+        <text class="font36">联系电话</text>
         <!--<text class="font36">18081325616</text>-->
-    <!--</view>-->
-<!--</view>-->
-<!--<view class="brand_all">-->
-    <!--<view class="brand">-->
-        <!--<view class="brand_name font36">经营品牌：</view>-->
-        <!--<view class="brand_selectAll">-->
-            <!--<view class="brand_select">小鸟电动车-->
-                <!--<image src="../image/del.png"></image>-->
-            <!--</view>-->
-            <!--<view class="brand_select">小鸟电动车-->
-                <!--<image src="../image/del.png"></image>-->
-            <!--</view>-->
-            <!--<view class="brand_select">小鸟电动车-->
-                <!--<image src="../image/del.png"></image>-->
-            <!--</view>-->
-            <!--&lt;!&ndash;<view class="brand_select">小鸟电动车 <image src="../image/del.png"></image></view>&ndash;&gt;-->
-            <!--&lt;!&ndash;<view class="brand_select">小鸟电动车 <image src="../image/del.png"></image></view>&ndash;&gt;-->
-            <!--<view class="brand_input"><input type="text"/></view>-->
-            <!--<view class="brand_plus">-->
-                <!--<view>-->
-                    <!--<image src="../image/plus.png"></image>-->
-                <!--</view>-->
-                <!--<view class="brand_option">-->
-                    <!--<image src="../image/option.png"></image>-->
-                    <!--<view class="brand_list">品牌列表</view>-->
-                    <!--<view class="brand_custom">自定义输入</view>-->
-                <!--</view>-->
-            <!--</view>-->
-        <!--</view>-->
-    <!--</view>-->
-    <!--<view class="sales">-->
-        <!--<view class="font36 sales_name">现年销量：</view>-->
-        <!--<view><input type="text"/></view>-->
-    <!--</view>-->
-<!--</view>-->
+        <input type="text" placeholder="请输入电话号码"/>
+    </view>
+</view>
+<view class="brand_all">
+    <view class="brand">
+        <view class="brand_name font36">经营品牌：</view>
+        <view class="brand_selectAll">
+            <view class="brand_select">小鸟电动车
+                <image src="../image/del.png"></image>
+            </view>
+            <view class="brand_select">小鸟电动车
+                <image src="../image/del.png"></image>
+            </view>
+            <view class="brand_select">小鸟电动车
+                <image src="../image/del.png"></image>
+            </view>
+            <!--<view class="brand_select">小鸟电动车 <image src="../image/del.png"></image></view>-->
+            <!--<view class="brand_select">小鸟电动车 <image src="../image/del.png"></image></view>-->
+            <view class="brand_input"><input type="text"/></view>
+            <view class="brand_plus">
+                <view>
+                    <image src="../image/plus.png"></image>
+                </view>
+                <view class="brand_option">
+                    <image src="../image/option.png"></image>
+                    <view class="brand_list">品牌列表</view>
+                    <view class="brand_custom">自定义输入</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="sales">
+        <view class="font36 sales_name">现年销量：</view>
+        <view><input type="text"/></view>
+    </view>
+</view>
 <view class="photo">
     <view class="font36 photo_title1"> 店铺营业执照</view>
     <view class="photo_image1"><image src="../image/goods.png"></image></view>
