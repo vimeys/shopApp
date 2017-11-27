@@ -3,12 +3,12 @@
     <view class="image"><image src="../image/list_all.png"></image></view>
     <view class="word">推荐品牌</view>
 </view>
-<block wx:for="{{[1,2,3]}}">
-    <view class="item">
-        <view class="item_image"><image src="../image/goods.png"></image></view>
+<block wx:for="{{list}}">
+    <view class="item" bindtap="brandDetail" data-type="{{item.id}}">
+        <view class="item_image"><image src="{{item.image}}"></image></view>
         <view class="item_list">
-            <view>爱尔达电动车王中王</view>
-            <view>产品数量：22</view>
+            <view>{{item.name}}</view>
+            <view>产品数量：{{item.goods_commodity_quantity}}</view>
         </view>
     </view>
 </block>

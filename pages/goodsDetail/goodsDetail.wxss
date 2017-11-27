@@ -8,6 +8,7 @@
     height: 420rpx;
 }
 .goods_title{
+    margin-top: 30rpx;
     width: 100%;
 }
 .title{
@@ -42,6 +43,7 @@
     margin-right: 50rpx;
 }
 .TBD{
+    margin-top: 30rpx;
     width: 100%;
 }
 .progress{
@@ -81,6 +83,8 @@
     display: flex;
     position: fixed;
     bottom:0;
+    background: #fff;
+    padding-top:5rpx;
 }
 .cart{
     width: 25%;

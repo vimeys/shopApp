@@ -2,10 +2,10 @@
  <include src="../../template/search.wxml"/>
 
 <swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}">
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height: 420rpx">
+  <block wx:for="{{img}}" class="swiper" wx:for-item="item">
     <swiper-item>
-      <image src="{{item}}" class="slide-image" width="100%" height="150"/>
+      <image src="{{item.image}}" class="slide-image" width="100%" height="420rpx" bindtap="hrefProduct"data-type="{{item.brand_id}}"/>
     </swiper-item>
   </block>
 </swiper>
@@ -14,18 +14,23 @@
   <view class="main_name">
     <image src="../image/hot.png"></image>
     <text class="main_title">活动商品</text>
-    <span class="main_num">(15)</span>
+    <!--<span class="main_num">(15)</span>-->
   </view>
   <view class="main_more">更多</view>
 </view>
-<include src="../../template/promotion.wxml"/>
+<!--<include src="../../template/promotion.wxml"/>-->
+ <import src="../../template/promotion"/>
+ <template is="promotion_minus" data="{{promotion}}"></template>
+ <improt></improt>
 <view class="AD"><image src="../image/AD.png"></image></view>
 <view class="TBD">
   <view class="TBD_name">
     <image src="../image/hot.png"></image>
     <text class="TBD_title">众筹商品</text>
-    <span class="TBD_num">(15)</span>
+    <!--<span class="TBD_num">(15)</span>-->
   </view>
   <view class="TBD_more">更多</view>
 </view>
-<include src="../../template/TBD.wxml"/>
+<!--<include src="../../template/TBD.wxml"/>-->
+ <import src="../../template/TBD" />
+ <template is="TBD" data="{{TBD}}"></template>

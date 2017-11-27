@@ -1,11 +1,15 @@
-const Allurl ="http://192.168.0.110/cat/index.php/cat/";
+const allUrl ="http://test.scmxkj.com/index.php/cat/";
 
-const url={};
-
-
-url.login = Allurl +"part/get_openid";//登录接口
+var  url={};
 
 
+url.login = allUrl +"part/get_openid";//登录接口
+url.Slider=allUrl+'index/banner';//首页轮播图
+url.promotion=allUrl+'index/movable_commodity_goods';//首页活动商品
+url.TBD=allUrl+'index/mass_goods';//首页众筹商品
+url.getDetail=allUrl+'goods/Particulars_of_goods';//商品详情接口
+url.getList=allUrl+'index/recommend_brand';//商品分类大项接口
+url.brandList=allUrl+'goods/goods_brand_search';//品牌列表接口
 module.exports={
     url:url
 }

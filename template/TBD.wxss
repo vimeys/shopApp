@@ -157,6 +157,7 @@ page{
     color:#989898;
     font-size: 22rpx;
     margin-left: 5rpx;
+    text-decoration: line-through;
 }
 .promotion_num{
     color:#989898;

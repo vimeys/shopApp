@@ -1,13 +1,13 @@
 //index.js
 //获取应用实例
-var app = getApp()
+var app = getApp();
+// var url=require('../../utils/url');
+import url from '../../utils/url';
 Page({
     data: {
-        imgUrls: [
-            'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-            'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-            'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-        ],
+        promotion:[],
+        img:[],
+        TBD:[],
         indicatorDots: false,
         autoplay: true,
         interval: 5000,
@@ -57,31 +57,89 @@ Page({
 
   //搜索页面链接跳转
 
-
-  onLoad: function () {
-    console.log('onLoad');
-      var i=0;
-    var checkUser=setInterval(function () {
-        console.log(i)
-        i++;
-        if(i>20){
-            let user=wx.getStorageSync('userNmae');
-            if(!user){
-                console.log(123);
-                wx.navigateTo({
-                  url: '../sign/sign'
-                })
-            }
-            clearInterval(checkUser);
-        }
-    },100);
-    var that = this;
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
+    //轮播跳转
+    hrefProduct:function (e) {
+        let type=e.currentTarget.dataset.type
+      wx.navigateTo({
+        url: '../chanping/chanping?id='+type
       })
-    })
-  }
+    },
+  onLoad: function () {
+        let that=this;
+        //轮播图请求
+      wx.request({
+          url:url.url.Slider,
+          method:'POST',
+          success:res=>{
+              let img=[];
+              let imgID=[];
+              if(res.data.code==200){
+                  that.setData({
+                      img:res.data.data.banner_list
+                  })
+              }
+          }
+      });
+
+      wx.request({
+          url:url.url.promotion,
+          method:'POST',
+          success:function (res) {
+              if(res.data.code==200){
+                  that.setData({
+                      promotion:res.data.data.commodity_goods_list
+                  })
+              }
+          }
+      })
+      wx.request({
+          url:url.url.TBD,
+          success:res=>{
+              if(res.data.code==200){
+                  console.log(res.data.data.commodity_goods_list);
+                  that.setData({
+                      TBD:res.data.data.commodity_goods_list
+                  })
+              }
+          }
+      })
+    //   var i=0;
+    // var checkUser=setInterval(function () {
+    //     console.log(i)
+    //     i++;
+    //     if(i>20){
+    //         let user=wx.getStorageSync('userNmae');
+    //         if(!user){
+    //             console.log(123);
+    //             wx.navigateTo({
+    //               url: '../sign/sign'
+    //             })
+    //         }
+    //         clearInterval(checkUser);
+    //     }
+    // },100);
+      //轮播图
+
+
+
+    // var that = this;
+    // //调用应用实例的方法获取全局数据
+    // app.getUserInfo(function(userInfo){
+    //   //更新数据
+    //   that.setData({
+    //     userInfo:userInfo
+    //   })
+    // })
+  },
+    goodsDetail:function (e) {
+        var id=e.currentTarget.dataset.type;
+        let is_id=e.currentTarget.dataset.name;
+        let arr=[];
+        arr.push(id);
+        arr.push(is_id);
+        wx.navigateTo({
+          url: '../goodsDetail/goodsDetail?id='+arr
+        })
+    },
+
 })
