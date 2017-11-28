@@ -15,14 +15,14 @@
             </view>
       </view>
       <view class='chanping-title'>
-            <view class="{{check==4?'xuanzhong':''}}"  bindtap="change" data-type="4">全部商品</view>
+            <view class="{{check==4?'xuanzhong':''}}"  bindtap="change" data-type="3">全部商品</view>
             <view class="{{check==2?'xuanzhong':''}}"  bindtap="change" data-type="2">众筹商品</view>
             <view class="{{check==1?'xuanzhong':''}}"  bindtap="change" data-type="1">活动商品</view>
       </view>
 
 
-        <block wx:for="{{[1,2]}}">
-            <view class="promotion">
+        <block wx:for="{{Data}}">
+            <view class="promotion" wx:if="{{item.is_type==1}}">
                 <view class="list">
                     <view class="image">
                         <image class='image_main' src="../image/goods.png"></image>
@@ -41,7 +41,7 @@
                     </view>
                 </view>
             </view>
-            <view class="promotion">
+            <view class="promotion" wx:if="{{item.is_type==2}}">
                 <view class="list">
                     <view class="image">
                         <image class='image_main' src="../image/goods.png"></image>

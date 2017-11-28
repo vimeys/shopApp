@@ -110,7 +110,9 @@ page{
     /*line-height: 98rpx;*/
     /*background-color: #00a79e;*/
 /*}*/
-
+.TbD_people{
+    font-size: 32rpx;
+}
 
 
 /*弹窗css*/

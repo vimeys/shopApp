@@ -6,8 +6,9 @@ Page({
      * 页面的初始数据
      */
     data: {
+        Data:'',//数据
         id:'',//品牌id
-        check:4,//选中产品选中
+        check:3,//选中产品选中
         page:1,
         listShow:false,
     },
@@ -45,6 +46,10 @@ Page({
             },
             success:res=>{
                 console.log(res);
+                that.setData({
+                    Data:res.data.data
+                })
+
             }
         })
     },

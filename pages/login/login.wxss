@@ -159,7 +159,7 @@
 .brand_option{
     /*display: inline-block;*/
     width: 219rpx;
-    height:131rpx;
+    height:231rpx;
     position: relative;
 }
 .brand_option>image{
@@ -169,20 +169,38 @@
     position: absolute;
     z-index: 10;
 }
-.brand_list{
-    position: absolute;
-    top:-50rpx;
-    left: 40rpx;
-    font-size: 30rpx;
-    z-index: 11;
+/*.brand_list{*/
+    /*position: absolute;*/
+    /*top:-9rpx;*/
+    /*left: 40rpx;*/
+    /*font-size: 30rpx;*/
+    /*z-index: 11;*/
+    /*height: 50rpx;*/
+    /*!* overflow: hidden; *!*/
+    /*!* margin-top: 500rpx; *!*/
+/*}*/
+/*.brand_custom{*/
+    /*font-size: 30rpx;*/
+    /*position: absolute;*/
+    /*top:10rpx;*/
+    /*left: 40rpx;*/
+    /*z-index: 11;*/
+    /*height: 90rpx;*/
+/*}*/
+.brand_a>view{
+    line-height: 60rpx;
 }
-.brand_custom{
+.brand_a{
     font-size: 30rpx;
     position: absolute;
-    top:10rpx;
-    left: 40rpx;
+    top: 54rpx;
+    left: 50rpx;
     z-index: 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
 .sales{
     display: flex;
     margin-left: 40rpx;
@@ -211,10 +229,12 @@
     margin: 0 40rpx 20rpx 40rpx;
     width:680rpx ;
     height: 320rpx;
+    border-radius: 20rpx;
 }
 .photo_image1 image{
     width: 100%;
     height: 100%;
+    border-radius: 20rpx;
 }
 .photo_plus{
     width: 100%;
