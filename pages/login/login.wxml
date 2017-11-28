@@ -116,11 +116,11 @@
     <view class="grade">
         <view class="grade_level1">
             <view>普通会员</view>
-            <view class="grade_choose red"><image src="../image/chose.png"></image></view>
+            <view class="grade_choose red" data-type="{{level1}}"><image src="../image/chose.png"></image></view>
         </view>
         <view class="grade_level2">
             <view>高级会员</view>
-            <view class="grade_choose red"><image src="../image/chose.png"></image></view>
+            <view class="grade_choose red" data-type="{{level2}}"><image src="../image/chose.png"></image></view>
         </view>
     </view>
     <view  class="explain">查看会员权益</view>

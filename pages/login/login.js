@@ -40,6 +40,8 @@ Page({
         srcID2Up:'',
         srcShop:'',//店铺外景
         srcShopUp:'',
+        level1:'',
+        level2:''
     },
 
     /**
@@ -52,10 +54,16 @@ Page({
     },
     //获取会员等级
     getCardLevel:function (e) {
-        let url=url.url.cardList;
-        ajax.postAjax(url,{},function (that,json) {
+        // var  that=this;
+        let api=url.url.cardList;
+        ajax.postAjax(api,{},function (that,json) {
             let data=json.data;
-            console.log(data)
+            // var hre=that
+            console.log(data);
+            that.setData({
+                level1:data[0].id,
+                level2:data[1].id
+            })
         })
     },
     //获取省份
