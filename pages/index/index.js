@@ -3,6 +3,7 @@
 var app = getApp();
 // var url=require('../../utils/url');
 import url from '../../utils/url';
+var test=require('../../utils/testLogin');
 Page({
     data: {
         promotion:[],
@@ -67,6 +68,7 @@ Page({
   onLoad: function () {
         let that=this;
         //轮播图请求
+      test.test(this)
       wx.request({
           url:url.url.Slider,
           method:'POST',
@@ -138,8 +140,10 @@ Page({
         arr.push(id);
         arr.push(is_id);
         wx.navigateTo({
-          url: '../goodsDetail/goodsDetail?id='+arr
+          url: '../goodsDetail/goodsDetail?id='+arr+'&option='+123
         })
     },
+    onShow:function () {
 
+    }
 })

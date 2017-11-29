@@ -96,3 +96,6 @@ button{
     color:#fff;
     font-size: 36rpx;
 }
+.blue{
+    color:#00a79e;
+}

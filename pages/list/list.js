@@ -1,5 +1,6 @@
 // pages/list/list.js
 import url from '../../utils/url'
+var test=require('../../utils/testLogin');
 Page({
 
     /**
@@ -13,6 +14,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+
         this.getList();
     },
     //点击品牌跳转品牌详情
@@ -33,11 +35,15 @@ Page({
             method:'POST',
             success:res=>{
                 let json=res.data.data.recommend_brand_list;
-                console.log(json);
+                // JSON.parse(json[0].goods_num);
+                // console.log(json);
                 that.setData({
                     list:json,
                 })
             }
         })
+    },
+    onShow:function (e) {
+        test.test(this)
     }
 })

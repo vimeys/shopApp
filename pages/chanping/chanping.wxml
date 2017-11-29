@@ -15,7 +15,7 @@
             </view>
       </view>
       <view class='chanping-title'>
-            <view class="{{check==4?'xuanzhong':''}}"  bindtap="change" data-type="3">全部商品</view>
+            <view class="{{check==3?'xuanzhong':''}}"  bindtap="change" data-type="3">全部商品</view>
             <view class="{{check==2?'xuanzhong':''}}"  bindtap="change" data-type="2">众筹商品</view>
             <view class="{{check==1?'xuanzhong':''}}"  bindtap="change" data-type="1">活动商品</view>
       </view>
@@ -36,6 +36,25 @@
                         <view class="promotion_button">
                             <text class="promotion_price">￥2222.00</text>
                             <text class="promotion_price_del">￥2222.00</text>
+                            <text class="promotion_num">销量:2345</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="promotion" wx:if="{{item.is_type==0}}">
+                <view class="list">
+                    <view class="image">
+                        <image class='image_main' src="../image/goods.png"></image>
+                        <!--<image class="image_small" src="../image/promto.png"></image>-->
+                    </view>
+                    <view class="title">
+                        <view class="promotion_all">
+                            <view class="promotion_main">无敌风火轮超级厉害萨达啊考</view>
+                            <!--<view class="promotion_scale">降价50%</view>-->
+                        </view>
+                        <view class="promotion_button">
+                            <text class="promotion_price">￥2222.00</text>
+                            <!--<text class="promotion_price_del">￥2222.00</text>-->
                             <text class="promotion_num">销量:2345</text>
                         </view>
                     </view>

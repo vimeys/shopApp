@@ -14,7 +14,10 @@ url.getProvince=allUrl+'index/getProvince';//获取省份
 url.getCity=allUrl+'index/getParent';//获取市县区
 url.uploadfile=allUrl+'index/upload';//上传图片接口
 url.cardList=allUrl+'Personalhome/Membership_card_list';//会员等级
-
+url.login=allUrl+'user/user';//注册提交接口
+url.storage=allUrl+'goods/Collection';//是否收藏的接口
+url.msg=allUrl+'user/sms_send';//发送短信
+url.sign=allUrl+'user/sms_check';//提交注册
 
 module.exports={
     url:url

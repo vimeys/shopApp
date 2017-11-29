@@ -1,6 +1,8 @@
 // pages/goodsDetail/goodsDetail.js
 import url from '../../utils/url';
+import ajax from '../../utils/ajax'
 Page({
+
 
     /**
      * 页面的初始数据
@@ -23,6 +25,7 @@ Page({
         promotion: true,
         TBD: false,
         normal: false,
+        storage:0,
     },
 
     /**
@@ -32,6 +35,7 @@ Page({
         let that=this;
         let str = options.id;
         let arr = str.split(',');
+        // console.log(options.options);
         that.setData({
             goodsDetail:arr
         })
@@ -67,6 +71,7 @@ Page({
     //          }
     //       });
     // },
+    //页面加载请求
     getDetail:function (e) {
         let that=this;
         wx.request({
@@ -90,5 +95,15 @@ Page({
                 }
             }
         })
+    },
+    //跳转购物才
+    goCart:function (e) {
+        // wx.switchTab({
+        //     url:''
+        // })
+    },
+    //收藏接口
+    storageRequest:function (e) {
+        ajax.postAjax(url.url.storage,)
     }
 })

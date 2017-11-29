@@ -8,7 +8,7 @@
         <view class="item_image"><image src="{{item.image}}"></image></view>
         <view class="item_list">
             <view>{{item.name}}</view>
-            <view>产品数量：{{item.goods_commodity_quantity}}</view>
+            <view>产品数量：{{item.goods_num}}</view>
         </view>
     </view>
 </block>

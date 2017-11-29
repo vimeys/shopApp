@@ -8,6 +8,9 @@ Page({
      * 页面的初始数据
      */
     data: {
+        open_id:'',
+        name:"",
+        mobile:'',
         select: {
             province: [1, 2, 3],
             provinceIndex: 0,
@@ -26,12 +29,14 @@ Page({
             stressId:[],
             stressUse:true
         },
+        address:'',//具体地址
         people:'',//联系人
         phone:'',//联系电话
-        brand:'',//经营品牌
+        brand:['小鸟电动车','小牛电动车','小龟王'],//经营品牌
         sellMoney:'',//年销量
-        show:false,
-        showInput:false,
+        show:false,//查看经营品牌选项
+        showInput:false,//查看输入框
+        showLevel:false,//查看权益
         src:'',//营业执照
         srcUp:'',//上传营业执照
         srcID1:'',//身份证正面
@@ -41,31 +46,37 @@ Page({
         srcShop:'',//店铺外景
         srcShopUp:'',
         level1:'',
-        level2:''
+        level2:'',
+        red:'',//会员等级
+        chooseID:'',//选中的会员等级id
+        money:'',//年销量
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let mobile=options.mobile;
+        this.setData({
+            mobile:mobile
+        })
         let that=this;
         this.getProvince();
         this.getCardLevel();
     },
-    //获取会员等级
+    //获取会员等级及赋值
     getCardLevel:function (e) {
         // var  that=this;
         let api=url.url.cardList;
         ajax.postAjax(api,{},function (that,json) {
             let data=json.data;
-            // var hre=that
-            console.log(data);
             that.setData({
                 level1:data[0].id,
                 level2:data[1].id
             })
-        })
+        },this)
     },
+
     //获取省份
     getProvince: function (e) {
         let that=this;
@@ -201,6 +212,12 @@ Page({
         }
 
     },
+    address:function (e) {
+        let value=e.detail.value;
+        this.setData({
+            address:value
+        })
+    },
     output:function (e) {
         var value=e.detail.value;
         var Type=e.currentTarget.dataset.type;
@@ -214,6 +231,29 @@ Page({
             })
         }
     },
+    //输入品牌
+    inputBrand:function (e) {
+        let value=e.detail.value;
+
+        let arr=this.data.brand;
+        if(value&&value.length<6){
+            arr.push(value);
+            this.setData({
+                brand:arr
+            })
+        }
+
+    },
+    //删除品牌
+    del:function (e) {
+        let Type=e.currentTarget.dataset.type;
+        console.log(Type);
+        let arr=this.data.brand;
+        arr.splice(Type,1);
+        this.setData({
+            brand:arr
+        })
+    },
     //选择经营品牌
      choose:function (e) {
          this.setData({
@@ -221,7 +261,7 @@ Page({
          })
      },
     chooseBrand:function (e) {
-         console.log(123)
+         console.log(123);
          this.setData({
             show:false
         })
@@ -344,5 +384,70 @@ Page({
                 })
             }
         });
+    },
+    //年销量
+    inputMoney:function (e) {
+        let value=e.detail.value;
+        this.setData({
+            money:value
+        })
+    },
+    //选择会员等级
+    level:function (e) {
+         let Type=e.currentTarget.dataset.type;
+         this.setData({
+             red:Type,
+             chooseID:Type
+         })
+        console.log(this.data.chooseID);
+    },
+    //查看权益
+    checkLevel:function (e){
+        let that=this;
+        if(this.data.showLevel){
+            this.setData({
+                showLevel:false
+            })
+        } else{
+            this.setData({
+                showLevel:true
+            })
+        }
+    },
+    //提交信息
+    confirm:function (e) {
+        var api=url.url.login;
+        let obj={};
+        let data=this.data;
+        obj.open_id=data.open_id;
+        obj.nick_name=data.name;
+        obj.phone=data.mobile;
+        obj.store_province=data. provinceId[data.provinceIndex];
+        obj.store_city=data. cityId[data.cityIndex];
+        obj.store_area=data. areaId[data.areaIndex];
+        obj.store_township=data.stressId[data.stressIndex];
+        obj.address=data.address;
+        obj.store_mobile=data.phone;
+        obj.store_user_name=data.people;
+        obj.store_license=data.srcUp;
+        obj.store_storefront=data.srcShopUp;
+        obj.level_vip_id=data.chooseID;
+        obj.card_z=data.srcID1Up;
+        obj.card_f=data.srcID2Up;
+        ajax.postAjax(api,obj,function (that,json) {
+            let order=json.order;
+            let pay=json.pay;
+            wx.requestPermission({
+                'timeStamp':pay,
+                'nonceStr': '',
+                'package': '',
+                'signType': 'MD5',
+                'paySign': '',
+                'success':function(res){
+                },
+                'fail':function(res){
+                }
+            })
+        },this)
     }
 });

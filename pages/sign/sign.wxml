@@ -12,11 +12,11 @@
                 <image src="../image/sign_index.png"></image>
             </view>
             <view class="code">
-                <input type="tel" placeholder="请输入验证码" placeholder-class="fff"/>
-                <text bindtap="getCode">获取验证码</text>
+                <input type="tel" placeholder="请输入验证码"  bindblur="code"  placeholder-class="fff"/>
+                <text bindtap="getCode" data-type="{{ok}}" class="{{blue?'blue':''}}">{{word}}</text>
             </view>
             <view>
-                <button>注   册</button>
+                <button bindtap="confirm">注   册</button>
             </view>
         </view>
     </view>

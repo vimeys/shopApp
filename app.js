@@ -1,4 +1,6 @@
 //app.js
+import url from './utils/url';
+var test =require("./utils/testLogin");
 App({
     url:'http://192.168.0.110/cat/index.php/cat/',
     onLaunch: function () {
@@ -15,39 +17,43 @@ App({
                 // console.log("在onlaunch里面的url"+url);
                 // console.log("nickname"+nickname)
                 // console.log("nickname"+userInfoAvatar);
-                console.log(res);
-                // wx.login({
-                //     success: function (res) {
-                //         if (res.code) {
-                //             //发起网络请求
-                //
-                //             wx.request({
-                //                 url: url + 'part/get_openid',
-                //                 method: "POST",
-                //                 data: {
-                //                     code: res.code,
-                //                     // img: userInfoAvatar,
-                //                     // uname: nickname
-                //                 },
-                //                 success: function (res) {
-                //                     console.log(res);
-                //                     if(res.data.code==202){
-                //                         wx.setStorageSync('userName', '123');
-                //                     }
-                //                 },
-                //                 fail: function () {
-                //
-                //                     wx.setStorageSync('user', userInfoAvatar);
-                //                 },
-                //                 complete: function () {
-                //
-                //                 }
-                //             })
-                //         } else {
-                //             console.log('获取用户登录态失败！' + res.errMsg)
-                //         }
-                //     }
-                // })
+                // console.log(res);
+                wx.login({
+                    success: function (res) {
+                        if (res.code) {
+                            //发起网络请求
+
+                            wx.request({
+                                url:'http://test.scmxkj.com/index.php/cat/part/get_openid',
+                                method: "POST",
+                                data: {
+                                    code: res.code,
+                                    // img: userInfoAvatar,
+                                    // uname: nickname
+                                },
+                                success: function (res) {
+                                    console.log(res);
+
+                                    if(res.data.code==202){
+                                        console.log(res.data);
+                                        wx.setStorageSync('level', 'none');
+                                        test.test(this);
+
+                                    }
+                                },
+                                fail: function () {
+
+                                    wx.setStorageSync('user', userInfoAvatar);
+                                },
+                                complete: function () {
+
+                                }
+                            })
+                        } else {
+                            console.log('获取用户登录态失败！' + res.errMsg)
+                        }
+                    }
+                })
             },
             fail: function (res) {
                 // fail

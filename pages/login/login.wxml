@@ -31,7 +31,7 @@
             </picker>
     </view>
     <view class="addr_input">
-        <input type="text"/>
+        <input bindinput="address" type="text"/>
     </view>
     <view class="people margin64">
         <view class="people_people">
@@ -53,26 +53,20 @@
     <view class="brand">
         <view class="brand_name font36">经营品牌：</view>
         <view class="brand_selectAll">
-            <view class="brand_select">小鸟电动车
-                <image src="../image/del.png"></image>
-            </view>
-            <view class="brand_select">小鸟电动车
-                <image src="../image/del.png"></image>
-            </view>
-            <view class="brand_select">小鸟电动车
-                <image src="../image/del.png"></image>
-            </view>
-            <!--<view class="brand_select">小鸟电动车 <image src="../image/del.png"></image></view>-->
-            <!--<view class="brand_select">小鸟电动车 <image src="../image/del.png"></image></view>-->
-            <view class="brand_input" wx:if="{{showInput}}"><input type="text"/></view>
+
+            <block wx:for="{{brand}}" wx:for-key="index">
+                <view class="brand_select">{{item}}
+                    <image src="../image/del.png" data-type="{{index}}" catchtap="del"></image>
+                </view>
+            </block>
+
+            <view class="brand_input" wx:if="{{showInput}}"><input type="text" bindconfirm="inputBrand" confirm-type="done"/></view>
             <view class="brand_plus">
                 <view>
                     <image src="../image/plus.png" catchtap="choose"></image>
                 </view>
                 <view class="brand_option" wx:if="{{show}}" >
                      <image src="../image/option.png" ></image>
-                    <!--<view class="brand_list" catchtap="chooseBrand"> <text>品牌列表</text>      </view>-->
-                    <!--<view class="brand_custom" >自定义输入</view>-->
                     <view class='brand_a'>
                         <view class="brand_list" catchtap="chooseBrand">
                             <text>品牌列表</text>
@@ -88,7 +82,7 @@
     </view>
     <view class="sales">
         <view class="font36 sales_name">现年销量：</view>
-        <view><input type="text"/></view>
+        <view><input type="text" bindinput="inputMoney"/></view>
     </view>
 </view>
 <view class="photo">
@@ -116,15 +110,25 @@
     <view class="grade">
         <view class="grade_level1">
             <view>普通会员</view>
-            <view class="grade_choose red" data-type="{{level1}}"><image src="../image/chose.png"></image></view>
+            <view class="grade_choose {{red==level1?'red':''}}" data-type="{{level1}}" bindtap="level"><image src="../image/chose.png"></image></view>
         </view>
         <view class="grade_level2">
             <view>高级会员</view>
-            <view class="grade_choose red" data-type="{{level2}}"><image src="../image/chose.png"></image></view>
+            <view class="grade_choose {{red==level2?'red':''}}" data-type="{{level2}}" bindtap="level"><image src="../image/chose.png"></image></view>
         </view>
     </view>
-    <view  class="explain">查看会员权益</view>
+    <view  class="explain" bindtap="checkLevel">查看会员权益</view>
+    <view class="level" wx:if="{{showLevel}}">
+        <view class="level1">
+            <view>普卡</view>
+            <view>阿萨德骷髅法师可理解的烦恼蓝色的弗兰克拿手里看到飞鸟卢卡斯的拉萨等你方兰生李开复那拉氏</view>
+        </view>
+        <view class="level1">
+            <view>高级卡</view>
+            <view>阿萨德骷髅法师可理解的烦恼蓝色的弗兰克拿手里看到飞鸟卢卡斯的拉萨等你方兰生李开复那拉氏</view>
+        </view>
+    </view>
 
-    <view class="fix">确认</view>
+    <view class="fix" bindtap='confirm'>确认</view>
 </view>
 

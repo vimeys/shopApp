@@ -45,12 +45,12 @@
     </block>
 </view>
 <view class="bar fix" >
-    <view class="cart">
+    <view class="cart" bindtap="goCart">
         <image src="../image/cartBlock.png"></image>
         <view>购物车</view>
     </view>
 
-    <view class="collect">
+    <view class="collect" bindtap="" data-type="{{storage}}">
         <image src="../image/collected.png"></image>
         <view class="">收藏</view>
     </view>
