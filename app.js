@@ -18,6 +18,7 @@ App({
                 // console.log("nickname"+nickname)
                 // console.log("nickname"+userInfoAvatar);
                 // console.log(res);
+                return;
                 wx.login({
                     success: function (res) {
                         if (res.code) {

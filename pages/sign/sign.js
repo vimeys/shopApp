@@ -67,6 +67,9 @@ Page({
         obj.code=this.data.code;
         ajax.getAjax(url.url.sign,obj,function (that,json) {
             wx.removeStorageSync('level');
+            wx.switchTab({
+              url: '../index/index'
+            })
         },this)
     }
 });

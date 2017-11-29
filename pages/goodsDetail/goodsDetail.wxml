@@ -39,20 +39,69 @@
     <view class="TBD_people">3445人支持/已筹12万</view>
     <view class="TBD_price"><text class="money">1999元起</text> <text class="time">2017-12-25至2017-12-30</text></view>
 </view>
+
 <view>
     <block wx:for="{{goodsImage}}">
-        <image src="{{item}}"></image>
+        <image src="{{item}}" style="width: 100%"></image>
     </block>
 </view>
+
+<view class="show-popup" hidden="{{hideShopPopup}}" >
+    <view class="popup-mask" bindtap="close"></view>
+    <view class="popup-contents">
+        <view class="pop-goods-info">
+            <view class="pop-img-box">
+                <!--<image src="{{goodsDetail.basicInfo.pic}}" class="goods-thumbnail"/>-->
+                <image src="../image/goods.png" class="goods-thumbnail"/>
+            </view>
+            <view class="pop-goods-des">
+                <view class="pop-goods-title">{{goodsDetail.basicInfo.name}}12313qoweurjo7490ejfalsflksadjflkajsdlfjasljflajsdlfjlajdsflkajsdfljasldfj lasjdfljasdlfjalsjf</view>
+                <view class="pop-goods-price">¥ {{selectSizePrice}}23</view>
+            </view>
+            <view class="pop-goods-close" bindtap="close"></view>
+        </view>
+        <view class="size-label-box">
+            <!--<block wx:for="{{goodsDetail.properties}}" wx:for-item="property" wx:for-index="idx" wx:key="id">-->
+            <block wx:for="{{[1,3,4]}}" wx:for-item="property" wx:for-index="idx" wx:key="id">
+                <!--<view class="label">{{property.name}}</view>-->
+                <view class="label">{{property.name}}123</view>
+                <view class="label-item-box">
+                    <!--<view class="label-item {{item.active ? 'active' : '' }}" wx:for="{{property.childsCurGoods}}" wx:key="id" bindtap="labelItemTap" data-propertyindex="{{idx}}" data-propertyid="{{property.id}}" data-propertyname="{{property.name}}" data-propertychildindex="{{index}}" data-propertychildid="{{item.id}}" data-propertychildname="{{item.name}}">-->
+                    <view class="label-item {{item.active ? 'active' : '' }}" wx:for="{{[1,3,4]}}" wx:key="id" bindtap="labelItemTap" data-propertyindex="{{idx}}" data-propertyid="{{property.id}}" data-propertyname="{{property.name}}" data-propertychildindex="{{index}}" data-propertychildid="{{item.id}}" data-propertychildname="{{item.name}}">
+                        {{item.name}}123132342
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="buy-num-box">
+            <view class="num-label">购买数量 </view>
+            <view class="num-box">
+                <view class="num-jian {{buyNumber == buyNumMin ? 'hui': ''}}" bindtap="numJianTap">-</view>
+                <view class="num-input">
+                    <input  type="number" value="{{buyNumber}}" />
+                </view>
+                <view class="num-jia {{buyNumber== buyNumMax ? 'hui': ''}}" bindtap="numJiaTap">+</view>
+            </view>
+        </view>
+        <view class="popup-join-btn" wx:if="{{shopType =='addShopCar'}}" bindtap="addShopCar">
+            加入购物车
+        </view>
+        <view class="popup-join-btn"  bindtap="buyNow">
+            立即购买
+        </view>
+    </view>
+</view>
+
+
 <view class="bar fix" >
-    <view class="cart" bindtap="goCart">
+    <view class="cart" bindtap="goCart" data-type="storage">
         <image src="../image/cartBlock.png"></image>
         <view>购物车</view>
     </view>
 
-    <view class="collect" bindtap="" data-type="{{storage}}">
-        <image src="../image/collected.png"></image>
-        <view class="">收藏</view>
+    <view class="collect" bindtap="storage" data-type="{{storage}}">
+        <image src="{{storageImage}}"></image>
+        <view class="">{{storageWord}}</view>
     </view>
-    <view class="joinCart">加入购物车</view>
+    <view class="joinCart" bindtap="joinCart">加入购物车</view>
 </view>

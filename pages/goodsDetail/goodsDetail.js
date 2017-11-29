@@ -25,12 +25,13 @@ Page({
         promotion: true,
         TBD: false,
         normal: false,
-        storage:0,
+        storage:0,//收藏
+        storageImage:'../image/cartBlock.png',//收藏图标
+        storageWord:'收藏',
+        hideShopPopup:true,
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
+
     onLoad: function (options) {
         let that=this;
         let str = options.id;
@@ -105,5 +106,40 @@ Page({
     //收藏接口
     storageRequest:function (e) {
         ajax.postAjax(url.url.storage,)
+    },
+    //关闭按钮
+    close:function (e) {
+        this.setData({
+            hideShopPopup:true
+        })
+    },
+    //打开规格
+    joinCart:function (e) {
+        this.setData({
+            hideShopPopup:false
+        })
+    },
+    //收藏
+    storage:function (e) {
+        let Type=e.currentTarget.dataset.type;
+        console.log(1);
+        if(Type==0){
+            wx.showToast({
+                title: '收藏成功',
+                icon: 'success',
+                duration: 2000
+            });
+            this.setData({
+                storage:1,
+                storageImage:'../image/del.png',
+                storageWord:'已收藏'
+            })
+        }else{
+            this.setData({
+                storage:0,
+                storageImage:'../image/cartBlock.png',
+                storageWord:'收藏'
+            })
+        }
     }
 })
