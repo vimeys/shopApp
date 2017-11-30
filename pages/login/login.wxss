@@ -387,3 +387,41 @@
 page{
     border: 1px solid #ccc;
 }
+.model{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    background: #fff;
+}
+.model_title{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.model_title view:first-child{
+    width: 700rpx;
+}
+.pop-goods-close{
+    width: 36rpx;
+    height: 36rpx;
+    flex: 1;
+    background:url("https://cdn.it120.cc/images/weappshop/popup-close.png") no-repeat center center;
+    background-size: 36rpx auto;
+    align-self: flex-start;
+    margin-top: -10rpx;
+}
+.di{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 5;
+    background: rgba(0,0,0,.5);
+}
