@@ -30,7 +30,7 @@ Page({
         var that=this;
         let ok=e.currentTarget.dataset.type;
         if(ok){
-            // ajax.getAjax(url.url.msg,{mobile:this.data.phoneNum},function (that,json) {
+            ajax.getAjax(url.url.msg,{mobile:this.data.phoneNum},function (that,json) {
                 var timer=setInterval(function () {
                     time--;
                     var word=time+'S';
@@ -48,7 +48,7 @@ Page({
                         })
                     }
                 },100)
-            // },this)
+            },this)
         }
 
     },
@@ -67,8 +67,11 @@ Page({
         obj.code=this.data.code;
         ajax.getAjax(url.url.sign,obj,function (that,json) {
             wx.removeStorageSync('level');
-            wx.switchTab({
-              url: '../index/index'
+            // wx.switchTab({
+            //   url: '../index/index'
+            // })
+            wx.navigateTo({
+              url: '../login/login'
             })
         },this)
     }

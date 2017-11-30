@@ -8,10 +8,10 @@ Page({
      * 页面的初始数据
      */
     data: {
+        open_id:'',
         goodsDetail:[],//商品id
-        img: [
-
-        ],//轮播图片
+        img: [],//轮播图片
+        size:{},//规格
         indicatorDots: false,
         autoplay: true,
         interval: 5000,
@@ -26,9 +26,22 @@ Page({
         TBD: false,
         normal: false,
         storage:0,//收藏
-        storageImage:'../image/cartBlock.png',//收藏图标
+        storageImage:'../image/storage.png',//收藏图标
         storageWord:'收藏',
-        hideShopPopup:true,
+        hideShopPopup:true,//显示弹窗
+        first:'',
+        second:'',
+        third:'',
+        color:[],
+        voltage:[],
+        power:[],
+        choosecolor:'',
+        choosevoltage:'',
+        choosepower:'',
+        buyNumber:1,
+        buyNumberMin:1,
+        buyNumberMax:'',
+        active:false
     },
 
 
@@ -37,10 +50,14 @@ Page({
         let str = options.id;
         let arr = str.split(',');
         // console.log(options.options);
+         let open=wx.getStorageSync('open_id');
+         let user=wx.getStorageSync('user_id');
         that.setData({
-            goodsDetail:arr
+            goodsDetail:arr,
+            open_id:open,
+            user_id:user
         })
-
+        
         if (arr[1] == 0) {
             that.setData({
                 promotion:false,
@@ -95,6 +112,29 @@ Page({
                     })
                 }
             }
+        });
+        let storageObj={};
+        storageObj.user_id=that.data.user_id;
+        storageObj.goods_id=that.data.goodsDetail[0];
+        wx.request({
+            url:url.url.testStorege,
+            data:storageObj,
+            method:'POST',
+            success:function (res) {
+                if(res.data.code==200){
+                    that.setData({
+                        storage:0,
+                        storageWord:'已收藏',
+                        storageImage:'../image/chooseStorage.png',
+                    })
+                }else if(res.data.code==201){
+                    that.setData({
+                        storage:1,
+                        storageWord:'收藏',
+                        storageImage:'../image/storage.png',
+                    })
+                }
+            }
         })
     },
     //跳转购物才
@@ -115,31 +155,101 @@ Page({
     },
     //打开规格
     joinCart:function (e) {
-        this.setData({
-            hideShopPopup:false
-        })
+
     },
     //收藏
     storage:function (e) {
         let Type=e.currentTarget.dataset.type;
-        console.log(1);
-        if(Type==0){
+        if(Type==1){
             wx.showToast({
                 title: '收藏成功',
                 icon: 'success',
                 duration: 2000
             });
             this.setData({
-                storage:1,
-                storageImage:'../image/del.png',
+                storage:0,
+                storageImage:'../image/chooseStorage.png',
                 storageWord:'已收藏'
+            })
+            wx.request({
+                url:url.url.storage,
+                method:'POST',
+                data:{
+                    user_id:this.data.user_id,
+                    goods_id:parseInt(this.data.goodsDetail[0]),
+                    is_collection:this.data.storage
+                },
+                success:res=>{
+                    console.log(res);
+                }
             })
         }else{
             this.setData({
-                storage:0,
-                storageImage:'../image/cartBlock.png',
+                storage:1,
+                storageImage:'../image/storage.png',
                 storageWord:'收藏'
+            });
+            wx.request({
+                url:url.url.storage,
+                method:'POST',
+                data:{
+                    user_id:this.data.user_id,
+                    goods_id:parseInt(this.data.goodsDetail[0]),
+                    is_collection:this.data.storage
+                },
+                success:res=>{
+                    console.log(res);
+                }
+            })
+        }
+    },
+    //获取规格
+    getSize:function (e) {
+        let that=this;
+        this.setData({
+            hideShopPopup:false
+        })
+        ajax.getAjax(url.url.getSize,{pid:parseInt(this.data.goodsDetail[0])},function (that,json) {
+                // json.
+                that.setData({
+                    color:json.data.color,
+                    voltage:json.data.voltage,
+                    power:json.data.power
+                })
+        },this);
+    },
+    //选择规格
+    chooseSize:function (e) {
+        let name=e.currentTarget.dataset.name;
+        let Type=e.currentTarget.dataset.type;
+
+    },
+
+
+
+    //购买数量
+    inputBuy:function (e) {
+        let value=e.detail.value;
+        console.log(value);
+        if(value!=0){
+            this.setData({
+                buyNumber:value
+            })
+        }else{
+            this.setData({
+                buyNumber:1
+            })
+        }
+    },
+    //按钮数量加1
+    numJianTap:function (e) {
+        let  value=this.data.buyNumber;
+        if(value>1){
+            value--;
+            this.setData({
+                buyNumber:value
             })
         }
     }
+
 })

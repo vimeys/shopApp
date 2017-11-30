@@ -18,7 +18,7 @@ App({
                 // console.log("nickname"+nickname)
                 // console.log("nickname"+userInfoAvatar);
                 // console.log(res);
-                return;
+                // return;
                 wx.login({
                     success: function (res) {
                         if (res.code) {
@@ -34,9 +34,15 @@ App({
                                 },
                                 success: function (res) {
                                     console.log(res);
+                                    if(res.data.code==200){
+                                        console.log(13)
+                                        wx.setStorageSync('open_id',res.data.data.openid);
+                                        wx.setStorageSync('user_id',res.data.data.user_id);
+                                    }
 
                                     if(res.data.code==202){
                                         console.log(res.data);
+                                        wx.setStorageSync('open_id',res.data.data.openid);
                                         wx.setStorageSync('level', 'none');
                                         test.test(this);
 

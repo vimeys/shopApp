@@ -18,7 +18,8 @@ url.login=allUrl+'user/user';//注册提交接口
 url.storage=allUrl+'goods/Collection';//是否收藏的接口
 url.msg=allUrl+'user/sms_send';//发送短信
 url.sign=allUrl+'user/sms_check';//提交注册
-
+url.testStorege=allUrl+"goods/is_Collection";//首次进入收藏
+url.getSize=allUrl+'goods/goods_spec';//获取规格
 module.exports={
     url:url
-}
+};

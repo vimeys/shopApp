@@ -1,7 +1,7 @@
 {
     "pages": [
-      "pages/list/list",
       "pages/index/index",
+      "pages/list/list",
       "pages/goodsDetail/goodsDetail",
         "pages/sign/sign",
         "pages/Reviseda/Reviseda",
@@ -51,7 +51,7 @@
                 "text": "分类"
             },
             {
-                "pagePath": "pages/login/login",
+                "pagePath": "pages/shoppingcart/shoppingcart",
                 "iconPath": "pages/image/icon/shopcar.png",
                 "selectedIconPath": "pages/image/icon/shopcar_a.png",
                 "text": "购物车"

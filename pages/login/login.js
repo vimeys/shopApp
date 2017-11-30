@@ -56,9 +56,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let open_id=wx.getStorageSync('open_id');
         let mobile=options.mobile;
         this.setData({
-            mobile:mobile
+            mobile:mobile,
+            open_id:open_id
         })
         let that=this;
         this.getProvince();
@@ -299,15 +301,18 @@ Page({
                  that.setData({
                      src:src
                  })
+                 console.log(123)
                  wx.uploadFile({
                      url: url.url.uploadfile,
                      filePath:src[0],
                      name: 'image',
                      success:res=>{
+                         console.log(12313);
                          let src=JSON.parse(res.data);
                          that.setData({
-                             srcUp:src
+                             srcUp:src.data
                          })
+                         console.log(that.data.src);
                      }
                  })
              }
@@ -329,7 +334,7 @@ Page({
                    success:res=>{
                        let src=JSON.parse(res.data);
                        that.setData({
-                           srcID1Up:src
+                           srcID1Up:src.data
                        })
                    }
 
@@ -353,7 +358,7 @@ Page({
                     success:res=>{
                         let src=JSON.parse(res.data);
                         that.setData({
-                            srcID2Up:src
+                            srcID2Up:src.data
                         })
                     }
 
@@ -377,7 +382,7 @@ Page({
                     success:res=>{
                         let src=JSON.parse(res.data);
                         that.setData({
-                            srcShopUp:src
+                            srcShopUp:src.data
                         })
                     }
 
@@ -422,10 +427,10 @@ Page({
         obj.open_id=data.open_id;
         obj.nick_name=data.name;
         obj.phone=data.mobile;
-        obj.store_province=data. provinceId[data.provinceIndex];
-        obj.store_city=data. cityId[data.cityIndex];
-        obj.store_area=data. areaId[data.areaIndex];
-        obj.store_township=data.stressId[data.stressIndex];
+        obj.province=data.select .provinceId[data.select.provinceIndex];
+        obj.city=data.select .cityId[data.select.cityIndex];
+        obj.area=data.select .areaId[data.select.areaIndex];
+        obj.township=data.select.stressId[data.select.stressIndex];
         obj.address=data.address;
         obj.store_mobile=data.phone;
         obj.store_user_name=data.people;
@@ -434,8 +439,11 @@ Page({
         obj.level_vip_id=data.chooseID;
         obj.card_z=data.srcID1Up;
         obj.card_f=data.srcID2Up;
+        obj.brand_id='';
+        obj.orther_brand='';
         ajax.postAjax(api,obj,function (that,json) {
             let order=json.order;
+            let user_id=json.user_id;
             let pay=json.pay;
             wx.requestPermission({
                 'timeStamp':pay,

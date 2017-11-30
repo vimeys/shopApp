@@ -55,40 +55,51 @@
                 <image src="../image/goods.png" class="goods-thumbnail"/>
             </view>
             <view class="pop-goods-des">
-                <view class="pop-goods-title">{{goodsDetail.basicInfo.name}}12313qoweurjo7490ejfalsflksadjflkajsdlfjasljflajsdlfjlajdsflkajsdfljasldfj lasjdfljasdlfjalsjf</view>
-                <view class="pop-goods-price">¥ {{selectSizePrice}}23</view>
+                <view class="pop-goods-title">{{goodsName}}</view>
+                <view class="pop-goods-price">¥{{selectSizePrice}}</view>
             </view>
             <view class="pop-goods-close" bindtap="close"></view>
         </view>
         <view class="size-label-box">
             <!--<block wx:for="{{goodsDetail.properties}}" wx:for-item="property" wx:for-index="idx" wx:key="id">-->
-            <block wx:for="{{[1,3,4]}}" wx:for-item="property" wx:for-index="idx" wx:key="id">
-                <!--<view class="label">{{property.name}}</view>-->
-                <view class="label">{{property.name}}123</view>
+            <!--<block wx:for="{{size}}" wx:for-item="property" wx:for-index="idx" wx:key="id">-->
+                <view class="label">颜色</view>
                 <view class="label-item-box">
-                    <!--<view class="label-item {{item.active ? 'active' : '' }}" wx:for="{{property.childsCurGoods}}" wx:key="id" bindtap="labelItemTap" data-propertyindex="{{idx}}" data-propertyid="{{property.id}}" data-propertyname="{{property.name}}" data-propertychildindex="{{index}}" data-propertychildid="{{item.id}}" data-propertychildname="{{item.name}}">-->
-                    <view class="label-item {{item.active ? 'active' : '' }}" wx:for="{{[1,3,4]}}" wx:key="id" bindtap="labelItemTap" data-propertyindex="{{idx}}" data-propertyid="{{property.id}}" data-propertyname="{{property.name}}" data-propertychildindex="{{index}}" data-propertychildid="{{item.id}}" data-propertychildname="{{item.name}}">
-                        {{item.name}}123132342
+                    <view class="label-item {{active? 'active' : '' }}" wx:for="{{color}}" wx:for-index="index" wx:key="id" bindtap="chooseSize" data-name="{{item}}" data-type="{{index}}">
+                        {{item}}{{index}}
                     </view>
                 </view>
-            </block>
+                <view class="label">电压</view>
+                <view class="label-item-box">
+                    <view class="label-item {{active? 'active' : '' }}" wx:for="{{voltage}}" wx:key="id" bindtap="chooseSize" data-name="{{item}}" data-type="{{active}}">
+                        {{item}}
+                    </view>
+                </view>
+                <view class="label">功率</view>
+                <view class="label-item-box">
+                    <view class="label-item {{active? 'active' : '' }}" wx:for="{{power}}" wx:key="id" bindtap="chooseSize" data-name="{{item}}" data-type="{{active}}">
+                        {{item}}
+                    </view>
+                </view>
+            <!--</block>-->
         </view>
         <view class="buy-num-box">
             <view class="num-label">购买数量 </view>
+            <view class="num-label">库存  1231</view>
             <view class="num-box">
                 <view class="num-jian {{buyNumber == buyNumMin ? 'hui': ''}}" bindtap="numJianTap">-</view>
                 <view class="num-input">
-                    <input  type="number" value="{{buyNumber}}" />
+                    <input  type="number" value="{{buyNumber}}" bindblur="inputBuy" />
                 </view>
                 <view class="num-jia {{buyNumber== buyNumMax ? 'hui': ''}}" bindtap="numJiaTap">+</view>
             </view>
         </view>
-        <view class="popup-join-btn" wx:if="{{shopType =='addShopCar'}}" bindtap="addShopCar">
+        <view class="popup-join-btn"  bindtap="addShopCar">
             加入购物车
         </view>
-        <view class="popup-join-btn"  bindtap="buyNow">
-            立即购买
-        </view>
+        <!--<view class="popup-join-btn"  bindtap="buyNow">-->
+            <!--立即购买-->
+        <!--</view>-->
     </view>
 </view>
 
@@ -103,5 +114,5 @@
         <image src="{{storageImage}}"></image>
         <view class="">{{storageWord}}</view>
     </view>
-    <view class="joinCart" bindtap="joinCart">加入购物车</view>
+    <view class="joinCart" bindtap="getSize">加入购物车</view>
 </view>

@@ -140,7 +140,7 @@ Page({
         arr.push(id);
         arr.push(is_id);
         wx.navigateTo({
-          url: '../goodsDetail/goodsDetail?id='+arr+'&option='+123
+          url: '../goodsDetail/goodsDetail?id='+arr
         })
     },
     onShow:function () {
