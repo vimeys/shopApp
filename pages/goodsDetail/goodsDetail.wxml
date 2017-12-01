@@ -8,7 +8,7 @@
     </block>
 </swiper>
 
-
+<!--活动价-->
 <view class="goods_title" wx:if="{{promotion}}">
     <view class="title">{{goodsName}}</view>
     <view class="main">
@@ -19,7 +19,7 @@
 </view>
 
 
-
+<!--普通-->
 <view class="goods_title" wx:if="{{normal}}">
     <view class="title">傻大姐法拉时间了房价啊来就了解爱上了房价加上了房间爱就是房价啊</view>
     <view class="main">
@@ -30,7 +30,7 @@
 
 
 
-
+<!--众筹-->
 <view class="TBD" wx:if="{{TBD}}">
     <view class="title">傻大姐法拉时间了房价啊来就了解爱上了房价加上了房间爱就是房价啊</view>
     <view class="progress">
@@ -40,7 +40,7 @@
     <view class="TBD_price"><text class="money">1999元起</text> <text class="time">2017-12-25至2017-12-30</text></view>
 </view>
 
-<view>
+<view style="margin-bottom: 100rpx">
     <block wx:for="{{goodsImage}}">
         <image src="{{item}}" style="width: 100%"></image>
     </block>
@@ -51,33 +51,30 @@
     <view class="popup-contents">
         <view class="pop-goods-info">
             <view class="pop-img-box">
-                <!--<image src="{{goodsDetail.basicInfo.pic}}" class="goods-thumbnail"/>-->
                 <image src="../image/goods.png" class="goods-thumbnail"/>
             </view>
             <view class="pop-goods-des">
                 <view class="pop-goods-title">{{goodsName}}</view>
-                <view class="pop-goods-price">¥{{selectSizePrice}}</view>
+                <view class="pop-goods-price">¥{{goodsPrice}}</view>
             </view>
             <view class="pop-goods-close" bindtap="close"></view>
         </view>
         <view class="size-label-box">
-            <!--<block wx:for="{{goodsDetail.properties}}" wx:for-item="property" wx:for-index="idx" wx:key="id">-->
-            <!--<block wx:for="{{size}}" wx:for-item="property" wx:for-index="idx" wx:key="id">-->
                 <view class="label">颜色</view>
                 <view class="label-item-box">
-                    <view class="label-item {{active? 'active' : '' }}" wx:for="{{color}}" wx:for-index="index" wx:key="id" bindtap="chooseSize" data-name="{{item}}" data-type="{{index}}">
+                    <view class="label-item {{active==index+1? 'active' : '' }}" wx:for="{{color}}" wx:for-index="index" wx:key="id" bindtap="chooseColor" data-name="{{item}}" data-num="{{index}}">
                         {{item}}{{index}}
                     </view>
                 </view>
                 <view class="label">电压</view>
                 <view class="label-item-box">
-                    <view class="label-item {{active? 'active' : '' }}" wx:for="{{voltage}}" wx:key="id" bindtap="chooseSize" data-name="{{item}}" data-type="{{active}}">
+                    <view class="label-item {{active? 'active' : '' }}" wx:for="{{voltage}}" wx:key="id" bindtap="chooseVoltage" data-name="{{item}}" data-num="{{index}}">
                         {{item}}
                     </view>
                 </view>
                 <view class="label">功率</view>
                 <view class="label-item-box">
-                    <view class="label-item {{active? 'active' : '' }}" wx:for="{{power}}" wx:key="id" bindtap="chooseSize" data-name="{{item}}" data-type="{{active}}">
+                    <view class="label-item {{active? 'active' : '' }}" wx:for="{{power}}" wx:key="id" bindtap="choosePower" data-name="{{item}}" data-num="{{index}}">
                         {{item}}
                     </view>
                 </view>
@@ -85,7 +82,7 @@
         </view>
         <view class="buy-num-box">
             <view class="num-label">购买数量 </view>
-            <view class="num-label">库存  1231</view>
+            <view class="num-label">库存剩余：{{goodsStorage}}</view>
             <view class="num-box">
                 <view class="num-jian {{buyNumber == buyNumMin ? 'hui': ''}}" bindtap="numJianTap">-</view>
                 <view class="num-input">
@@ -94,25 +91,28 @@
                 <view class="num-jia {{buyNumber== buyNumMax ? 'hui': ''}}" bindtap="numJiaTap">+</view>
             </view>
         </view>
-        <view class="popup-join-btn"  bindtap="addShopCar">
+        <view class="popup-join-btn" wx:if="{{promotion||normal}}" bindtap="addShopCar">
             加入购物车
         </view>
-        <!--<view class="popup-join-btn"  bindtap="buyNow">-->
-            <!--立即购买-->
-        <!--</view>-->
+        <view class="popup-join-btn"  wx:if="{{TBD}} "bindtap="buyNow">
+            立即购买
+        </view>
     </view>
 </view>
 
 
-<view class="bar fix" >
-    <view class="cart" bindtap="goCart" data-type="storage">
-        <image src="../image/cartBlock.png"></image>
-        <view>购物车</view>
-    </view>
+<!--<view class="bar fix" >-->
+    <!--<view class="cart" bindtap="goCart" data-type="storage">-->
+        <!--<image src="../image/cartBlock.png"></image>-->
+        <!--<view>购物车</view>-->
+    <!--</view>-->
 
-    <view class="collect" bindtap="storage" data-type="{{storage}}">
-        <image src="{{storageImage}}"></image>
-        <view class="">{{storageWord}}</view>
-    </view>
-    <view class="joinCart" bindtap="getSize">加入购物车</view>
+    <!--<view class="collect" bindtap="storage" data-type="{{storage}}">-->
+        <!--<image src="{{storageImage}}"></image>-->
+        <!--<view class="">{{storageWord}}</view>-->
+    <!--</view>-->
+    <!--<view class="joinCart" bindtap="joinCart">加入购物车</view>-->
+<!--</view>-->
+<view class="fix fixed ">
+    立即购买
 </view>

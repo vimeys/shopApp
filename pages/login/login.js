@@ -29,10 +29,15 @@ Page({
             stressId:[],
             stressUse:true
         },
+        Data:[1,2,3,4,[1,3,55,6],6,8,3,3,3,3],
+        json:'',
+        showModel:false,
         address:'',//具体地址
         people:'',//联系人
         phone:'',//联系电话
-        brand:['小鸟电动车','小牛电动车','小龟王'],//经营品牌
+        brand:['小鸟电动车','小牛电动车','小龟王',],//经营品牌
+        brandselect:[],
+        brandinput:[],
         sellMoney:'',//年销量
         show:false,//查看经营品牌选项
         showInput:false,//查看输入框
@@ -241,7 +246,8 @@ Page({
         if(value&&value.length<6){
             arr.push(value);
             this.setData({
-                brand:arr
+                brand:arr,
+                brandinput:arr
             })
         }
 
@@ -262,15 +268,68 @@ Page({
              show:true
          })
      },
+    // 获取品牌
     chooseBrand:function (e) {
          console.log(123);
          this.setData({
-            show:false
+            show:false,
+             showModel:true
         })
-         wx.navigateTo({
-           url: '../search/search'
-         })
+        ajax.postAjax(url.url.getBrand,{page:0,pageSize:999,search:''},function (that,json) {
+            console.log(json);
+            that.setData({
+                Data:json.data.brand_list
+            })
+            console.log(that.data.Data);
+            that.classify(that);
+        },this)
+         // wx.navigateTo({
+         //   url: '../search/search'
+         // })
      },
+    //分裂品牌
+    classify: function (that) {
+        var arr=that.data.Data;
+        var ARR=[];
+        arr.map((item,index)=>{
+            ARR.push(item.initials)
+        });
+        var list=ARR.filter(function(element,index,arr){
+            return arr.indexOf(element)==index;
+        });
+        let OBJ={};
+        list.map((item,index)=>{
+            OBJ[item]=[];
+            arr.map((Ite,Index)=>{
+                if(Ite.initials == item){
+                    OBJ[item].push(Ite);
+                }
+            })
+        })
+        that.setData({
+            json:OBJ
+        })
+    },
+    //选中品牌
+    click:function (e) {
+        let that=this;
+        var id=e.currentTarget.dataset.type;
+        var json=this.data.Data;
+        let brand=that.data.brand;
+        for(var i=0;i<json.length;i++){
+            // return
+            if(json[i].id==id){
+                json[i].choose=true;
+                brand.push(json[i].name);
+            }
+        }
+        this.setData({
+            Data:json,
+            brand:brand,
+            brandselect:brand
+        });
+        this.classify(this)
+    },
      chooseInput:function (e) {
             this.setData({
                 show:false,
@@ -439,8 +498,8 @@ Page({
         obj.level_vip_id=data.chooseID;
         obj.card_z=data.srcID1Up;
         obj.card_f=data.srcID2Up;
-        obj.brand_id='';
-        obj.orther_brand='';
+        obj.brand_id=data.brandselect;
+        obj.orther_brand=data.brandinput;
         ajax.postAjax(api,obj,function (that,json) {
             let order=json.order;
             let user_id=json.user_id;
@@ -457,5 +516,11 @@ Page({
                 }
             })
         },this)
+    },
+    //关闭弹窗
+    close:function (e) {
+        this.setData({
+            showModel:false
+        })
     }
 });

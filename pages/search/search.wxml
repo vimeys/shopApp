@@ -80,9 +80,6 @@
                 <block wx:for="{{Data[4]}}">
                     <view class="goods_list {{choose==true?'choose':''}}" bindtap="click">安尔达电动车</view>
                 </block>
-
-                <!--<view class="goods_list" {{choose==true?'choose':''}}" bindtap="click">安尔达电动车</view>-->
-                <!--<view class="goods_list" {{choose==true?'choose':''}}" bindtap="click">安尔达电动车</view>-->
             </view>
         </view>
     </block>

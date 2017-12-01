@@ -86,6 +86,13 @@
     background: #fff;
     padding-top:5rpx;
 }
+.fixed{
+    display: block;
+    background: #EA4736;
+    text-align: center;
+    line-height: 100rpx;
+    color:#fff;
+}
 .cart{
     width: 25%;
     display: flex;

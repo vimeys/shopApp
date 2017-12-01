@@ -53,6 +53,10 @@ page{
     overflow: hidden;
     font-size: 30rpx;
 }
+.promotion_text{
+  font-size: 30rpx;
+  color: #ccc;
+}
 .title .promotion_scale{
     font-size: 28rpx;
     color:#ff9388;

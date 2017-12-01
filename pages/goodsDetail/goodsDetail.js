@@ -9,6 +9,7 @@ Page({
      */
     data: {
         open_id:'',
+        user_id:'',//用户id
         goodsDetail:[],//商品id
         img: [],//轮播图片
         size:{},//规格
@@ -22,6 +23,7 @@ Page({
         goodsSales:'',//商品销量
         goodsPrice:'',//商品售价
         goodsDelPrice:'',//商品原价
+        goodsStorage:999,//商品库存
         promotion: true,
         TBD: false,
         normal: false,
@@ -32,15 +34,19 @@ Page({
         first:'',
         second:'',
         third:'',
-        color:[],
-        voltage:[],
-        power:[],
-        choosecolor:'',
-        choosevoltage:'',
-        choosepower:'',
-        buyNumber:1,
-        buyNumberMin:1,
-        buyNumberMax:'',
+        sizeID:'',//规格ID
+        brandID:'',//品牌ID
+        goods_id:'',//商品ID
+        factory_id:'',//工厂ID
+        color:[],//颜色规格
+        voltage:[],//电压规格
+        power:[],//功率规格
+        choosecolor:0,
+        choosevoltage:0,
+        choosepower:0,
+        buyNumber:1,//默认购买数量
+        buyNumberMin:1,//最小购买数量
+        buyNumberMax:999,//最大购买数量
         active:false
     },
 
@@ -55,7 +61,8 @@ Page({
         that.setData({
             goodsDetail:arr,
             open_id:open,
-            user_id:user
+            user_id:user,
+            goods_id:arr[0]
         })
         
         if (arr[1] == 0) {
@@ -219,37 +226,116 @@ Page({
         },this);
     },
     //选择规格
-    chooseSize:function (e) {
+    chooseColor:function (e) {
         let name=e.currentTarget.dataset.name;
-        let Type=e.currentTarget.dataset.type;
-
+        let num=e.currentTarget.dataset.num;
+        this.setData({
+            choosecolor:num
+        })
+        this.requestSize()
     },
-
+    chooseVoltage:function (e) {
+        let name=e.currentTarget.dataset.name;
+        let num=e.currentTarget.dataset.num;
+        this.setData({
+            choosevoltage:num
+        })
+        this.requestSize()
+    },
+    choosePower:function (e) {
+        let name=e.currentTarget.dataset.name;
+        let num=e.currentTarget.dataset.num;
+        this.setData({
+            choosevoltage:num
+        })
+        this.requestSize()
+    },
+    //规格请求
+    requestSize:function (e) {
+        let that=this;
+        let obj={};
+        obj.pid=parseInt(this.data.goodsDetail[0]);
+        obj.color=this.data.color[this.data.choosecolor];
+        obj.voltage=this.data.voltage[this.data.choosevoltage];
+        obj.power=this.data.power[this.data.choosepower];
+        ajax.getAjax(url.url.getSize,obj,function (that,json) {
+            // json.
+            that.setData({
+                color:json.data.color,
+                voltage:json.data.voltage,
+                power:json.data.power
+            })
+        },this);
+        ajax.postAjax(url.url.getPrice,obj,function (that,json) {
+                that.setData({
+                    goodsPrice:json.data.price,
+                    goodsStorage:json.data.stock,
+                    buyNumberMax:json.data.stock
+                })
+        },this)
+    },
 
 
     //购买数量
     inputBuy:function (e) {
         let value=e.detail.value;
-        console.log(value);
-        if(value!=0){
+        let storage=this.data.goodsStorage;
+
+        if(value!=0&&value<storage){
+            storage=storage-value;
             this.setData({
-                buyNumber:value
+                buyNumber:value,
+                goodsStorage:storage
             })
         }else{
             this.setData({
                 buyNumber:1
+
             })
         }
     },
     //按钮数量加1
     numJianTap:function (e) {
         let  value=this.data.buyNumber;
+        let storage=this.data.goodsStorage
         if(value>1){
             value--;
+            storage++;
             this.setData({
-                buyNumber:value
+                buyNumber:value,
+                goodsStorage:storage
             })
         }
+    },
+    //按钮数量减1
+    numJiaTap:function (e) {
+        let  value=this.data.buyNumber;
+        let storage=this.data.goodsStorage;
+        if(value<storage){
+            value++;
+            storage--;
+            this.setData({
+                buyNumber:value,
+                goodsStorage:storage
+            })
+        }
+    },
+    //加入购物车
+    joinCart:function (e) {
+        var obj={};
+        let data=this.data;
+        obj.user_id=data.user_id;
+        obj.goods_id=data.goods_id;
+        obj.buy_number=data.buyNumber;
+        obj.spec_id=data.sizeID;
+        obj.brand_id=data.brandID;
+        obj.factory_id=data.factory_id;
+        ajax.postAjax(url.url.joinCart,obj,function (that,json) {
+            wx.showToast({
+                title: '加入购物车成功',
+                icon: 'success',
+                duration: 2000
+            })
+        })
     }
-
 })

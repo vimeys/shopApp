@@ -20,6 +20,12 @@ url.msg=allUrl+'user/sms_send';//发送短信
 url.sign=allUrl+'user/sms_check';//提交注册
 url.testStorege=allUrl+"goods/is_Collection";//首次进入收藏
 url.getSize=allUrl+'goods/goods_spec';//获取规格
+url.getBrand=allUrl+'index/brand';//获取所有品牌
+url.getPrice=allUrl+"goods/goods_spec";//获取价格
+url.joinCart=allUrl+'goods/Add_to_cart';//加入购物车
+
+
+
 module.exports={
     url:url
 };
