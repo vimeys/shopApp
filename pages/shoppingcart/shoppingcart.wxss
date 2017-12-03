@@ -76,6 +76,16 @@ page{
     justify-content: center;
     align-items: center;
 }
+.btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50rpx;
+    height: 50rpx;
+    background-color: #ccc;
+    border-radius: 50%;
+}
 .chose{
     display: flex;
     flex-direction: column;

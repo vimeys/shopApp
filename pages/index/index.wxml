@@ -1,6 +1,4 @@
-
- <include src="../../template/search.wxml"/>
-
+<include src="../../template/search.wxml"/>
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height: 420rpx">
   <block wx:for="{{img}}" class="swiper" wx:for-item="item">

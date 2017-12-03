@@ -1,24 +1,28 @@
 <!--pages/searchGoods/searchGoods.wxml-->
-<view class="search">
-    <view class="input" bindtap="search"><image src="../image/searchBlock.png"></image>
-        <input type="text" placeholder="搜索" /></view>
-    <view class="shopCar" bindtap="cart"><image src="../image/cartBlock.png"></image></view>
-</view>
+<!--<view class="search">-->
+    <!--<view class="input" bindtap="search"><image src="../image/searchBlock.png"></image>-->
+        <!--<input type="text" placeholder="搜索" /></view>-->
+    <!--<view class="shopCar" bindtap="cart"><image src="../image/cartBlock.png"></image></view>-->
+<!--</view>-->
+<include src="../../template/search.wxml"/>
 <view class="nav">
-    <view class="all choose">综合</view>
-    <view class="many">销量</view>
-    <view class="price">价格</view>
+    <view bindtap="change" data-type="0" class="all  {{check==0?'choose':''}}choose">综合</view>
+    <view bindtap="change" data-type="2" class="many {{check==2?'choose':''}}">销量</view>
+    <view bindtap="change" data-type="3" class="price {{check==3?'choose':''}}">价格</view>
 </view>
 <view class="item">
-    <view class="list">
-        <view class="image">
-            <image src="../image/goods.png"></image>
-            <image src="../image/promto.png"></image>
+    <block wx:for="{{Data}}">
+        <view class="list"bindtap="href" data-type="item.goodsId">
+            <view class="image">
+                <image src="../image/goods.png"></image>
+                <image src="../image/promto.png"></image>
+            </view>
+            <view class="title">杨迪电动车超级续航f</view>
+            <view class="price"><text class="new_price">Y1200.00</text> <text class="del_price">1300.00</text></view>
+            <view class="sales">销量：2132</view>
         </view>
-        <view class="title">杨迪电动车超级续航f</view>
-        <view class="price"><text class="new_price">Y1200.00</text> <text class="del_price">1300.00</text></view>
-        <view class="sales">销量：2132</view>
-    </view>
+    </block>
+
     <view class="list">
         <view class="image">
             <image src="../image/goods.png"></image>

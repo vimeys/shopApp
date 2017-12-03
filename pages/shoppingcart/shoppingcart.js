@@ -5,7 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      Data:'',
+      data:[
+          {
+              active:true,
+              del:false,
+              is_type:1,
+              goodsName:'测试'
+          },
+          {
+              active:false,
+              del:false,
+              is_type:0,
+              goodsName:'测试12'
+          }
+      ],
+      showDel:false,
+      chooseAll:false,
   },
 
   /**
@@ -14,53 +30,36 @@ Page({
   onLoad: function (options) {
   
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  //点击选中
+  choose:function (e) {
+    let type=e.currentTarget.dataset.type;
+    console.log(this.data.data[type]);
+    let active=this.data.data;
+    active[type].active=!active[type].active;
+      this.setData({
+          data:active
+      })
   },
+  //跳转商品详情页面
+    click:function () {
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+    },
+    //长按弹出删除
+    longClick:function (e) {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+    },
+    //全选按钮
+    chooseAll:function (e) {
+        let choose=this.data.chooseAll
+        this.data.chooseAll=!this.data.chooseAll;
+        let data=this.data.data;
+        function each(item,index) {
+            item.active=!choose
+        }
+        data.forEach(each)
+        this.setData({
+            data:data
+        })
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+    }
 })

@@ -32,7 +32,7 @@
 
 <!--众筹-->
 <view class="TBD" wx:if="{{TBD}}">
-    <view class="title">傻大姐法拉时间了房价啊来就了解爱上了房价加上了房间爱就是房价啊</view>
+    <view class="title">{{goodsName}}</view>
     <view class="progress">
         <progress percent="50" color="#00a79e" stroke-width="10" style="width: 600rpx; display: inline-block"/><text class="point">85%</text>
     </view>

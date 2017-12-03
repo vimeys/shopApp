@@ -23,6 +23,7 @@ url.getSize=allUrl+'goods/goods_spec';//获取规格
 url.getBrand=allUrl+'index/brand';//获取所有品牌
 url.getPrice=allUrl+"goods/goods_spec";//获取价格
 url.joinCart=allUrl+'goods/Add_to_cart';//加入购物车
+url.goodsSearch=allUrl+'goods/goods_search';//商品搜索页面
 
 
 
