@@ -24,7 +24,9 @@ url.getBrand=allUrl+'index/brand';//获取所有品牌
 url.getPrice=allUrl+"goods/goods_spec";//获取价格
 url.joinCart=allUrl+'goods/Add_to_cart';//加入购物车
 url.goodsSearch=allUrl+'goods/goods_search';//商品搜索页面
-
+url.factoryBrand=allUrl+'goods/factory_brand';//工厂品牌
+url.allPromotion=allUrl+'index/movable_commodity_goods';//所有活动商品
+url.allTBD=allUrl+'index/mass_goods';//所有众筹商品
 
 
 module.exports={

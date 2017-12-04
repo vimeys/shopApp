@@ -145,5 +145,17 @@ Page({
     },
     onShow:function () {
 
+    },
+    //更多活动商品
+    pMore:function (e) {
+      wx.navigateTo({
+        url: '../Further/Further'
+      })  
+    },
+    //更多众筹商品
+    tMore:function (e) {
+        wx.navigateTo({
+          url: '../TBD/TBD'
+        })
     }
 })

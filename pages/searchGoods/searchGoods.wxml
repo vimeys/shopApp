@@ -1,44 +1,31 @@
-<!--pages/searchGoods/searchGoods.wxml-->
-<!--<view class="search">-->
-    <!--<view class="input" bindtap="search"><image src="../image/searchBlock.png"></image>-->
-        <!--<input type="text" placeholder="搜索" /></view>-->
-    <!--<view class="shopCar" bindtap="cart"><image src="../image/cartBlock.png"></image></view>-->
-<!--</view>-->
-<include src="../../template/search.wxml"/>
+
+<include src="../../template/inputSearch.wxml"/>
 <view class="nav">
-    <view bindtap="change" data-type="0" class="all  {{check==0?'choose':''}}choose">综合</view>
+    <view bindtap="change" data-type="0" class="all  {{check==0?'choose':''}}">综合</view>
     <view bindtap="change" data-type="2" class="many {{check==2?'choose':''}}">销量</view>
     <view bindtap="change" data-type="3" class="price {{check==3?'choose':''}}">价格</view>
 </view>
 <view class="item">
     <block wx:for="{{Data}}">
-        <view class="list"bindtap="href" data-type="item.goodsId">
+        <view class="list"bindtap="href" data-type="{{item.id}}" data-name="{{item.is_type}}" wx:if="{{item.is_type==1}}">
             <view class="image">
-                <image src="../image/goods.png"></image>
-                <image src="../image/promto.png"></image>
+                <image src="{{item.cover}}"></image>
+                <image src="../image/promto.png" ></image>
             </view>
-            <view class="title">杨迪电动车超级续航f</view>
-            <view class="price"><text class="new_price">Y1200.00</text> <text class="del_price">1300.00</text></view>
-            <view class="sales">销量：2132</view>
+            <view class="title">{{item.goods_name}}</view>
+            <view class="price"><text class="new_price">￥{{item.goods_shopping_price}}</text> <text class="del_price">{{item.goods_activity_price}}</text></view>
+            <view class="sales">销量：{{item.goods_sales}}</view>
+        </view>
+        <view class="list"bindtap="href" data-type="{{item.id}}" data-name="{{item.is_type}}" wx:if="{{item.is_type==0}}">
+            <view class="image">
+                <image src="{{item.cover}}"></image>
+                <!--<image src="../image/promto.png" ></image>-->
+            </view>
+            <view class="title">{{item.goods_name}}</view>
+            <view class="price"><text class="new_price">￥1200.00</text></view>
+            <view class="sales">销量：{{item.goods_sales}}</view>
         </view>
     </block>
 
-    <view class="list">
-        <view class="image">
-            <image src="../image/goods.png"></image>
-            <image src="../image/promto.png"></image>
-        </view>
-        <view class="title">杨迪电动车超级续航</view>
-        <view class="price"><text class="new_price">Y1200.00</text> <text class="del_price">1300.00</text></view>
-        <view class="sales">销量：2132</view>
-    </view>
-    <view class="list">
-        <view class="image">
-            <image src="../image/goods.png"></image>
-            <image src="../image/promto.png"></image>
-        </view>
-        <view class="title">杨迪电动车超级续航</view>
-        <view class="price"><text class="new_price">Y1200.00</text> <text class="del_price">1300.00</text></view>
-        <view class="sales">销量：2132</view>
-    </view>
+
 </view>

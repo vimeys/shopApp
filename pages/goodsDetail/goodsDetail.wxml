@@ -21,10 +21,10 @@
 
 <!--普通-->
 <view class="goods_title" wx:if="{{normal}}">
-    <view class="title">傻大姐法拉时间了房价啊来就了解爱上了房价加上了房间爱就是房价啊</view>
+    <view class="title">{{goodsName}}</view>
     <view class="main">
-        <text class="new_price">售价：¥1999.00</text>
-        <text class="sales">销量：3250</text>
+        <text class="new_price">售价：¥{{goodsDelPrice}}</text>
+        <text class="sales">销量：{{goodsSales}}</text>
     </view>
 </view>
 
@@ -34,19 +34,19 @@
 <view class="TBD" wx:if="{{TBD}}">
     <view class="title">{{goodsName}}</view>
     <view class="progress">
-        <progress percent="50" color="#00a79e" stroke-width="10" style="width: 600rpx; display: inline-block"/><text class="point">85%</text>
+        <progress percent="{{Particulars_of_goods}}" color="#00a79e" stroke-width="10" style="width: 600rpx; display: inline-block"/><text class="point">{{Particulars_of_goods}}%</text>
     </view>
-    <view class="TBD_people">3445人支持/已筹12万</view>
-    <view class="TBD_price"><text class="money">1999元起</text> <text class="time">2017-12-25至2017-12-30</text></view>
+    <view class="TBD_people">{{crowd_raise_number}}人支持/已筹{{Raise_the_total_price}}万</view>
+    <view class="TBD_price"><text class="money">{{goods_crowd_raise_price}}元起</text> <text class="time">{{crowd_start_time}}至{{crowd_end_time}}</text></view>
 </view>
 
-<view style="margin-bottom: 100rpx">
+<view style="margin-bottom: 100rpx;margin-top: 30rpx">
     <block wx:for="{{goodsImage}}">
         <image src="{{item}}" style="width: 100%"></image>
     </block>
 </view>
 
-<view class="show-popup" hidden="{{hideShopPopup}}" >
+<view class="show-popup" hidden="{{hideShopPopup}}">
     <view class="popup-mask" bindtap="close"></view>
     <view class="popup-contents">
         <view class="pop-goods-info">
@@ -91,28 +91,28 @@
                 <view class="num-jia {{buyNumber== buyNumMax ? 'hui': ''}}" bindtap="numJiaTap">+</view>
             </view>
         </view>
-        <view class="popup-join-btn" wx:if="{{promotion||normal}}" bindtap="addShopCar">
+        <view class="popup-join-btn" bindtap="joinCart">
             加入购物车
         </view>
-        <view class="popup-join-btn"  wx:if="{{TBD}} "bindtap="buyNow">
-            立即购买
-        </view>
+        <!--<view class="popup-join-btn"  wx:if="{{TBD}}"  bindtap="joinCart">-->
+            <!--立即购买-->
+        <!--</view>-->
     </view>
 </view>
 
 
-<!--<view class="bar fix" >-->
-    <!--<view class="cart" bindtap="goCart" data-type="storage">-->
-        <!--<image src="../image/cartBlock.png"></image>-->
-        <!--<view>购物车</view>-->
-    <!--</view>-->
+<view class="bar fix" wx:if="{{promotion||normal}}">
+    <view class="cart" bindtap="goCart" data-type="storage">
+        <image src="../image/cartBlock.png"></image>
+        <view>购物车</view>
+    </view>
 
-    <!--<view class="collect" bindtap="storage" data-type="{{storage}}">-->
-        <!--<image src="{{storageImage}}"></image>-->
-        <!--<view class="">{{storageWord}}</view>-->
-    <!--</view>-->
-    <!--<view class="joinCart" bindtap="joinCart">加入购物车</view>-->
-<!--</view>-->
-<view class="fix fixed ">
+    <view class="collect" bindtap="storage" data-type="{{storage}}">
+        <image src="{{storageImage}}"></image>
+        <view class="">{{storageWord}}</view>
+    </view>
+    <view class="joinCart" bindtap="getSize">加入购物车</view>
+</view>
+<view class="fix fixed " wx:if="{{TBD}}">
     立即购买
 </view>

@@ -45,5 +45,11 @@ Page({
     },
     onShow:function (e) {
         test.test(this)
-    }
+    },
+    //获取更多品牌列表
+    more:function (e) {
+        wx.navigateTo({
+          url: '../search/search'
+        })
+    }  
 })

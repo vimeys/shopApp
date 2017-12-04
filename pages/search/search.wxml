@@ -70,21 +70,27 @@
     <view id="blue" class="scroll-view-item_H bc_blue"></view>
   </scroll-view>
 </view> -->
+<include src="../../template/inputSearch.wxml"/>
+<view wx:if="{{showSearch}}" style="border-bottom: 1px solid #ccc">
+    <view class="item">
+        <view class="num">{{index}}</view>
+        <view class="goods">
+            <block wx:for="{{searchData}}">
+                <view class="goods_list {{choose==true?'choose':''}}" bindtap="click" data-type="{{item.id}}">{{item.name}}</view>
+            </block>
+        </view>
+    </view>
+</view>
 <view class="scroll">
-  <!--<scroll-view class='scroll-view' scroll-y  bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">-->
-    <!--<view id="green" class="scroll-view-item bc_green">123123</view>-->
-    <block wx:for="{{Data}}">
+    <block wx:for="{{json}}" wx:for-item="item" wx:for-index="index">
         <view class="item">
-            <view class="num">A</view>
+            <view class="num">{{index}}</view>
             <view class="goods">
-                <block wx:for="{{Data[4]}}">
-                    <view class="goods_list {{choose==true?'choose':''}}" bindtap="click">安尔达电动车</view>
+                <block wx:for="{{item}}">
+                    <view class="goods_list {{choose==true?'choose':''}}" bindtap="click" data-type="{{item.id}}">{{item.name}}</view>
                 </block>
             </view>
         </view>
     </block>
-
-
-  <!--</scroll-view>-->
 </view>
-<view class="fix">确认</view>
+<!--<view class="fix">确认</view>-->

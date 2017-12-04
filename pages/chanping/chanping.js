@@ -12,6 +12,7 @@ Page({
         check:3,//选中产品选中
         page:1,
         listShow:false,
+        factoryData:[],
     },
 
     /**
@@ -25,6 +26,7 @@ Page({
         })
         this.getList();
     },
+    //选择分类
     change: function (e) {
         var that = this;
         let Type = e.currentTarget.dataset.type;
@@ -87,12 +89,40 @@ Page({
     },
     //弹窗的显示
     more:function (e) {
+        let show=this.data.listShow;
+        ajax.postAjax(url.url.factoryBrand,{brand_id:this.data.id},function (that,json) {
+            that.setData({
+                factoryData:json.data
+            })
+        },this);
         this.setData({
-            listShow:true
+            listShow:!show
+        })
+    },
+    //选择其他品牌
+    choose:function (e) {
+        var id=e.currentTarget.dataset.type;
+        this.setData({
+            id:id
+        })
+        this.getList()
+        this.setData({
+            listShow:false
+        })
+
+    },
+    //跳转产品详情
+    href:function (e) {
+        let id=e.currentTarget.dataset.id;
+        let type=e.currentTarget.dataset.type;
+        let arr=[];
+        arr.push(id);
+        arr.push(type);
+        wx.redirectTo({
+          url: '../goodsDetail/goodsDetail?id='+arr
         })
     },
     hide:function (e) {
-        console.log(1);
         this.setData({
             listShow:false
         })

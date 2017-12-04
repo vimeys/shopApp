@@ -39,7 +39,6 @@ App({
                                         wx.setStorageSync('open_id',res.data.data.openid);
                                         wx.setStorageSync('user_id',res.data.data.user_id);
                                     }
-
                                     if(res.data.code==202){
                                         console.log(res.data);
                                         wx.setStorageSync('open_id',res.data.data.openid);
@@ -69,7 +68,6 @@ App({
             },
             complete: function () {
                 // complete
-
             }
         })
     },

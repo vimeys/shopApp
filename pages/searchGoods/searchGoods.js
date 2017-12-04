@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-      check:'',//选中
+      check:0,//选中
       Data:[1,2,3],//
       page:1,
       goodsName:'',
@@ -24,7 +24,7 @@ Page({
   },
     //选择请求
     change:function (e) {
-        let value=e.currentTarget.type;
+        let value=e.currentTarget.dataset.type;
         this.setData({
             check:value
         });
@@ -32,14 +32,27 @@ Page({
         let type=this.data.check;
         this.ajax(page,type)
     },
-    //输入请求
+    //输入存值
     input:function (e) {
       let value=e.detail.value;
-      this.setData({
-          goodsName:value
-      })
+      if(value){
+          this.setData({
+              goodsName:value,
+              page:1
+          })
+      }
+
+      //   let page=this.data.page;
+      // let type=this.data.check;
+      //   this.ajax(page,type);
+    },
+    //点击请求
+    search:function (e) {
         let page=this.data.page;
-      let type=this.data.check;
+        let type=1;
+        this.setData({
+            check:0
+        })
         this.ajax(page,type);
     },
     // 数据请求
@@ -49,16 +62,20 @@ Page({
       obj.type=type;
       obj.goods_name=this.data.goodsName;
       ajax.postAjax(url.url.goodsSearch,obj,function (that,json) {
-          this.setData({
+          that.setData({
               Data:json.data
           })
       },this)
     },
    //页面跳转
   href:function (e) {
-      let goodsId=e.currentTarget.dataset.type
+      let arr=[]
+      let id=e.currentTarget.dataset.type;
+      let type=e.currentTarget.dataset.name;
+      arr.push(id)
+      arr.push(type)
       wx.navigateTo({
-        url: '../goodsDetail/goodsDetail?goodsId='+goodsId
+        url: '../goodsDetail/goodsDetail?id='+arr
       })
   },
 
@@ -70,7 +87,7 @@ Page({
           page:page
       })
         let paged=this.data.page;
-      type=this.data.type;
+      type=this.data.check;
       this.ajax(paged,type)
     },
 })

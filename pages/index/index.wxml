@@ -14,7 +14,7 @@
     <text class="main_title">活动商品</text>
     <!--<span class="main_num">(15)</span>-->
   </view>
-  <view class="main_more">更多</view>
+  <view class="main_more" bindtap="pMore">更多</view>
 </view>
 <!--<include src="../../template/promotion.wxml"/>-->
  <import src="../../template/promotion"/>
@@ -27,7 +27,7 @@
     <text class="TBD_title">众筹商品</text>
     <!--<span class="TBD_num">(15)</span>-->
   </view>
-  <view class="TBD_more">更多</view>
+  <view class="TBD_more" bindtap="tMore">更多</view>
 </view>
 <!--<include src="../../template/TBD.wxml"/>-->
  <import src="../../template/TBD" />

@@ -138,6 +138,9 @@ page{
     /*display: flex;*/
     z-index: 12;
 }
+.model_list{
+    min-height: 500rpx;
+}
 .model_name{
     text-align: center;
     line-height: 80rpx;

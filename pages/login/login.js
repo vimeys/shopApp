@@ -287,7 +287,7 @@ Page({
          //   url: '../search/search'
          // })
      },
-    //分裂品牌
+    //分类品牌
     classify: function (that) {
         var arr=that.data.Data;
         var ARR=[];

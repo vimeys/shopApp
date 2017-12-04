@@ -24,6 +24,7 @@ Page({
         goodsPrice:'',//商品售价
         goodsDelPrice:'',//商品原价
         goodsStorage:999,//商品库存
+        goodszcPeople:'',
         promotion: true,
         TBD: false,
         normal: false,
@@ -109,14 +110,26 @@ Page({
             success:res=>{
                 let json=res.data.data.commodity_goods_list;
                 if(res.data.code==200){
-                    that.setData({
-                        img:json.goods_img,
-                        goodsName:json.goods_name,
-                        goodsImage:json.goods_info,
-                        goodsSales:json.goods_sales,
-                        goodsPrice:json.goods_activity_price,
-                        goodsDelPrice:json.goods_shopping_price
-                    })
+                    if(json.is_type==1){
+                        that.setData({
+                            img:json.goods_img,
+                            goodsName:json.goods_name,
+                            goodsImage:json.goods_info,
+                            goodsSales:json.goods_sales,
+                            goodsPrice:json.goods_activity_price,
+                            goodsDelPrice:json.goods_shopping_price
+                        })
+                    }else if(json.is_type==2){
+                        that.setData({
+                            img:json.goods_img,
+                            goodsName:json.goods_name,
+                            goodsImage:json.goods_info,
+                            goodsSales:json.goods_sales,
+                            goodsPrice:json.goods_activity_price,
+                            goodsDelPrice:json.goods_shopping_price
+                        })
+                    }
+
                 }
             }
         });
@@ -146,9 +159,9 @@ Page({
     },
     //跳转购物才
     goCart:function (e) {
-        // wx.switchTab({
-        //     url:''
-        // })
+        wx.switchTab({
+            url:'../../shoppingcart/shoppingcart'
+        })
     },
     //收藏接口
     storageRequest:function (e) {

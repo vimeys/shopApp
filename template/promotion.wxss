@@ -122,16 +122,6 @@ page{
     left: 0;
     z-index: 100;
 }
-.title{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 20rpx;
-    margin-right:20rpx ;
-    margin-top: 6rpx;
-    border-bottom: 1px solid #eee;
-    font-size: 36rpx;
-}
 .title .promotion_main{
     font-size: 36rpx;
 }

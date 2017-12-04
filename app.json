@@ -1,13 +1,17 @@
 {
     "pages": [
+
+
+
       "pages/index/index",
+      "pages/Checkedout/Checkedout",
+      "pages/searchGoods/searchGoods",
       "pages/list/list",
       "pages/goodsDetail/goodsDetail",
-        "pages/sign/sign",
-        "pages/Reviseda/Reviseda",
-        "pages/Revised/Revised",
-        "pages/chanping/chanping",
-        "pages/Checkedout/Checkedout",
+      "pages/sign/sign",
+      "pages/Reviseda/Reviseda",
+      "pages/Revised/Revised",
+      "pages/chanping/chanping",
         "pages/Collection/Collection",
         "pages/shoppingcart/shoppingcart",
         "pages/TBD/TBD",
@@ -20,7 +24,7 @@
       
         
 
-        "pages/searchGoods/searchGoods",
+       
         "pages/search/search",
         "pages/brand/brand",
         "pages/login/login",

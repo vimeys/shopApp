@@ -22,7 +22,7 @@
 
 
         <block wx:for="{{Data}}">
-            <view class="promotion" wx:if="{{item.is_type==1}}">
+            <view class="promotion" wx:if="{{item.is_type==1}}" bindtap="href" data-id="{{item.id}}" data-type="{{item.is_type}}">
                 <view class="list">
                     <view class="image">
                         <image class='image_main' src="../image/goods.png"></image>
@@ -41,7 +41,7 @@
                     </view>
                 </view>
             </view>
-            <view class="promotion" wx:if="{{item.is_type==0}}">
+            <view class="promotion" wx:if="{{item.is_type==0}}" bindtap="href" data-id="{{item.id}}" data-type="{{item.is_type}}">
                 <view class="list">
                     <view class="image">
                         <image class='image_main' src="../image/goods.png"></image>
@@ -60,7 +60,7 @@
                     </view>
                 </view>
             </view>
-            <view class="promotion" wx:if="{{item.is_type==2}}">
+            <view class="promotion" wx:if="{{item.is_type==2}}" bindtap="href" data-id="{{item.id}}" data-type="{{item.is_type}}">
                 <view class="list">
                     <view class="image">
                         <image class='image_main' src="../image/goods.png"></image>
@@ -82,12 +82,10 @@
 </view>
 <view wx:if="{{listShow}}" class="model">
     <view class="model_name">厂商品牌</view>
-    <view class="model_list">
-        <view class="goods choose">安尔达电动车</view>
-        <view class="goods">小米电动车</view>
-        <view class="goods">小米电动车</view>
-        <view class="goods">小米电动车</view>
-        <view class="goods">小米电动电动撒打发似的车</view>
+    <view class="model_list" >
+        <block wx:for="{{factoryData}}">
+            <view data-type="{{item.id}}" class="goods choose" bindtap="choose"> {{item.name}}</view>
+        </block>
     </view>
 </view>
 <view class="fix" catchtap="more">
