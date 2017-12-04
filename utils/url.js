@@ -27,7 +27,7 @@ url.goodsSearch=allUrl+'goods/goods_search';//商品搜索页面
 url.factoryBrand=allUrl+'goods/factory_brand';//工厂品牌
 url.allPromotion=allUrl+'index/movable_commodity_goods';//所有活动商品
 url.allTBD=allUrl+'index/mass_goods';//所有众筹商品
-
+url.shopCartList=allUrl+'goods/Shopping_cart_list';//购物车列表
 
 module.exports={
     url:url

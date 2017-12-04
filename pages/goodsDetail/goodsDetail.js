@@ -48,7 +48,8 @@ Page({
         buyNumber:1,//默认购买数量
         buyNumberMin:1,//最小购买数量
         buyNumberMax:999,//最大购买数量
-        active:false
+        active:false,
+        height:[1000,1000,1000],
     },
 
 
@@ -65,7 +66,7 @@ Page({
             user_id:user,
             goods_id:arr[0]
         })
-        
+
         if (arr[1] == 0) {
             that.setData({
                 promotion:false,
@@ -86,17 +87,39 @@ Page({
             })
         }
         this.getDetail();
+        // this.loadImage();
     },
-    // loadImage:function (e) {
-    //   let  that=this;
-    //      wx.getImageInfo({
-    //            src:'../image/goods.png',
-    //          success:function (res) {
-    //              that.data.width.push(res.width);
-    //              console.log(that.data.width)
-    //          }
-    //       });
-    // },
+    //获取图片高度
+    loadImage:function () {
+      let  that=this;
+      console.log(this.data.goodsImage);
+      let image=this.data.goodsImage;
+      // debugger
+        let arr=[];
+        for(var i=0;i<image.length;i++){
+            console.log(this.data.goodsImage[i]);
+            getImage(that,i)
+        }
+        console.log(arr);
+         function getImage(that,i){
+             wx.getImageInfo({
+                 src:that.data.goodsImage[i],
+                 success:function (res) {
+                     console.log(res);
+                     // var height=[];
+                     console.log(res.height);
+                     arr.unshift(res.height);
+                     console.log(arr);
+                     that.setData({
+                         height:arr
+                     })
+                     // console.log(height)
+                 }
+             });
+         }
+
+        console.log(this.data.height)
+    },
     //页面加载请求
     getDetail:function (e) {
         let that=this;
@@ -119,6 +142,7 @@ Page({
                             goodsPrice:json.goods_activity_price,
                             goodsDelPrice:json.goods_shopping_price
                         })
+                        that.loadImage();
                     }else if(json.is_type==2){
                         that.setData({
                             img:json.goods_img,
@@ -173,10 +197,7 @@ Page({
             hideShopPopup:true
         })
     },
-    //打开规格
-    joinCart:function (e) {
 
-    },
     //收藏
     storage:function (e) {
         let Type=e.currentTarget.dataset.type;

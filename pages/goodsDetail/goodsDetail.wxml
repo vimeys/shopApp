@@ -41,8 +41,8 @@
 </view>
 
 <view style="margin-bottom: 100rpx;margin-top: 30rpx">
-    <block wx:for="{{goodsImage}}">
-        <image src="{{item}}" style="width: 100%"></image>
+    <block wx:for="{{goodsImage}}" wx:for-index="index">
+        <image src="{{item}}" style="width: 100%;height:{{height[index]}}rpx" ></image>
     </block>
 </view>
 
