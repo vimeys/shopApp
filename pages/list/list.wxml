@@ -1,4 +1,5 @@
 <!--pages/list/list.wxml-->
+<include src="../../template/search.wxml"/>
 <view class="title">
     <view class="image"><image src="../image/list_all.png"></image></view>
     <view class="word">推荐品牌</view>

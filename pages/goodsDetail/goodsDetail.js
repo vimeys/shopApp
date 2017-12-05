@@ -24,6 +24,13 @@ Page({
         goodsPrice:'',//商品售价
         goodsDelPrice:'',//商品原价
         goodsStorage:999,//商品库存
+        crowd_raise_number:'',//以众筹人数
+        crowd_start_time:'',//众筹开始时间
+        crowd_end_time:'',//众筹结束时间
+        Raise_the_total_price:'',//众筹金额
+        percentage_funding:'',//众筹百分比
+        goods_crowd_raise_price:'',//众筹价格
+        // goodsStorage:'',//众筹剩余库存
         goodszcPeople:'',
         promotion: true,
         TBD: false,
@@ -32,6 +39,7 @@ Page({
         storageImage:'../image/storage.png',//收藏图标
         storageWord:'收藏',
         hideShopPopup:true,//显示弹窗
+        hideShopTBD:true,//众筹显示弹窗
         first:'',
         second:'',
         third:'',
@@ -92,33 +100,24 @@ Page({
     //获取图片高度
     loadImage:function () {
       let  that=this;
-      console.log(this.data.goodsImage);
       let image=this.data.goodsImage;
-      // debugger
         let arr=[];
         for(var i=0;i<image.length;i++){
-            console.log(this.data.goodsImage[i]);
             getImage(that,i)
         }
-        console.log(arr);
          function getImage(that,i){
              wx.getImageInfo({
                  src:that.data.goodsImage[i],
                  success:function (res) {
-                     console.log(res);
                      // var height=[];
-                     console.log(res.height);
                      arr.unshift(res.height);
-                     console.log(arr);
                      that.setData({
                          height:arr
                      })
-                     // console.log(height)
                  }
              });
          }
 
-        console.log(this.data.height)
     },
     //页面加载请求
     getDetail:function (e) {
@@ -140,18 +139,29 @@ Page({
                             goodsImage:json.goods_info,
                             goodsSales:json.goods_sales,
                             goodsPrice:json.goods_activity_price,
-                            goodsDelPrice:json.goods_shopping_price
-                        })
+                            goodsDelPrice:json.goods_shopping_price,
+                            brandID:json.brand_id,
+                            factory_id:json.factory_id
+                        });
                         that.loadImage();
                     }else if(json.is_type==2){
+                        let num=json.crowd_raise_number_total-json.crowd_raise_number;
                         that.setData({
                             img:json.goods_img,
                             goodsName:json.goods_name,
                             goodsImage:json.goods_info,
-                            goodsSales:json.goods_sales,
-                            goodsPrice:json.goods_activity_price,
-                            goodsDelPrice:json.goods_shopping_price
+                            crowd_raise_number:json.crowd_raise_number,
+                            crowd_start_time:json.crowd_start_time,
+                            crowd_end_time:json.crowd_end_time,
+                            Raise_the_total_price:json.Raise_the_total_price,
+                            percentage_funding:json.percentage_funding,
+                            goods_crowd_raise_price:json.goods_crowd_raise_price,
+                            goodsStorage:num,
+                            brandID:json.brand_id,
+                            factory_id:json.factory_id,
+                            sizeID:json.spec_id
                         })
+                        that.loadImage();
                     }
 
                 }
@@ -197,7 +207,11 @@ Page({
             hideShopPopup:true
         })
     },
-
+    closeTBD:function (e) {
+      this.setData({
+          hideShopTBD:true
+      })
+    },
     //收藏
     storage:function (e) {
         let Type=e.currentTarget.dataset.type;
@@ -251,14 +265,30 @@ Page({
             hideShopPopup:false
         })
         ajax.getAjax(url.url.getSize,{pid:parseInt(this.data.goodsDetail[0])},function (that,json) {
-                // json.
                 that.setData({
                     color:json.data.color,
                     voltage:json.data.voltage,
-                    power:json.data.power
+                    power:json.data.power,
+                    sizeID:json.data.pid
                 })
         },this);
     },
+    // 众筹获取规格
+    getSizeTBD:function () {
+            let that=this;
+            this.setData({
+                hideShopTBD:false
+            })
+            ajax.getAjax(url.url.getSize,{pid:parseInt(this.data.goodsDetail[0])},function (that,json) {
+                wx.setStorageSync('size',json.data);
+                that.setData({
+                    color:json.data.color,
+                    voltage:json.data.voltage,
+                    power:json.data.power,
+                    // sizeID:json.data.pid
+                })
+            },this);
+        },
     //选择规格
     chooseColor:function (e) {
         let name=e.currentTarget.dataset.name;
@@ -293,18 +323,19 @@ Page({
         obj.voltage=this.data.voltage[this.data.choosevoltage];
         obj.power=this.data.power[this.data.choosepower];
         ajax.getAjax(url.url.getSize,obj,function (that,json) {
-            // json.
+
             that.setData({
                 color:json.data.color,
                 voltage:json.data.voltage,
-                power:json.data.power
+                power:json.data.power,
             })
         },this);
         ajax.postAjax(url.url.getPrice,obj,function (that,json) {
                 that.setData({
                     goodsPrice:json.data.price,
                     goodsStorage:json.data.stock,
-                    buyNumberMax:json.data.stock
+                    buyNumberMax:json.data.stock,
+                    sizeID:json.data.id,
                 })
         },this)
     },
@@ -331,7 +362,8 @@ Page({
     //按钮数量加1
     numJianTap:function (e) {
         let  value=this.data.buyNumber;
-        let storage=this.data.goodsStorage
+        let storage=this.data.goodsStorage;
+        console.log(131);
         if(value>1){
             value--;
             storage++;
@@ -343,6 +375,7 @@ Page({
     },
     //按钮数量减1
     numJiaTap:function (e) {
+        console.log(131);
         let  value=this.data.buyNumber;
         let storage=this.data.goodsStorage;
         if(value<storage){
@@ -356,20 +389,83 @@ Page({
     },
     //加入购物车
     joinCart:function (e) {
+
         var obj={};
         let data=this.data;
         obj.user_id=data.user_id;
         obj.goods_id=data.goods_id;
         obj.buy_number=data.buyNumber;
-        obj.spec_id=data.sizeID;
         obj.brand_id=data.brandID;
         obj.factory_id=data.factory_id;
-        ajax.postAjax(url.url.joinCart,obj,function (that,json) {
-            wx.showToast({
-                title: '加入购物车成功',
-                icon: 'success',
-                duration: 2000
-            })
+        obj.spec_id=data.sizeID;
+        this.addCart(obj,url.url.joinCart)
+    },
+    //立即购买
+    buyNow:function () {
+
+        let obj={};
+        let data=this.data;
+        obj.user_id=data.user_id;
+        obj.goods_id=data.goods_id;
+        obj.num=data.buyNumber;
+        obj.spec_id=data.sizeID;
+        // this.addCart(obj,url.url.buyNow);
+        wx.request({
+            url:url.url.buyNow,
+            method:'POST',
+            data:obj,
+            success:res=>{
+                wx.setStorageSync('TBDorder', res.data.data);
+                wx.setStorageSync('goods_id',data.goods_id);
+                wx.setStorageSync('spic_id',data.sizeID);
+                wx.redirectTo({
+                  url: '../CheckedoutTBD/CheckedoutTBD'
+                })
+            }
+        })
+    },
+
+
+    addCart:function (obj,url) {
+        wx.request({
+            url:url,
+            method:'POST',
+            data:obj,
+            success:res=>{
+                console.log(res);
+                let code=res.data.code;
+                 if(res.data.code==200){
+                     wx.showToast({
+                       title: '加入购物车成功',
+                        icon:'success',
+                         duration:2000
+                     })
+                 }else if(code==202){
+                     wx.showModal({
+                         title:'提示',
+                         content:'请选择规格',
+                         showCancel:false
+                     })
+                 }else if(code==203){
+                     wx.showModal({
+                         title:'提示',
+                         content:'库存不足,请购买其他品牌',
+                         showCancel:false
+                     })
+                 }else if(code==204){
+                     wx.showModal({
+                         title:'提示',
+                         content:'加入购物车失败,请重试',
+                         showCancel:false
+                     })
+                 }else if(code==205){
+                     wx.showModal({
+                         title:'提示',
+                         content:'该品牌在您所在区域已被代理',
+                         showCancel:false
+                     })
+                 }
+            }
         })
     }
 })

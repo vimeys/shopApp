@@ -1,0 +1,12 @@
+<!--pages/payWay/payWay.wxml-->
+<view class="main">
+    <view class="total wexin ">
+        <view><image src="../image/goods.png"></image></view>
+        <view class="chose"><image src="../image/chose.png"></image></view>
+    </view>
+    <view class="total union">
+        <view><image src="../image/goods.png"></image></view>
+        <view class=""><image src="../image/chose.png"></image></view>
+    </view>
+    <view class="fix">确认</view>
+</view>

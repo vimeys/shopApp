@@ -84,7 +84,7 @@
     position: fixed;
     bottom:0;
     background: #fff;
-    padding-top:5rpx;
+    /* padding-top:5rpx; */
 }
 .fixed{
     display: block;
@@ -99,6 +99,7 @@
     flex-direction:column;
     /*justify-content: center;*/
     align-items:center;
+    margin-top: 5rpx;
 }
 .cart image{
     width: 50rpx;
@@ -109,6 +110,8 @@
     display: flex;
     flex-direction: column;
     align-items:center;
+    margin-top: 5rpx
+
 }
 .collect image{
     width: 50rpx;

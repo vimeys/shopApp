@@ -98,7 +98,6 @@ Page({
           url:url.url.TBD,
           success:res=>{
               if(res.data.code==200){
-                  console.log(res.data.data.commodity_goods_list);
                   that.setData({
                       TBD:res.data.data.commodity_goods_list
                   })

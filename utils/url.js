@@ -28,6 +28,8 @@ url.factoryBrand=allUrl+'goods/factory_brand';//工厂品牌
 url.allPromotion=allUrl+'index/movable_commodity_goods';//所有活动商品
 url.allTBD=allUrl+'index/mass_goods';//所有众筹商品
 url.shopCartList=allUrl+'goods/Shopping_cart_list';//购物车列表
+url.buyNow=allUrl+'order/Crowd_funding_order';//众筹商品购买
+url.orderOkTBD=allUrl+'order/Place_order';//众筹订单确认页面
 
 module.exports={
     url:url

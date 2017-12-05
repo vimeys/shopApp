@@ -17,12 +17,12 @@ Page({
       input:'',
       searchData:[]
   },
-    //点击跳转
-    click:function(){
-        this.setData({
-            choose:true
-        })
-    },
+    // //点击跳转
+    // click:function(){
+    //     this.setData({
+    //         choose:true
+    //     })
+    // },
     //输入input
     input:function (e) {
         let value=e.detail.value;

@@ -51,5 +51,11 @@ Page({
         wx.navigateTo({
           url: '../search/search'
         })
-    }  
+    },
+    //跳转页面
+    search:function () {
+        wx.navigateTo({
+            url: '../searchGoods/searchGoods'
+        })
+    }
 })
