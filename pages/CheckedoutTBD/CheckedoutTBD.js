@@ -50,6 +50,12 @@ Page({
           data:obj,
           success:res=>{
               console.log(res)
+              if(res.data.code==200){
+                  wx.setStorageSync('order_id',res.data.data.order_id);
+                  wx.navigateTo({
+                    url: '../payWay/payWay'
+                  })
+              }
           }
       })
   },

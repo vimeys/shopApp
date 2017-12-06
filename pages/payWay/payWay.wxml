@@ -2,11 +2,11 @@
 <view class="main">
     <view class="total wexin ">
         <view><image src="../image/goods.png"></image></view>
-        <view class="chose"><image src="../image/chose.png"></image></view>
+        <view class="{{chose==1?'chose':''}}" bindtap="click" data-type="1"><image src="../image/chose.png"></image></view>
     </view>
     <view class="total union">
         <view><image src="../image/goods.png"></image></view>
-        <view class=""><image src="../image/chose.png"></image></view>
+        <view class="{{chose==3?'chose':''}}" bindtap="click" data-type="3"><image src="../image/chose.png"></image></view>
     </view>
-    <view class="fix">确认</view>
+    <view class="fix " bindtap="confirm">确认</view>
 </view>

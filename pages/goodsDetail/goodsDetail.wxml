@@ -63,7 +63,7 @@
                 <view class="label">颜色</view>
                 <view class="label-item-box">
                     <view class="label-item {{active==index+1? 'active' : '' }}" wx:for="{{color}}" wx:for-index="index" wx:key="id" bindtap="chooseColor" data-name="{{item}}" data-num="{{index}}">
-                        {{item}}{{index}}
+                        {{item}}
                     </view>
                 </view>
                 <view class="label">电压</view>

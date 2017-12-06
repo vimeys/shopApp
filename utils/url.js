@@ -30,6 +30,9 @@ url.allTBD=allUrl+'index/mass_goods';//所有众筹商品
 url.shopCartList=allUrl+'goods/Shopping_cart_list';//购物车列表
 url.buyNow=allUrl+'order/Crowd_funding_order';//众筹商品购买
 url.orderOkTBD=allUrl+'order/Place_order';//众筹订单确认页面
+url.payWay=allUrl+"order/payment";//选择支付方式
+url.delCart=allUrl+'goods/Shopping_cart_list_del';//删除购物车商品
+url.confirmCart=allUrl+'order/Confirm_order';//确认订单
 
 module.exports={
     url:url

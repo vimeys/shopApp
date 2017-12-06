@@ -2,8 +2,8 @@
     "pages": [
 
 
-        "pages/payWay/payWay",
         "pages/index/index",
+        "pages/payWay/payWay",
         "pages/Checkedout/Checkedout",
         "pages/CheckedoutTBD/CheckedoutTBD",
         "pages/searchGoods/searchGoods",

@@ -16,7 +16,7 @@
         <view class="list">
             <view class="image">
                 <image class="image_main" src="{{Data.cover}}"></image>
-                <image class="image_small" src="../image/promto.png"></image>
+                <image class="image_small" src="../image/TBD.png"></image>
             </view>
         </view>
         <view class="title">

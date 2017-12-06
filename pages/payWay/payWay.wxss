@@ -26,6 +26,7 @@
     height: 50rpx;
     background: #ccc;
     border-radius: 50%;
+    padding-left: 5rpx;
     display: flex;
     justify-items: center;
     align-items: center;

@@ -265,11 +265,15 @@ Page({
             hideShopPopup:false
         })
         ajax.getAjax(url.url.getSize,{pid:parseInt(this.data.goodsDetail[0])},function (that,json) {
+            let color=[];
+            function push(item,index) {
+
+            };
+
                 that.setData({
                     color:json.data.color,
                     voltage:json.data.voltage,
                     power:json.data.power,
-                    sizeID:json.data.pid
                 })
         },this);
     },
@@ -398,7 +402,20 @@ Page({
         obj.brand_id=data.brandID;
         obj.factory_id=data.factory_id;
         obj.spec_id=data.sizeID;
-        this.addCart(obj,url.url.joinCart)
+        if(obj.spec_id){
+            this.addCart(obj,url.url.joinCart)
+        }else {
+            wx.showModal({
+              title: '提示',
+              content: '请选择规格',
+                showCancel:false,
+              success: res=>{
+                if (res.confirm) {
+
+                }
+              }
+            })
+        }
     },
     //立即购买
     buyNow:function () {
@@ -425,8 +442,9 @@ Page({
         })
     },
 
-
+    //加入购物车
     addCart:function (obj,url) {
+        let that=this
         wx.request({
             url:url,
             method:'POST',
@@ -435,6 +453,10 @@ Page({
                 console.log(res);
                 let code=res.data.code;
                  if(res.data.code==200){
+                     that.setData({
+                         sizeID:'',
+                         hideShopPopup:true
+                     });
                      wx.showToast({
                        title: '加入购物车成功',
                         icon:'success',
@@ -447,18 +469,30 @@ Page({
                          showCancel:false
                      })
                  }else if(code==203){
+                     that.setData({
+                         sizeID:'',
+                         hideShopPopup:true
+                     });
                      wx.showModal({
                          title:'提示',
                          content:'库存不足,请购买其他品牌',
                          showCancel:false
                      })
                  }else if(code==204){
+                     that.setData({
+                         sizeID:'',
+                         hideShopPopup:true
+                     });
                      wx.showModal({
                          title:'提示',
                          content:'加入购物车失败,请重试',
                          showCancel:false
                      })
                  }else if(code==205){
+                     that.setData({
+                         sizeID:'',
+                         hideShopPopup:true
+                     });
                      wx.showModal({
                          title:'提示',
                          content:'该品牌在您所在区域已被代理',
