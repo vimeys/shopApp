@@ -4,15 +4,18 @@
     <view class="image"><image src="../image/list_all.png"></image></view>
     <view class="word">推荐品牌</view>
 </view>
-<block wx:for="{{list}}">
-    <view class="item" bindtap="brandDetail" data-type="{{item.id}}">
-        <view class="item_image"><image src="{{item.image}}"></image></view>
-        <view class="item_list">
-            <view>{{item.name}}</view>
-            <view>产品数量：{{item.goods_num}}</view>
+<view style="margin-bottom: 100rpx">
+    <block wx:for="{{list}}">
+        <view class="item" bindtap="brandDetail" data-type="{{item.id}}">
+            <view class="item_image"><image src="{{item.image}}"></image></view>
+            <view class="item_list">
+                <view>{{item.name}}</view>
+                <view>产品数量：{{item.goods_num}}</view>
+            </view>
         </view>
-    </view>
-</block>
+    </block>
+</view>
+
 <view class="fix" bindtap="more">
     <image src="../image/more.png"></image>
 </view>

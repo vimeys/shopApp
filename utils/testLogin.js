@@ -3,7 +3,7 @@ function testLogin(that){
   console.log(13)
   if(level){
       console.log(123);
-      wx.navigateTo({
+      wx.reLaunch({
         url: '../sign/sign',
       })
   }

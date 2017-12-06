@@ -68,7 +68,7 @@ Page({
   onLoad: function () {
         let that=this;
         //轮播图请求
-      test.test(this)
+      // test.test(this)
       wx.request({
           url:url.url.Slider,
           method:'POST',
@@ -142,8 +142,8 @@ Page({
           url: '../goodsDetail/goodsDetail?id='+arr
         })
     },
-    onShow:function () {
-
+    onShow:function (e) {
+        test.test(this)
     },
     //更多活动商品
     pMore:function (e) {

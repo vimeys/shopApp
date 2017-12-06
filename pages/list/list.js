@@ -1,6 +1,7 @@
 // pages/list/list.js
 import url from '../../utils/url'
 var test=require('../../utils/testLogin');
+
 Page({
 
     /**

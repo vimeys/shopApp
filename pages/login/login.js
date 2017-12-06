@@ -23,7 +23,7 @@ Page({
             area:['全部'],
             areaIndex:0,
             areaId:[],
-            areaUse:false,
+            areaUse:true,
             stress:['全部'],
             stressIndex:0,
             stressId:[],
@@ -35,7 +35,7 @@ Page({
         address:'',//具体地址
         people:'',//联系人
         phone:'',//联系电话
-        brand:['小鸟电动车','小牛电动车','小龟王',],//经营品牌
+        brand:[],//经营品牌
         brandselect:[],
         brandinput:[],
         sellMoney:'',//年销量
@@ -79,7 +79,8 @@ Page({
             let data=json.data;
             that.setData({
                 level1:data[0].id,
-                level2:data[1].id
+                level2:data[1].id,
+                red:data[0].id
             })
         },this)
     },
@@ -264,8 +265,9 @@ Page({
     },
     //选择经营品牌
      choose:function (e) {
+        let show=this.data.show;
          this.setData({
-             show:true
+             show:!show
          })
      },
     // 获取品牌
@@ -500,6 +502,15 @@ Page({
         obj.card_f=data.srcID2Up;
         obj.brand_id=data.brandselect;
         obj.orther_brand=data.brandinput;
+        for (var key in obj){
+            console.log(obj[key]);
+            console.log(obj);
+            if(obj[key]==''){
+                console.log('失败');
+            }
+            // break
+        }
+        return
         ajax.postAjax(api,obj,function (that,json) {
             let order=json.order;
             let user_id=json.user_id;

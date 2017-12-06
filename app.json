@@ -1,7 +1,10 @@
 {
     "pages": [
+        "pages/login/login",
+        "pages/sign/sign",
 
 
+        "pages/logs/logs",
         "pages/index/index",
         "pages/payWay/payWay",
         "pages/Checkedout/Checkedout",
@@ -9,7 +12,6 @@
         "pages/searchGoods/searchGoods",
         "pages/list/list",
         "pages/goodsDetail/goodsDetail",
-        "pages/sign/sign",
         "pages/Reviseda/Reviseda",
         "pages/Revised/Revised",
         "pages/chanping/chanping",
@@ -23,14 +25,12 @@
         "pages/Appeal/Appeal",
         "pages/my/my",
 
-        
 
-       
+
+
         "pages/search/search",
-        "pages/brand/brand",
-        "pages/login/login",
-        "pages/logs/logs"
-        
+        "pages/brand/brand"
+
     ],
     "window": {
         "backgroundTextStyle": "light",

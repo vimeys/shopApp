@@ -1,6 +1,7 @@
 // pages/shoppingcart/shoppingcart.js
 import url from '../../utils/url';
 import ajax from '../../utils/ajax';
+let test=require('../../utils/testLogin');
 Page({
   /**
    * 页面的初始数据
@@ -149,6 +150,7 @@ Page({
     //页面显示
     onShow:function (e) {
         this.getList();
+            test.test(this)
     },
     //确认订单
     confirm:function (e) {
