@@ -26,7 +26,11 @@ Page({
    },
     //获取验证码
     getCode:function (e) {
-        let time=60;
+        let time=59;
+        this.setData({
+            word:'60S',
+            blue:true
+        })
         var that=this;
         let ok=e.currentTarget.dataset.type;
         if(ok){
@@ -34,11 +38,10 @@ Page({
                 var timer=setInterval(function () {
                     time--;
                     var word=time+'S';
-                    that.setData({
-                        word:word,
-                        ok:false,
-                        blue:true
-                    })
+                    // that.setData({
+                    //     word:word,
+                    //     blue:true
+                    // })
                     if(time==0){
                         clearInterval(timer)
                         that.setData({
@@ -47,7 +50,7 @@ Page({
                             blue:false
                         })
                     }
-                },100)
+                },1000)
             },this)
         }
 
@@ -63,16 +66,22 @@ Page({
     //提交注册
     confirm:function (e) {
         let obj={};
+        let that=this;
         obj.mobile=this.data.phoneNum;
         obj.code=this.data.code;
         ajax.getAjax(url.url.sign,obj,function (that,json) {
+            // wx.setStorageSync('phone', this.data.phoneNum);
             wx.removeStorageSync('level');
             // wx.switchTab({
             //   url: '../index/index'
             // })
-            wx.navigateTo({
-              url: '../login/login'
-            })
+            wx.redirectTo({
+              url: '../login/login?mobile='+that.data.phoneNum
+            });
+            // wx.switchTab({
+            //     url:'../index/index'
+            // })
+            console.log(1)
         },this)
     }
 });

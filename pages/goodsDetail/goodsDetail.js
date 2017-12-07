@@ -162,6 +162,18 @@ Page({
                             sizeID:json.spec_id
                         })
                         that.loadImage();
+                    }else if(json.is_type==0){
+                        that.setData({
+                            img:json.goods_img,
+                            goodsName:json.goods_name,
+                            goodsImage:json.goods_info,
+                            goodsSales:json.goods_sales,
+                            // goodsPrice:json.goods_shopping_price,
+                            goodsDelPrice:json.goods_shopping_price,
+                            brandID:json.brand_id,
+                            factory_id:json.factory_id
+                        });
+                        that.loadImage();
                     }
 
                 }
@@ -194,7 +206,7 @@ Page({
     //跳转购物才
     goCart:function (e) {
         wx.switchTab({
-            url:'../../shoppingcart/shoppingcart'
+            url:'../shoppingcart/shoppingcart'
         })
     },
     //收藏接口

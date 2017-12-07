@@ -2,22 +2,22 @@
 <!-- <view class="bg">
     <image src="../image/sign_bg.png"></image>
 </view> -->
-    <view class="main">
-        <view class="logo">
-            <image src="../image/goods.png"></image>
+<view class="main">
+    <view class="logo">
+        <image src="../image/signbg.png"></image>
+    </view>
+    <view class="sign_input">
+        <view class="sign_tel">
+            <image src="../image/phonepeople.png"></image>
+            <input type="tel" placeholder="绑定手机号" placeholder-class="fff" bindblur="phoneNum"/>
         </view>
-        <view class="sign_input">
-            <view class="sign_tel">
-                <input type="tel" placeholder="绑定手机号" placeholder-class="fff" bindblur="phoneNum"/>
-                <image src="../image/sign_index.png"></image>
-            </view>
-            <view class="code">
-                <input type="tel" placeholder="请输入验证码"  bindblur="code"  placeholder-class="fff"/>
-                <text bindtap="getCode" data-type="{{ok}}" class="{{blue?'blue':''}}">{{word}}</text>
-            </view>
-            <view>
-                <button bindtap="confirm">注   册</button>
-            </view>
+        <view class="code">
+            <input type="tel" placeholder="请输入验证码"  bindblur="code"  placeholder-class="fff"/>
+            <text bindtap="getCode" data-type="{{ok}}" class="{{blue?'blue':''}}">{{word}}</text>
         </view>
     </view>
+    <view>
+        <button bindtap="confirm">注   册</button>
+    </view>
+</view>
 

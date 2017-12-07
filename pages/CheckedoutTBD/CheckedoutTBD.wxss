@@ -19,6 +19,9 @@
     display: flex;
     justify-content: space-between;
 }
+.site-top-buttom{
+  flex:1
+}
 .site-top-buttom-text{
     margin-top: 10rpx;
     line-height: 40rpx;

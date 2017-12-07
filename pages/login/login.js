@@ -62,10 +62,12 @@ Page({
      */
     onLoad: function (options) {
         let open_id=wx.getStorageSync('open_id');
+        let name=wx.getStorageSync('name')
         let mobile=options.mobile;
         this.setData({
             mobile:mobile,
-            open_id:open_id
+            open_id:open_id,
+            name:name
         })
         let that=this;
         this.getProvince();
@@ -242,12 +244,13 @@ Page({
     //输入品牌
     inputBrand:function (e) {
         let value=e.detail.value;
-
-        let arr=this.data.brand;
+        let arrselect=this.data.brand;
+        let arr=this.data.brandinput;
         if(value&&value.length<6){
+            arrselect.push(value);
             arr.push(value);
             this.setData({
-                brand:arr,
+                brand:arrselect,
                 brandinput:arr
             })
         }
@@ -483,14 +486,15 @@ Page({
     //提交信息
     confirm:function (e) {
         var api=url.url.login;
+
         let obj={};
         let data=this.data;
         obj.open_id=data.open_id;
         obj.nick_name=data.name;
-        obj.phone=data.mobile;
+        obj.mobile=data.mobile;
         obj.province=data.select .provinceId[data.select.provinceIndex];
         obj.city=data.select .cityId[data.select.cityIndex];
-        obj.area=data.select .areaId[data.select.areaIndex];
+        obj.areas=data.select .areaId[data.select.areaIndex];
         obj.township=data.select.stressId[data.select.stressIndex];
         obj.address=data.address;
         obj.store_mobile=data.phone;
@@ -501,32 +505,51 @@ Page({
         obj.card_z=data.srcID1Up;
         obj.card_f=data.srcID2Up;
         obj.brand_id=data.brandselect;
-        obj.orther_brand=data.brandinput;
+        let i=0
         for (var key in obj){
-            console.log(obj[key]);
-            console.log(obj);
+            // debugger
             if(obj[key]==''){
-                console.log('失败');
+                i++
+                // debugger
+                // console.log('失败');
+                wx.showModal({
+                    title: '提示',
+                    content: '请完成表单填写',
+                    showCancel:false,
+                  success: res=>{
+                    if (res.confirm) {
+
+                    }
+                  }
+                })
+                break;
+                // return
             }
-            // break
         }
-        return
-        ajax.postAjax(api,obj,function (that,json) {
-            let order=json.order;
-            let user_id=json.user_id;
-            let pay=json.pay;
-            wx.requestPermission({
-                'timeStamp':pay,
-                'nonceStr': '',
-                'package': '',
-                'signType': 'MD5',
-                'paySign': '',
-                'success':function(res){
-                },
-                'fail':function(res){
-                }
-            })
-        },this)
+        obj.other_brand=data.brandinput;
+        if(i<1){
+            ajax.postAjax(api,obj,function (that,json) {
+                let order=json.order;
+                let user_id=json.user_id;
+                let pay=json.pay;
+                wx.switchTab({
+                    url:'../index/index'
+                })
+                // wx.requestPermission({
+                //     'timeStamp':pay,
+                //     'nonceStr': '',
+                //     'package': '',
+                //     'signType': 'MD5',
+                //     'paySign': '',
+                //     'success':function(res){
+                //     },
+                //     'fail':function(res){
+                //     }
+                // })
+
+            },this)
+        }
+
     },
     //关闭弹窗
     close:function (e) {

@@ -67,6 +67,7 @@ background:#00a79e;
 .main_name .main_title{
   font-size: 36rpx;
   color:#EA4736;
+  margin-left: 10rpx;
 }
 .main_name .main_num{
   font-size: 28rpx;
@@ -109,6 +110,7 @@ background:#00a79e;
 .TBD_name .TBD_title{
   font-size: 36rpx;
   color:#00a79e;
+  margin-left: 10rpx;
 }
 .TBD_name .TBD_num{
   font-size: 28rpx;

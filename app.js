@@ -6,13 +6,11 @@ App({
     onLaunch: function () {
         var url=this.url;
         //调用API从本地缓存中获取数据
-        var logs = wx.getStorageSync('logs') || [];
-        logs.unshift(Date.now());
-        wx.setStorageSync('logs', logs);
         wx.getUserInfo({
             success: function (res) {
                 var userInfoAvatar = res.userInfo.avatarUrl;
                 var nickname = res.userInfo.nickName;
+                wx.setStorageSync('name', nickname);
                 // wx.setStorageSync('UserID', nickname);
                 // console.log("在onlaunch里面的url"+url);
                 // console.log("nickname"+nickname)
@@ -42,7 +40,10 @@ App({
                                         wx.setStorageSync('open_id',res.data.data.openid);
                                         wx.setStorageSync('level', 'none');
                                         test.test(this);
-
+                                    }
+                                    if(res.data.code==204){
+                                        wx.setStorageSync('open_id',res.data.data.openid);
+                                        wx.setStorageSync('user_id',res.data.data.user_id);
                                     }
                                 },
                                 fail: function () {

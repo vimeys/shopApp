@@ -1,68 +1,50 @@
 /* pages/sign/sign.wxss */
-page{
-  border-top: 2rpx #eee solid;
-}
-.bg{
-    width: 100%;
-    height: 100%;
-    /*position: relative;*/
-    float:left;
-}
-.bg image{
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    position: absolute;
-    top:0;
-    left:0;
-}
 
 .main{
-    z-index: 11;
-    position: relative;
+    width: 100%;
 }
 .logo{
-    width: 200rpx;
-    height: 200rpx;
-    margin: 190rpx auto 100rpx;
+    width: 100%;
+    height: 300rpx;
 }
 .logo image{
-    width: 200rpx;
-    height: 200rpx;
+    width: 100%;
+    height: 300rpx;
 }
 .sign_input{
+
     display:flex;
     width: 100%;
     flex-direction: column;
-
+    margin-top: 70rpx;
 }
 .sign_tel{
-    background-color: rgba(0,0,0,.15);
-    width: 655rpx;
-    margin-left: 50rpx;
-    position: relative;
-    height: 90rpx;
-    border-radius: 90rpx;
-    margin-bottom: 30rpx;
+    display: flex;
+    width: 670rpx;
+    border-bottom:1rpx solid #ccc;
+    margin: 0 auto;
+    flex-direction: row;
 }
 .sign_tel image{
     width: 52rpx;
-    position: absolute;
-    top: 20rpx;
-    left: 25rpx;
+    /*position: absolute;*/
+    /*top: 20rpx;*/
+    /*left: 25rpx;*/
     height: 42rpx;
 }
 .sign_tel input{
-    padding-left: 100rpx;
+    /*padding-left: 100rpx;*/
+    margin-left: 10rpx;
     font-size: 30rpx;
-    color:#fff;
-    height: 90rpx;
-    min-height: 90rpx;
-    width: 650rpx;
+    color:#000;
+    height: 50rpx;
+    min-height: 50rpx;
+    width: 608rpx;
 }
 .code{
-    margin-left: 50rpx;
-
+    /*margin-left: 50rpx;*/
+    width: 670rpx;
+    margin: 0 auto;
 }
 .code input{
     margin-top: 30rpr;
@@ -72,26 +54,31 @@ page{
     text-align: center;
     font-size: 30rpx;
     display: inline-block;
-    background-color: rgba(0,0,0,.15);
     color:#fff;
 }
 .fff{
-    color:#fff;
+    color:#000;
 }
 
 .code  text{
+    display: inline-block;
     margin-top: 30rpr;
-    float:right;
+    text-align: right;
+    color:#fff;
+    border-radius: 20rpx;
+    background: #EA4736;
     font-size: 30rpx;
-    margin-right: 80rpx;
-    height: 100rpx;
-    line-height: 100rpx;
+    /*margin-right: 80rpx;*/
+    height: 78rpx;
+    line-height: 78rpx;
+    width: 240rpx;
 }
 button{
-    margin-top: 30rpx;
-    width: 655rpx;
+    margin: 30rpx auto 0;
+
+    width: 670rpx;
     height: 90rpx;
-    border-radius: 90rpx;
+    border-radius: 20rpx;
     background-color: #EA4736;
     color:#fff;
     font-size: 36rpx;

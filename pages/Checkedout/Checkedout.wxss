@@ -17,6 +17,10 @@
 .site-top-buttom-all{
     display: flex;
     justify-content: space-between;
+    
+}
+.site-top-buttom{
+  flex:1
 }
 .site-top-buttom-text{
     margin-top: 10rpx;
@@ -122,4 +126,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+/*商品数量*/
+.pNum{
+    float: right;
+    font-size: 32rpx;
+    margin-right: 40rpx;
 }

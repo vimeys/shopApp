@@ -45,7 +45,7 @@
         </view>
         <view class='site-belief-a'>
             <view class='site-belief-a-a'>合计</view>
-            <view class='site-belief-a-b'>￥{{Data.num*Data.data.price}}</view>
+            <view class='site-belief-a-b'>￥{{Data.num*Data.price}}</view>
         </view>
     </view>
     <view class='site-bottom'>
