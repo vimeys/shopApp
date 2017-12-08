@@ -18,6 +18,7 @@
     </view>
     <view>
         <button bindtap="confirm">注   册</button>
+        地方萨芬
     </view>
 </view>
 
