@@ -26,6 +26,8 @@
             <view class="sales">销量：{{item.goods_sales}}</view>
         </view>
     </block>
-
-
+</view>
+<view class="nothing" wx:if="{{showNothing}}">
+    <image src="../image/searchNothing.png"></image>
+    <view>非常抱歉,没有找到相关商品</view>
 </view>

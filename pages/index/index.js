@@ -3,6 +3,7 @@
 var app = getApp();
 // var url=require('../../utils/url');
 import url from '../../utils/url';
+import ajax from '../../utils/ajax'
 var test=require('../../utils/testLogin');
 Page({
     data: {
@@ -14,7 +15,8 @@ Page({
         interval: 5000,
         duration: 1000,
         order:"",
-        num:50
+        num:50,
+        scroll:'',
     },
     search:function (e) {
         wx.navigateTo({
@@ -41,6 +43,14 @@ Page({
         wx.switchTab({
             url: '../shoppingcart/shoppingcart?'
         })
+    },
+    //获取广告
+    getAD:function (e){
+        ajax.postAjax(url.url.AD,{},function (that,json) {
+            that.setData({
+                scroll:json.data.adv_list
+            })
+        },this)
     },
   //事件处理函数
   bindViewTap: function() {
@@ -104,6 +114,7 @@ Page({
               }
           }
       })
+      this.getAD();
     //   var i=0;
     // var checkUser=setInterval(function () {
     //     console.log(i)
@@ -132,6 +143,12 @@ Page({
     //   })
     // })
   },
+    href:function (e) {
+            let type=e.currentTarget.dataset.type;
+            if(type==1){
+
+            }
+    },
     goodsDetail:function (e) {
         var id=e.currentTarget.dataset.type;
         let is_id=e.currentTarget.dataset.name;

@@ -11,6 +11,7 @@ Page({
       Data:[1,2,3],//
       page:1,
       goodsName:'',
+      showNothing:false,
       // inputValue:''
   },
 
@@ -51,21 +52,41 @@ Page({
         let page=this.data.page;
         let type=1;
         this.setData({
+            page:1,
             check:0
         })
         this.ajax(page,type);
     },
     // 数据请求
     ajax:function (page,type) {
+      let that=this;
       let obj={};
       obj.page=page;
       obj.type=type;
       obj.goods_name=this.data.goodsName;
-      ajax.postAjax(url.url.goodsSearch,obj,function (that,json) {
-          that.setData({
-              Data:json.data
-          })
-      },this)
+      // ajax.postAjax(url.url.goodsSearch,obj,function (that,json) {
+      //     that.setData({
+      //         Data:json.data
+      //     })
+      // },this)
+        wx.request({
+            url:url.url.goodsSearch,
+            method:'POST',
+            data:obj,
+            success:res=>{
+                if(res.data.code==200){
+                    that.setData({
+                        Data:res.data.data,
+                        showNothing:false
+                    })
+                }else if(res.data.code==201){
+                    that.setData({
+                        Data:[],
+                        showNothing:true
+                    })
+                }
+            }
+        })
     },
    //页面跳转
   href:function (e) {

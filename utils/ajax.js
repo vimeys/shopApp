@@ -59,7 +59,25 @@ function getAjax(url, data,fn,that){//get方式请求数据开始
     }) // requset请求结束
 
 }// get请求函数结束
+
+function ask(url,data,methd,fn,that){ //通用请求，methd 为请求方式,
+    wx.request({
+        url: url,
+        data:data,
+        header:{},
+        method:methd,
+        success:function(res){
+            var json = res.data;
+            return typeof fn == "function" && fn(that, json);//封装回调函数
+        },
+        fail:function(res){
+            console.log(res)
+            console.log("请求链接失败");
+        }
+    })
+}
 module.exports = {// 导出函数库
     getAjax: getAjax,
     postAjax: postAjax,
+    ask:ask
 }

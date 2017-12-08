@@ -1,18 +1,25 @@
 // pages/profits/profits.js
+import url from '../../utils/url.js';
+import ajax from '../../utils/ajax.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      data:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var user = wx.getStorageSync('user');
+      ajax.postAjax(url.url.more_rights,{user_id:user.user_id},function(that,json){
+        that.setData({
+          data:json.data,
+        });
+      },this);
   },
 
   /**

@@ -9,16 +9,16 @@
     <view class="sign_input">
         <view class="sign_tel">
             <image src="../image/phonepeople.png"></image>
-            <input type="tel" placeholder="绑定手机号" placeholder-class="fff" bindblur="phoneNum"/>
+            <input type="tel" placeholder="绑定手机号" placeholder-class="fff" bindinput="phoneNum"/>
         </view>
         <view class="code">
-            <input type="tel" placeholder="请输入验证码"  bindblur="code"  placeholder-class="fff"/>
+            <image class="" src="../image/code.png"></image>
+            <input type="tel" placeholder="请输入验证码"  bindinput="code"  placeholder-class="fff"/>
             <text bindtap="getCode" data-type="{{ok}}" class="{{blue?'blue':''}}">{{word}}</text>
         </view>
     </view>
     <view>
         <button bindtap="confirm">注   册</button>
-        地方萨芬
     </view>
 </view>
 

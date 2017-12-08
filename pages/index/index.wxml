@@ -20,7 +20,19 @@
  <import src="../../template/promotion"/>
  <template is="promotion_minus" data="{{promotion}}"></template>
  <improt></improt>
-<view class="AD"><image src="../image/AD.png"></image></view>
+<!--<view class="AD"><image src="../image/AD.png"></image></view>-->
+<view class="AD">
+    <scroll-view scroll-x style="height:200rpx" class="scroll">
+        <!--<view id="green" class="scroll-view-item bc_green"><image src="../image/AD.png"></image></view>-->
+        <!--<view id="green" class="scroll-view-item bc_green"><image src="../image/AD.png"></image></view>-->
+
+        <block wx:for="{{scroll}}">
+            <view id="green" class="scroll-view-item bc_green">
+                <image src="{{item.image}}" data-type="{{item.is_type}}" bindtap="href"></image>
+            </view>
+        </block>
+    </scroll-view>
+</view>
 <view class="TBD">
   <view class="TBD_name">
     <image src="../image/hot.png"></image>

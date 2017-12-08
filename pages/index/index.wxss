@@ -85,10 +85,22 @@ background:#00a79e;
 .AD{
   width: 100%;
   height: 200rpx;
+  /*display: flex;*/
 }
 .AD image{
   width: 100%;
-  height: 100%;
+  height:100%;
+}
+.scroll{
+  width: 100%;
+  white-space: nowrap;
+  height: 200rpx;
+}
+.scroll-view-item{
+  margin-right: 20rpx;
+  display: inline-block;
+  height: 200rpx;
+  width: 80%;
 }
 /*众筹*/
 .TBD{

@@ -3,36 +3,44 @@
       <view class='top'>
             <view class='top-information'>
                   <view class='Avatar'>
-                        <image style='width:116rpx;height:116rpx;' src='../image/Avatar.png'></image>
+                        <image style='width:116rpx;height:116rpx;' src='{{userInfo.avatarUrl}}'></image>
                   </view>
-                  <view class='information'>
-                        <view class='name'>冯川</view>
-                        <view class='member'>
-                              <view class='member-grade'>普通会员</view>
-                              <view class='member-time'>2017.12.25~2017.12.26</view>
-                        </view>
-                  </view>
-                  <view class='upgrade'>
-                        <view class='upgrade-image'>
-                              <image style='width:36rpx;height:40rpx;' class='upgrade' src='../image/upgrade.png'></image>
-                        </view>
-                        <view class='upgrade-shengji'>升级</view>
+                  <view class='upg'>
+                      <view class='information'>
+                            <view class='name'>{{userInfo.nickName}}</view>
+                            <view class='member' wx:if="{{!is_user}}">
+                              <view class='member-grade'>会员已到期</view>
+                            </view>
+                            <view class='member' wx:if="{{is_user}}">
+                                  <view class='member-grade'>{{user_data.level_name}}</view>
+                                  <view class='member-time'>{{user_data.now_time}}~{{user_data.level_vip_end_time}}</view>
+                            </view>
+                      </view>
+                      <view class='upgrade'>
+                            <view class='upgrade-image'>
+                                  <image style='width:36rpx;height:40rpx;' class='upgrade' src='../image/upgrade.png'></image>
+                            </view>
+                            <view class='upgrade-shengji' wx:if="{{!is_user}}">请续费</view>
+                            <navigator class='upgrade-shengji' url='../vip/vip' wx:if="{{is_user && user_data.level_vip_id==1 }}">升级</navigator>
+                      </view>
                   </view>
             </view>
             <view class='Profit'>
-                  <view class='Profit-Profit'>更多权益</view>
-                  <view class='profit-right'>
-                  <view class='Profit-image'>
-                        <image style='width:58rpx;height:59rpx;' src='../image/news.png'></image>
-                  </view>
-                  <view class='Profit-top'>1</view>
-                  <view class='Profit-News'>我的消息</view>
-                  </view>
+                  <navigator url='../profits/profits' wx:if="{{is_user}}" class='Profit-Profit'>更多权益</navigator>
+                  <navigator class='profit-right' url='../belief/belief'>
+                    <view class='Profit-image'>
+                          <image style='width:58rpx;height:59rpx;' src='../image/news.png'></image>
+                    </view>
+                    <view class='Profit-top' wx:if="{{new_num}}">{{new_num}}</view>
+                    <view class='Profit-News'>我的消息</view>
+                    </navigator>
+                
             </view>
-            <view class='Clothing'>服务费：12元/辆</view>
+            <view class='Clothing' wx:if="{{is_user}}">服务费：{{use_data.level_service}}元/辆</view>
+            <view class='Clothing' wx:if="{{!is_user}}">服务费：暂时无法查看</view>
       </view>
       <view class='Column chart'>
-            <view class='Column-Unity'>
+            <navigator url='../myshop/myshop' class='Column-Unity'>
                   <view class='Column-Unity-left'>
                          <view class='image-box'>
                               <image style='width:50rpx;height:50rpx;' src='../image/shop.png'></image>
@@ -42,61 +50,61 @@
                   <view class='Column-Unity-right'>
                        <image style='width:23rpx;height:43rpx;' src='../image/right.png'></image>
                   </view>
-            </view>
-            <view class='Column-Unity'>
+            </navigator>
+            <navigator url='../Revised/Revised' class='Column-Unity'>
                   <view class='Column-Unity-left'>
                          <view class='image-box'>
                               <image style='width:44rpx;height:51rpx;' src='../image/study.png'></image>
                          </view>
-                        <view class='Column-Unity-zhong'>我的店铺</view>
+                        <view class='Column-Unity-zhong'>我的订单</view>
                   </view>
                   <view class='Column-Unity-right'>
                        <image style='width:23rpx;height:43rpx;' src='../image/right.png'></image>
                   </view>
-            </view>
-            <view class='Column-Unity'>
+            </navigator>
+            <navigator url='../Collection/Collection' class='Column-Unity'>
                   <view class='Column-Unity-left'>
                          <view class='image-box'>
                               <image style='width:59rpx;height:56rpx;' src='../image/Collection.png'></image>
                          </view>
-                        <view class='Column-Unity-zhong'>我的店铺</view>
+                        <view class='Column-Unity-zhong'>我的收藏</view>
                   </view>
                   <view class='Column-Unity-right'>
                        <image style='width:23rpx;height:43rpx;' src='../image/right.png'></image>
                   </view>
-            </view>
-            <view class='Column-Unity'>
+            </navigator>
+            <navigator url='../account/account' class='Column-Unity'>
                   <view class='Column-Unity-left'>
                          <view class='image-box'>
-                              <image style='width:58rpx;height:53rpx;' src='../image/Sign.png'></image>
+                              <image style='width:58rpx;height:53rpx;' src='../image/sign.png'></image>
                          </view>
-                        <view class='Column-Unity-zhong'>我的店铺</view>
+                        <view class='Column-Unity-zhong'>平台对工账户</view>
                   </view>
                   <view class='Column-Unity-right'>
                        <image style='width:23rpx;height:43rpx;' src='../image/right.png'></image>
                   </view>
-            </view>
-            <view class='Column-Unity'>
+            </navigator>
+            <navigator url='../Brandsuper/Brandsuper' class='Column-Unity'>
                   <view class='Column-Unity-left'>
                          <view class='image-box'>
                               <image style='width:65rpx;height:65rpx;' src='../image/management.png'></image>
                          </view>
-                        <view class='Column-Unity-zhong'>我的店铺</view>
+                        <view class='Column-Unity-zhong'>品牌管理</view>
                   </view>
                   <view class='Column-Unity-right'>
                        <image style='width:23rpx;height:43rpx;' src='../image/right.png'></image>
                   </view>
-            </view>
-            <view class='Column-Unity'>
+            </navigator>
+            <navigator url='../contFactory/contFactory' class='Column-Unity'>
                   <view class='Column-Unity-left'>
                          <view class='image-box'>
                               <image style='width:47rpx;height:56rpx;' src='../image/Alead.png'></image>
                          </view>
-                        <view class='Column-Unity-zhong'>我的店铺</view>
+                        <view class='Column-Unity-zhong'>联系厂家</view>
                   </view>
                   <view class='Column-Unity-right'>
                        <image style='width:23rpx;height:43rpx;' src='../image/right.png'></image>
                   </view>
-            </view>
+            </navigator>
       </view>
 </view>

@@ -42,19 +42,25 @@ Page({
         show:false,//查看经营品牌选项
         showInput:false,//查看输入框
         showLevel:false,//查看权益
-        src:'',//营业执照
+        src:'../image/noPhoto.png',//营业执照
         srcUp:'',//上传营业执照
-        srcID1:'',//身份证正面
+        srcID1:'../image/noPhoto.png',//身份证正面
         srcID1Up:'',//
-        srcID2:'',//身份证反面
+        srcID2:'../image/noPhoto.png',//身份证反面
         srcID2Up:'',
-        srcShop:'',//店铺外景
+        srcShop:'../image/noPhoto.png',//店铺外景
         srcShopUp:'',
         level1:'',
         level2:'',
         red:'',//会员等级
         chooseID:'',//选中的会员等级id
         money:'',//年销量
+        clickUp:{
+            click_1:'点击上传',
+            click_2:'点击上传',
+            click_3:'点击上传',
+            click_4:'点击上传',
+        }
     },
 
     /**
@@ -281,16 +287,11 @@ Page({
              showModel:true
         })
         ajax.postAjax(url.url.getBrand,{page:0,pageSize:999,search:''},function (that,json) {
-            console.log(json);
             that.setData({
                 Data:json.data.brand_list
             })
-            console.log(that.data.Data);
             that.classify(that);
         },this)
-         // wx.navigateTo({
-         //   url: '../search/search'
-         // })
      },
     //分类品牌
     classify: function (that) {
@@ -362,21 +363,21 @@ Page({
              sourceType: ['album', 'camera'],
              success: function (res) {
                  var src = res.tempFilePaths;
+                 let clickUp=that.data.clickUp;
+                 clickUp.click_1='重新上传';
                  that.setData({
-                     src:src
+                     src:src,
+                     clickUp:clickUp
                  })
-                 console.log(123)
                  wx.uploadFile({
                      url: url.url.uploadfile,
                      filePath:src[0],
                      name: 'image',
                      success:res=>{
-                         console.log(12313);
                          let src=JSON.parse(res.data);
                          that.setData({
                              srcUp:src.data
                          })
-                         console.log(that.data.src);
                      }
                  })
              }
@@ -388,8 +389,11 @@ Page({
              count:1,
            success: res => {
                 let src=res.tempFilePaths;
+               let clickUp=that.data.clickUp;
+               clickUp.click_2='重新上传';
                that.setData({
-                   srcID1:src
+                   srcID1:src,
+                   clickUp:clickUp
                });
                wx.uploadFile({
                    url: url.url.uploadfile,
@@ -412,8 +416,11 @@ Page({
             count:1,
             success: res => {
                 let src=res.tempFilePaths;
+                let clickUp=that.data.clickUp;
+                clickUp.click_3='重新上传';
                 that.setData({
-                    srcID2:src
+                    srcID2:src,
+                    clickUp:clickUp
                 });
                 wx.uploadFile({
                     url: url.url.uploadfile,
@@ -436,8 +443,11 @@ Page({
             count:1,
             success: res => {
                 let src=res.tempFilePaths;
+                let clickUp=that.data.clickUp;
+                clickUp.click_4='重新上传';
                 that.setData({
-                    srcShop:src
+                    srcShop:src,
+                    clickUp:clickUp
                 });
                 wx.uploadFile({
                     url: url.url.uploadfile,
@@ -499,6 +509,7 @@ Page({
         obj.address=data.address;
         obj.store_mobile=data.phone;
         obj.store_user_name=data.people;
+        obj.store_annual_sales=data.money;
         obj.store_license=data.srcUp;
         obj.store_storefront=data.srcShopUp;
         obj.level_vip_id=data.chooseID;
@@ -509,7 +520,7 @@ Page({
         for (var key in obj){
             // debugger
             if(obj[key]==''){
-                i++
+                i++;
                 // debugger
                 // console.log('失败');
                 wx.showModal({
@@ -529,6 +540,7 @@ Page({
         obj.other_brand=data.brandinput;
         if(i<1){
             ajax.postAjax(api,obj,function (that,json) {
+                wx.setStorageSync('user_id', json.user_id);
                 let order=json.order;
                 let user_id=json.user_id;
                 let pay=json.pay;

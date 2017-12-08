@@ -1,32 +1,44 @@
 // pages/belief/belief.js
+import url from '../../utils/url.js';
+import ajax from '../../utils/ajax.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+     news:'',
+     userInfo:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+   
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var userinfo = wx.getStorageSync('userInfo');
+    var user = wx.getStorageSync('user');
+    ajax.postAjax(url.url.new_list, { user_id: user.user_id }, function (that, json) {
+      var news = json.data;
+      wx.setStorageSync('news', news);
+       that.setData({
+         news:news,
+         userInfo: userinfo
+       });
+    }, this);
   },
 
   /**
@@ -62,5 +74,14 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  open_news:function(e){
+    var id = e.currentTarget.dataset.index;
+    var new_list = wx.getStorageSync('news');
+    console.log(new_list);
+    wx.setStorageSync('news_info', new_list[id]);
+    wx.navigateTo({
+      url: '../news/news',
+    })
   }
 })

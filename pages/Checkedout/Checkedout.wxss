@@ -25,20 +25,20 @@
 .site-top-buttom-text{
     margin-top: 10rpx;
     line-height: 40rpx;
-    font-size: 24rpx;
+    font-size: 28rpx;
 }
 /*粘贴复制的商品信息那块*/
 .promotion{
-    padding: 0 20rpx 0 20rpx;
     position: relative;
     display: flex;
     width: 100%;
     margin-top: 20rpx;
-    margin-bottom: 20rpx;
+    margin-bottom: 40rpx;
   
 }
 .list{
     display: flex;
+    margin-left: 20rpx;
 }
 .image{
     width: 200rpx;
@@ -62,6 +62,7 @@
     z-index: 11;
 }
 .title{
+    padding-right: 40rpx;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -72,7 +73,7 @@
     font-size: 36rpx;
 }
 .title .promotion_main{
-    width: 480rpx;
+    width: 470rpx;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
@@ -129,7 +130,10 @@
 }
 /*商品数量*/
 .pNum{
-    float: right;
     font-size: 32rpx;
-    margin-right: 40rpx;
+}
+/*改*/
+.promotion_button{
+  display: flex;
+  justify-content: space-between;
 }

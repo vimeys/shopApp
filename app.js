@@ -11,6 +11,7 @@ App({
                 var userInfoAvatar = res.userInfo.avatarUrl;
                 var nickname = res.userInfo.nickName;
                 wx.setStorageSync('name', nickname);
+                wx.setStorageSync('userInfo',res.userInfo);
                 // wx.setStorageSync('UserID', nickname);
                 // console.log("在onlaunch里面的url"+url);
                 // console.log("nickname"+nickname)
@@ -32,7 +33,9 @@ App({
                                 },
                                 success: function (res) {
                                     console.log(res);
+                                    wx.setStorageSync('user',res.data.data);
                                     if(res.data.code==200){
+
                                         wx.setStorageSync('open_id',res.data.data.openid);
                                         wx.setStorageSync('user_id',res.data.data.user_id);
                                     }

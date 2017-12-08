@@ -4,9 +4,9 @@
             <view class='vip-photo'>
                   <image style='width:733rpx;height:449rpx;' src='../image/vip.png'></image>
             </view>
-            <view class='vip-time'>2017.12.25</view>
-            <view class='vip-chose'>
-                  <view class='chose-yuan'>
+            <view class='vip-time'>{{end_time}}</view>
+            <view class='vip-chose' bindtap='checked' data-index='1'>
+                  <view class='chose-yuan {{one_show?"":"chose-yuan2"}}'>
                         <image style='width:43rpx;height:31rpx;' src='../image/chose.png'></image>
                   </view>
             </view>
@@ -15,12 +15,12 @@
             <view class='vip-photo'>
                   <image style='width:733rpx;height:449rpx;' src='../image/vip01.png'></image>
             </view>
-            <view class='vip-time time01'>2017.12.25</view>
-            <view class='vip-chose'>
-                  <view class='chose-yuan chose-yuan2'>
+            <view class='vip-time time01'>{{end_time}}</view>
+            <view class='vip-chose' bindtap='checked' data-index='2'>
+                  <view class='chose-yuan {{two_show?"":"chose-yuan2"}}'>
                         <image style='width:43rpx;height:31rpx;' src='../image/chose.png'></image>
                   </view>
             </view>
       </view>
-      <view class='bottom'>确认</view>
+      <view class='bottom' bindtap='pay'>确认</view>
 </view>

@@ -3,7 +3,7 @@
     position: relative;
 }
 .vip-time{
-    font-size: 34rpx;
+    font-size: 30rpx;
     position: absolute;
     bottom: 116rpx;
     right: 52rpx;

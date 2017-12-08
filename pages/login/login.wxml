@@ -88,7 +88,7 @@
 <view class="photo">
     <view class="font36 photo_title1"> 店铺营业执照</view>
     <view class="photo_image1"><image src="{{src}}"></image></view>
-    <view class="photo_plus" bindtap="choosePhotoBrand"><image src="../image/plus.png"></image>重新上传</view>
+    <view class="photo_plus" bindtap="choosePhotoBrand"><image src="../image/plus.png"></image>{{clickUp.click_1}}</view>
     <view class="font36 photo_title2">身份证 (正反面)</view>
     <view class="photo_image2">
         <view><image class="photo_image2_image1" src="{{srcID1}}"></image></view>
@@ -97,16 +97,16 @@
     <view class="ID">
         <view class="ID_first ID_common">
             <view class="font30">正面</view>
-            <view class="font36 ID_more" bindtap="choosePhotoID1"><image src="../image/plus.png"></image>重新上传</view>
+            <view class="font36 ID_more" bindtap="choosePhotoID1"><image src="../image/plus.png"></image>{{clickUp.click_2}}</view>
         </view>
         <view class="ID_second ID_common">
             <view class="font30">背面</view>
-            <view class="font36 ID_more" bindtap="choosePhotoID2"><image src="../image/plus.png"></image>重新上传</view>
+            <view class="font36 ID_more" bindtap="choosePhotoID2"><image src="../image/plus.png"></image>{{clickUp.click_3}}</view>
         </view>
     </view>
     <view class="photo_title3 font36">店铺外景图</view>
     <view class="photo_image3"><image src="{{srcShop}}"></image></view>
-    <view class="photo_plus" bindtap="choosePhotoShop"><image src="../image/plus.png"></image>重新上传</view>
+    <view class="photo_plus" bindtap="choosePhotoShop"><image src="../image/plus.png"></image>{{clickUp.click_4}}</view>
     <view class="grade">
         <view class="grade_level1">
             <view>普通会员</view>

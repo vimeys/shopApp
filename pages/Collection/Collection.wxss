@@ -80,11 +80,11 @@ page{
     align-items: center;
     width: 50rpx;
     height: 50rpx;
-    background-color: #eb4735;
+    background-color: #eee;
     border-radius: 50%;
 }
 .chose-01{
-    background-color: #eee;
+    background-color: #eb4735;
 }
 .Obstruction{
     display: flex;
@@ -121,6 +121,7 @@ page{
     right: 0;
     display: flex;
     align-items: center;
+    z-index: 200;
 
 }
 .Total{
@@ -149,4 +150,7 @@ page{
 }
 .quantity{
     color: #eb4735;
+}
+navigator{
+  display: flex;
 }

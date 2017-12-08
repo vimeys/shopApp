@@ -48,6 +48,10 @@ page{
     padding-bottom: 40rpx;
     display: flex;
     justify-content: flex-end;
+    
+}
+.body-img image{
+  border-radius: 100rpx;
 }
 .body-time-time{
     margin-right: 20rpx;

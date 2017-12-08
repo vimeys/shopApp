@@ -1,18 +1,32 @@
 // pages/vip/vip.js
+import url from '../../utils/url.js';
+import ajax from '../../utils/ajax.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    end_time:'',
+    one_show:false,
+    two_show:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var end_time = wx.getStorageSync('level_vip_end_time');
+    var vip_id = wx.getStorageSync('vip_id');
+    if(vip_id==1){
+      this.setData({
+        one_show:true,
+        two_show: false
+      });
+    }
+    this.setData({
+      end_time:end_time,
+    });
   },
 
   /**
@@ -62,5 +76,34 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  checked:function(e){
+    var id = e.currentTarget.dataset;
+    if(id.index==1){
+      this.setData({
+        one_show:true,
+        two_show:false
+      });
+    }else{
+      this.setData({
+        one_show: false,
+        two_show: true
+      });
+    }
+  },
+  //支付
+  pay:function(){
+    var show = this.data.two_show;
+    var user = wx.getStorageSync('user');
+    console.log(user);
+    var id='';
+    if(show){
+      id=2;
+    }else{
+      id=1;
+    }
+    ajax.postAjax(url.url.Upgrade,{upgrade_id:id,user_id:user.user_id,open_id:user.open_id},function(that,json){
+       console.log(json);
+    },this);
   }
 })

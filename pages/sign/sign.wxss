@@ -45,16 +45,26 @@
     /*margin-left: 50rpx;*/
     width: 670rpx;
     margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: 30rpx;
+}
+.code image{
+    width: 41rpx;
+    height: 53rpx;
+    border-bottom: 1px solid #ccc;
 }
 .code input{
     margin-top: 30rpr;
+    padding-left: 20rpx;
     width: 325rpx;
-    height: 90rpx;
-    border-radius: 90rpx;
-    text-align: center;
+    height: 50rpx;
+    /*text-align: center;*/
     font-size: 30rpx;
     display: inline-block;
-    color:#fff;
+    border-bottom: 1px solid #ccc;
+    /*color:;*/
 }
 .fff{
     color:#000;
@@ -63,7 +73,7 @@
 .code  text{
     display: inline-block;
     margin-top: 30rpr;
-    text-align: right;
+    text-align: center;
     color:#fff;
     border-radius: 20rpx;
     background: #EA4736;
@@ -72,6 +82,7 @@
     height: 78rpx;
     line-height: 78rpx;
     width: 240rpx;
+    margin-left: 66rpx;
 }
 button{
     margin: 30rpx auto 0;

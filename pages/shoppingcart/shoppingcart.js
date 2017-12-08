@@ -9,7 +9,7 @@ Page({
   data: {
       user_id:'',
       Data:'',
-
+      showNothing:true,
       data:[
           {
               active:true,
@@ -24,7 +24,7 @@ Page({
               goodsName:'测试12'
           }
       ],
-      showDel:false,
+      showDel:true,
       chooseAll:true,
       total:''
   },
@@ -37,6 +37,7 @@ Page({
     this.setData({
         user_id:user
     })
+
   },
     //获取购物车列表
     getList:function (e) {
@@ -44,24 +45,50 @@ Page({
         let user=this.data.user_id;
         ajax.postAjax(url.url.shopCartList,{user_id:user},function (that,json) {
             let data=json.data.list;
-            let arr=[]
-            function push(item,index) {
-                item.active=true;
-                item.del=false;
-                item.allMoney=item.buy_price*item.buy_number;
-                arr.push(item.allMoney);
+            if(data.length>0){
+                let arr=[];
+                function push(item,index) {
+                    item.active=true;
+                    item.del=false;
+                    item.allMoney=item.buy_price*item.buy_number;
+                    arr.push(item.allMoney);
+                }
+                data.forEach(push);
+                let total=new Number();
+                for(var i=0;i<arr.length;i++){
+                    total+=parseInt(arr[i])
+                }
+                that.setData({
+                    Data:data,
+                    // total:total,
+                    showNothing:true
+                })
+                that.getTotal()
+            }else {
+                that.setData({
+                    showNothing:false
+                })
             }
-            data.forEach(push);
-            let total=new Number();
-            for(var i=0;i<arr.length;i++){
-                total+=parseInt(arr[i])
-            }
-            console.log(total);
-            that.setData({
-                Data:data,
-                total:total
-            })
         },this)
+    },
+    //获取总价格
+    getTotal:function (e) {
+      let that=this;
+      let arr=[];
+      that.data.Data.forEach(function (item,index) {
+          if(item.active){
+              arr.push(item.buy_price*item.buy_number)
+          }
+      })
+        let total=new Number()
+        for(var i=0;i<arr.length;i++){
+            total+=arr[i]
+        }
+        this.setData({
+            total:total
+        })
+        // console.log(arr);
+
     },
   //点击选中
   choose:function (e) {
@@ -73,6 +100,7 @@ Page({
           Data:active,
           // chooseAll:allChoose
       })
+      this.getTotal();
     function check(item,index) {
         if(item.active==false){
             allChoose=false
@@ -126,6 +154,7 @@ Page({
             Data:data,
             chooseAll:choose
         })
+        this.getTotal();
     },
     //隐藏删除
     hide:function (e) {
@@ -151,6 +180,7 @@ Page({
     onShow:function (e) {
         this.getList();
             test.test(this)
+
     },
     //确认订单
     confirm:function (e) {

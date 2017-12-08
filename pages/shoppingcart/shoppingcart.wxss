@@ -166,3 +166,21 @@ page{
 .quantity{
     color: #eb4735;
 }
+
+.nothing{width: 100%;
+    margin-top: 100rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nothing image{
+    width: 500rpx;
+    height: 364rpx;
+    margin:  0 auto;
+}
+.nothing view{
+    text-align: center;
+    font-size: 30rpx;
+    color:#00a79e;
+    margin-top: 100rpx;
+}

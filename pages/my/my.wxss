@@ -29,14 +29,22 @@
     flex-direction: column;
     justify-content: flex-end;
 }
+.upg{
+  width: 600rpx;
+  display: flex;
+  justify-content: space-between;
+}
 .upgrade{
+    display: flex;
     justify-content: center;
     width: 187rpx;
     height: 57rpx;
     border-radius: 40rpx;
     background-color: #ff9388;
     font-size: 36rpx;
-    display: flex;
+}
+.member-grade{
+  font-size: 24rpx;
 }
 .upgrade-image{
     display: flex;
@@ -113,4 +121,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.Avatar image{
+  border-radius: 58rpx;
 }

@@ -271,3 +271,26 @@
     font-size: 28rpx;
     color: #171717;
 }
+/*弹窗*/
+.tanchuang{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #ffffff;
+  z-index: 100;
+}
+.tan-text{
+  margin-left: 30rpx;
+  line-height: 100rpx;
+  font-size: 36rpx;
+  color: #00a79e;
+}
+.botton{
+  margin-top: 30rpx;
+  line-height: 80rpx;
+  background-color: #00a79e;
+  width: 400rpx;
+  color: #ffffff;
+}

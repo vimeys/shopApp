@@ -4,6 +4,7 @@ var  url={};
 
 
 url.login = allUrl +"part/get_openid";//登录接口
+url.AD=allUrl+'index/adv';//广告位
 url.Slider=allUrl+'index/banner';//首页轮播图
 url.promotion=allUrl+'index/movable_commodity_goods';//首页活动商品
 url.TBD=allUrl+'index/mass_goods';//首页众筹商品
@@ -33,6 +34,30 @@ url.orderOkTBD=allUrl+'order/Place_order';//众筹订单确认页面
 url.payWay=allUrl+"order/payment";//选择支付方式
 url.delCart=allUrl+'goods/Shopping_cart_list_del';//删除购物车商品
 url.confirmCart=allUrl+'order/Confirm_order';//确认订单
+
+
+
+//余智仙
+url.user_info   = allUrl + 'Personalhome/index';//个人主页
+url.new_list    = allUrl + 'Personalhome/News_list'; //消息列表
+url.myshop      = allUrl + 'Personalhome/My_personal';  //我的店铺
+url.order_list  = allUrl + 'order/order_list'; //订单列表
+url.order_info  = allUrl + 'order/order_info';//订单详情
+url.payment     = allUrl + 'order/payment';  // 确认支付
+url.collection  = allUrl + 'Personalhome/My_collection'; //我的收藏
+url.delCollection = allUrl + 'Personalhome/del_collection'; //删除收藏
+url.more_rights   = allUrl + 'user/more_rights';  // 更多权益
+url.Upgrade     = allUrl + 'Personalhome/Upgrade'; // 会员升级
+url.is_news     = allUrl + 'Personalhome/is_news_look'; //查看消息
+url.contact_brand    = allUrl + 'Personalhome/Contact_manufacturers';//联系厂家
+url.my_brand    = allUrl + 'Personalhome/my_brand';//品牌管理
+url.my_factory_brand = allUrl + 'Personalhome/Manufacturer_brand_list';//我代理的厂商品牌
+url.complan     = allUrl + 'Personalhome/Complaint_factory'; //投诉厂家
+url.take_over   = allUrl + 'order/take_over';   //确认收货
+
+
+
+
 
 module.exports={
     url:url
