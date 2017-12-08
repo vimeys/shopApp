@@ -87,8 +87,6 @@ Page({
         this.setData({
             total:total
         })
-        // console.log(arr);
-
     },
   //点击选中
   choose:function (e) {
@@ -200,6 +198,7 @@ Page({
         arr=arr.toString();
         ajax.postAjax(url.url.confirmCart,{user_id:this.data.user_id,goods_id:arr},function (that,json) {
             wx.setStorageSync('order', json.data);
+            wx.setStorageSync('orderTotal',that.data.total);
             wx.navigateTo({
               url: '../Checkedout/Checkedout'
             })

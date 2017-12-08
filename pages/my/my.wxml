@@ -16,8 +16,8 @@
                                   <view class='member-time'>{{user_data.now_time}}~{{user_data.level_vip_end_time}}</view>
                             </view>
                       </view>
-                      <view class='upgrade'>
-                            <view class='upgrade-image'>
+                      <view class='upgrade' wx:if="{{user_data.level_vip_id==1}}">
+                            <view class='upgrade-image' >
                                   <image style='width:36rpx;height:40rpx;' class='upgrade' src='../image/upgrade.png'></image>
                             </view>
                             <view class='upgrade-shengji' wx:if="{{!is_user}}">请续费</view>
@@ -36,7 +36,7 @@
                     </navigator>
                 
             </view>
-            <view class='Clothing' wx:if="{{is_user}}">服务费：{{use_data.level_service}}元/辆</view>
+            <view class='Clothing' wx:if="{{is_user}}">服务费：{{user_data.level_service}}元/辆</view>
             <view class='Clothing' wx:if="{{!is_user}}">服务费：暂时无法查看</view>
       </view>
       <view class='Column chart'>

@@ -41,7 +41,7 @@
            </view>
            <view class='site-belief-a'>
                  <view class='site-belief-a-a'>会员等级</view>
-                 <view class='site-belief-a-b'>{{Data.level.name}}会员</view>
+                 <view class='site-belief-a-b'>{{Data.level_name}}会员</view>
            </view>
            <view class='site-belief-a'>
                  <view class='site-belief-a-a'>服务费</view>
@@ -49,7 +49,7 @@
            </view>
            <view class='site-belief-a'>
                  <view class='site-belief-a-a'>合计</view>
-                 <view class='site-belief-a-b'>￥{{Data.num*Data.price}}</view>
+                 <view class='site-belief-a-b'>￥{{total}}</view>
            </view>
      </view>
      <view class='site-bottom'>

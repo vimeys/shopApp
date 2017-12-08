@@ -10,6 +10,7 @@ Page({
     order:'',
     show:false,
     order_id:'',
+    status:'',
   },
 
   /**
@@ -17,12 +18,13 @@ Page({
    */
   onLoad: function (options) {
     var order_id = options.order_id;
+    var status = options.status;
     var user = wx.getStorageSync('user');
-    ajax.postAjax(url.url.order_info,{order_id:order_id,user_id:user.user_id},function(that,json){
-      console.log(json.data);
+    ajax.postAjax(url.url.order_info,{order_id:order_id,user_id:user.user_id,status:status},function(that,json){
       that.setData({
         order:json.data,
         order_id:order_id,
+        status:status
       });
     },this);
   },

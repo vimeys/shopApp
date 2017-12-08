@@ -62,7 +62,8 @@
                   <view class='Ruined-two'>收货地址</view>
                   <view class='Ruined-Detail'>{{order.province}}-{{order.city}}-{{order.areas}}-{{order.township}}-{{order.dress}}</view>
             </view>
-            <view class='shopping'>
+            <!-- 付款之前 -->
+            <view class='shopping' wx:if="{{order.status == 0}}">
                  <view class='number'>订单号：{{order.order_sn}}</view>
                  <view class='body-a' wx:for="{{order.sub_order}}">
                         <view class='body-a-top'>
@@ -94,40 +95,75 @@
                         </view>
                  </view>
             </view>
+             <!-- 付款之前 -->
+            <!-- 付款之后 -->
+             <view class='shopping' wx:if="{{order.status > 0}}">
+                 <view class='number'>订单号：{{order.sub_order}}</view>
+                        <!-- 循环商品 -->
+                        <view class='body-a-body' wx:for="{{order.goods}}">
+                            <view class="promotion">
+                                    <view class="list">
+                                        <view class="image">
+                                            <image class='image_main' src="{{item.cover}}"></image>
+                                            <image class="image_small" wx:if="{{item.is_type == 1}}" src="../image/promto.png"></image>
+                                       <image class="image_small" wx:if="{{item.is_type == 2}}" src="../image/TBD.png"></image>     
+                                        </view>
+                                    </view>
+                                    <view class="title">
+                                        <view>
+                                            <view class="promotion_main">{{item.goods_name}}</view>
+                                            <view class='promotion_Standard'>{{item.color}}，{{item.voltage}}，{{item.power}}</view>
+                                            <!-- <view class='promotion_scale'>降价50%</view> -->
+                                        </view>
+                                            <view class="promotion_button">
+                                                <text class="promotion_price">￥{{item.price}}</text>
+                                                <text class='promotion-shu'>x{{item.num}}</text>
+                                            </view>
+                                    </view>
+                            </view>
+                        </view>
+                 
+            </view>
+             <!-- 付款之后 -->
             <view class='belief'>
                   <view class='belief-a'>
                         <view class='belief-a-a'>商品总件数</view>
-                        <view class='belief-a-b'>{{order.buy_number}}</view>
+                        <view class='belief-a-b' wx:if="{{order.status == 0}}">{{order.buy_number}}</view>
+                         <view class='belief-a-b' wx:if="{{order.status > 0}}">{{order.all_num}}</view>
                   </view>
                   <view class='belief-a'>
-                        <view class='belief-a-a'>商品总价</view>
-                        <view class='belief-a-b'>￥{{order.buy_price - order.buy_freight-order.service_charge}}</view>
+                        <view class='belief-a-a' >商品总价</view>
+                        <view class='belief-a-b' wx:if="{{order.status == 0}}">￥{{order.buy_price - order.buy_freight-order.service_charge}}</view>
+                         <view class='belief-a-b' wx:if="{{order.status > 0}}">￥{{order.sub_price}}</view>
                   </view>
                   <view class='belief-a'>
                         <view class='belief-a-a'>服务费</view>
-                        <view class='belief-a-b'>￥{{order.level_service}}</view>
+                        <view class='belief-a-b' >￥{{order.level_service}}</view>
                   </view>
                   <view class='belief-a'>
                         <view class='belief-a-a'>会员等级</view>
-                        <view class='belief-a-b'>{{order.level_name}}</view>
+                        <view class='belief-a-b' >{{order.level_name}}</view>
                   </view>
                   <view class='belief-a'>
                         <view class='belief-a-a'>订单总价</view>
-                        <view class='belief-a-b'>￥{{order.buy_price}}</view>
+                        <view class='belief-a-b' wx:if="{{order.status == 0}}">￥{{order.buy_price}}</view>
+                        <view class='belief-a-b' wx:if="{{order.status > 0}}">￥{{order.all_price}}</view>
                   </view>
             </view>
             <view class='qian'>
                   <view class='qian-name'>订单总价</view>
-                  <view class='qian-number'>{{order.buy_price}}元</view>
+                  <view class='qian-number' wx:if="{{order.status == 0}}" >{{order.buy_price}}元</view>
+                  <view class='qian-number' wx:if="{{order.status > 0}}" >{{order.all_price}}元</view>
+            </view>
+             <view class='shuju'>
+                  <view class='shuju-a'>下单时间：{{order.create_time}}</view>
             </view>
             <view class='SUPP'>
-                  <view class='SUPP-a' wx:if="{{order.status>0}}" bindtap="wl_open">物流详情</view>
+                  <view class='SUPP-a' wx:if="{{order.status>1}}" bindtap="wl_open">物流详情</view>
                   <view class='Supplement' wx:if="{{order.status == 0}}">继续付款</view>
                   <view class='Supplement' wx:if="{{order.status == 2}}">确认收货</view>
             </view>
-            <view class='shuju'>
-                  <view class='shuju-a'>下单时间：{{order.create_time}}</view>
-            </view>
+           
             <!-- 未付款时线下转账 -->
             <view class='bottom-all' wx:if="{{order.status == 0}}">
                 <view class='bottom-all-Kamishi'>
@@ -150,10 +186,10 @@
              <!-- 未付款时线下转账 结束-->
       </view>
       <view class='tanchuang' wx:if="{{show}}">
-          <view class='tan' wx:for="{{order.sub_order}}">
-                <view class='tan-text'>{{item.factory}}-{{item.factory}}</view>
+          <view class='tan' >
+                <!-- <view class='tan-text'>{{item.factory}}-{{item.factory}}</view> -->
                 <view class='tan-image'>
-                      <image style='width:750rpx;height:550rpx;' src='{{item.Logistics}}'></image>
+                      <image style='width:750rpx;height:550rpx;' src='{{order.Logistics}}'></image>
                 </view>
           </view>
            <button class='botton' bindtap='wl_close'>返回</button>

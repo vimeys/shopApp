@@ -8,6 +8,7 @@ Page({
    */
   data: {
     order:'',
+    sub_order:'',
     show:0,
   },
 
@@ -78,10 +79,17 @@ Page({
     var user = wx.getStorageSync('user');
     ajax.getAjax(url.url.order_list, { user_id: user.user_id,status:status}, function (that, json) {
       var order = json.data;
-      that.setData({
-        order: order,
-        show:status
-      });
+      if(status ==0){
+        that.setData({
+          order: order,
+          show: status
+        });
+      }else{
+        that.setData({
+          sub_order: order,
+          show: status
+        });
+      }
     }, this);
 
   },
@@ -90,9 +98,10 @@ Page({
   navto: function (e) {
     var order_id = e.currentTarget.dataset.id;
     var valid = e.currentTarget.dataset.valid;
+    var status = e.currentTarget.dataset.status;
     if(valid == 1){
       wx.navigateTo({
-        url: '../Reviseda/Reviseda?order_id='+order_id,
+        url: '../Reviseda/Reviseda?order_id='+order_id+'&status='+status,
       })
     }
   },

@@ -11,6 +11,7 @@ Page({
       Data:'',
       cartId:[],//商品id
       num:[],//商品购买数量
+      total:'',
   },
 
   /**
@@ -25,12 +26,14 @@ Page({
   },
   getStorage:function (e) {
       let order=wx.getStorageSync('order');
+      let total=wx.getStorageSync("orderTotal");
       let cartId=wx.getStorageSync('cartId');
       let num=wx.getStorageSync("num");//获取商品购买数量
       this.setData({
           Data:order,
           cartId:cartId,
-          num:num
+          num:num,
+          total:total
       })
   },
   confirm:function (e) {

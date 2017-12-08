@@ -162,14 +162,17 @@ page{
 }
 .bottom-all{
     position: relative;
-    height: 88rpx;
+    /* height: 88rpx; */
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 .bottom-all-Kamishi{
     display: flex;
     align-items: center;
+    margin-top:20rpx;
+    margin-bottom: 20rpx;
 }
 .bottom-all-Kamishi-Test{
     padding-left: 10rpx;
