@@ -11,7 +11,8 @@
     border-bottom: 1px solid #fff;
 }
 .input icon{
-    margin-top: 10rpx;
+    margin-left: 20rpx;
+    margin-top: 14rpx;
 }
 .shopCar{
     display: inline-block;
@@ -19,5 +20,5 @@
     /*margin-top: 10rpx;*/
     height: 90rpx;
     line-height: 90rpx;
-    color:#fff;
+    color:#999;
 }

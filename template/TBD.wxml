@@ -29,7 +29,7 @@
                         <view class="TbD_people">{{item.crowd_raise_number}}人支持/已筹{{item.Raise_the_total_price}}万</view>
                     </view>
                     <view class="promotion_button">
-                        <text class="promotion_price">{{item.goods_crowd_raise_price}}元起</text>
+                        <text class="promotion_price">{{item.goods_crowd_raise_price}}元</text>
                     </view>
                 </view>
             </view>

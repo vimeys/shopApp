@@ -144,3 +144,11 @@ page{
     font-size: 22rpx;
     margin-left: 80rpx;
 }
+.name-name{
+    margin-right: 20rpx;
+    padding: 5rpx 10rpx 5rpx 10rpx;
+    font-size: 24rpx;
+    color: #EA4736;
+    border: 2rpx #EA4736 solid;
+    border-radius: 20rpx;
+}

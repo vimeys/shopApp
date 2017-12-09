@@ -143,6 +143,10 @@ page{
     font-size: 36rpx;
 }
 .title .promotion_main{
+    width: 470rpx;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
     font-size: 36rpx;
 }
 .title .promotion_scale{
@@ -163,8 +167,16 @@ page{
 .promotion_num{
     color:#989898;
     font-size: 22rpx;
-    margin-left: 80rpx;
+    float: right;
 }
 .TbD_people{
     font-size:32rpx;
+}
+/*改的*/
+.TbD_main{
+    width: 470rpx;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 36rpx;
 }

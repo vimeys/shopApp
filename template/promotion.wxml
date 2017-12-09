@@ -27,7 +27,7 @@
                 <view class="title">
                     <view class="promotion_all">
                         <view class="promotion_main">{{item.goods_name}}</view>
-                        <view class="promotion_scale">降价{{item.percentage_discount}}%</view>
+                        <view class="promotion_scale"><text class='name-name'>小龟王—小龟王</text>降价{{item.percentage_discount}}%</view>
                     </view>
                     <view class="promotion_button">
                         <text class="promotion_price">￥{{item.goods_activity_price}}</text>

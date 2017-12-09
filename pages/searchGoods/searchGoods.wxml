@@ -1,4 +1,3 @@
-
 <include src="../../template/inputSearch.wxml"/>
 <view class="nav">
     <view bindtap="change" data-type="0" class="all  {{check==0?'choose':''}}">综合</view>

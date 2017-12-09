@@ -2,7 +2,8 @@
 <view class="search" bindtap="search">
   <view class="input" >
     <!--<image src="../image/searcwhite.png"></image>-->
-    <icon type="search" size="25" color="white"/>
+    <icon type="search" size="18" color="#ccc"/>
+    <text class='sousuo'>搜索</text>
   </view>
-  <view class="shopCar">搜索</view>
+  <!-- <view class="shopCar">搜索</view> -->
 </view>
