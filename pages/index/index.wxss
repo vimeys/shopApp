@@ -100,7 +100,7 @@ background:#00a79e;
   margin-right: 20rpx;
   display: inline-block;
   height: 200rpx;
-  width: 80%;
+  width: 100%;
 }
 /*众筹*/
 .TBD{

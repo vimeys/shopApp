@@ -11,24 +11,23 @@
     align-items:center;
 }
 .total view:first-child{
-    width: 600rpx;
+    width: 650rpx;
     height: 500rpx;
     display: flex;
-    justify-items: center;
     align-items:center;
 }
 .total view:first-child image{
-    width: 400rpx;
-    height: 400rpx;
+    margin-left: 50rpx;
+    width: 300rpx;
+    height: 300rpx;
 }
 .total view:last-child{
     width: 50rpx;
     height: 50rpx;
     background: #ccc;
     border-radius: 50%;
-    padding-left: 5rpx;
     display: flex;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
 }
 .total view:last-child image{

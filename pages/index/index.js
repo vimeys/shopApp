@@ -17,6 +17,7 @@ Page({
         order:"",
         num:50,
         scroll:'',
+        marginTop:20//搜索顶部
     },
     search:function (e) {
         wx.navigateTo({
@@ -146,7 +147,6 @@ Page({
     href:function (e) {
             let type=e.currentTarget.dataset.type;
             if(type==1){
-
             }
     },
     goodsDetail:function (e) {
@@ -173,5 +173,18 @@ Page({
         wx.navigateTo({
           url: '../TBD/TBD'
         })
+    },
+    //页面滚动
+    onPageScroll:function (e) {
+        console.log(e.scrollTop);
+        if(e.scrollTop>200){
+            this.setData({
+                marginTop:0
+            })
+        }else{
+            this.setData({
+                marginTop:20
+            })
+        }
     }
 })

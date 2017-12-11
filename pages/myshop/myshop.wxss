@@ -65,7 +65,7 @@
 }
 .addr_input{
     margin-left: 40rpx;
-    margin-top: 25rpx;
+    margin-top: 2rpx;
     width: 660rpx;
 }
 .addr_input input{

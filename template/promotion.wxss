@@ -142,13 +142,19 @@ page{
 .promotion_num{
     color:#989898;
     font-size: 22rpx;
-    margin-left: 80rpx;
+    /* margin-left: 80rpx; */
 }
 .name-name{
     margin-right: 20rpx;
-    padding: 5rpx 10rpx 5rpx 10rpx;
-    font-size: 24rpx;
+    padding: 0rpx 10rpx 0rpx 10rpx;
+    font-size: 22rpx;
     color: #EA4736;
     border: 2rpx #EA4736 solid;
     border-radius: 20rpx;
+}
+/*冯川改*/
+.promotion_button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

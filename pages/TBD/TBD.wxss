@@ -1,4 +1,24 @@
 /* pages/TBD/TBD.wxss */
+/*@import '../../template/search.wxss';*/
+@import "../../template/inputSearch.wxss";
+.search input{
+    line-height: 90rpx;
+    width: 450rpx;
+    display: inline-block;
+    padding-left: 20rpx;
+}
+.search{
+    background: #fff;
+}
+.search .input{
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
+    background-color: #eee;
+    border-radius: 40rpx;
+}
+
+
+
 page{
     border-top: 2rpx #eee solid;
 }
@@ -67,4 +87,15 @@ page{
     color:#989898;
     font-size: 22rpx;
     margin-left: 80rpx;
+}
+/**/
+.ding{
+  background-color: #fafafa;
+}
+.TbD_main{
+    width: 470rpx;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 36rpx;
 }

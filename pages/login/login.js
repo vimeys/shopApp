@@ -37,6 +37,7 @@ Page({
         phone:'',//联系电话
         brand:[],//经营品牌
         brandselect:[],
+        brandselectId:[],
         brandinput:[],
         sellMoney:'',//年销量
         show:false,//查看经营品牌选项
@@ -322,17 +323,20 @@ Page({
         var id=e.currentTarget.dataset.type;
         var json=this.data.Data;
         let brand=that.data.brand;
+        let brandId=that.data.brandselectId;
         for(var i=0;i<json.length;i++){
             // return
             if(json[i].id==id){
                 json[i].choose=true;
                 brand.push(json[i].name);
+                brandId.push(json[i].id);
             }
         }
         this.setData({
             Data:json,
             brand:brand,
-            brandselect:brand
+            brandselect:brand,
+            brandselectId:brandId,
         });
         this.classify(this)
     },
@@ -515,7 +519,7 @@ Page({
         obj.level_vip_id=data.chooseID;
         obj.card_z=data.srcID1Up;
         obj.card_f=data.srcID2Up;
-        obj.brand_id=data.brandselect;
+        obj.brand_id=data.brandselectId;
         let i=0
         for (var key in obj){
             // debugger
@@ -544,21 +548,33 @@ Page({
                 let order=json.order;
                 let user_id=json.user_id;
                 let pay=json.pay;
-                wx.switchTab({
-                    url:'../index/index'
+                wx.requestPayment({
+                    timeStamp: pay.timeStamp,
+                    nonceStr: pay.nonceStr,
+                    package: pay.package,
+                    signType: pay.signType,
+                    paySign: pay.paySign,
+                    success: function (res) {
+                        console.log(res);
+                        ajax.postAjax(url.url.pay_user, { level_order_sn:order, open_id: pay.openid }, function (that, json) {
+                            wx.showModal({
+                                title: '支付成功',
+                                content: '支付成功',
+                                success: function () {
+                                    wx.navigateTo({
+                                        url: '../index/index',
+                                    })
+                                }
+                            })
+                        }, this)
+                    },
+                    fail: function (res) {
+                        wx.showModal({
+                            title: res.errMsg,
+                            content: res.errMsg,
+                        })
+                    }
                 })
-                // wx.requestPermission({
-                //     'timeStamp':pay,
-                //     'nonceStr': '',
-                //     'package': '',
-                //     'signType': 'MD5',
-                //     'paySign': '',
-                //     'success':function(res){
-                //     },
-                //     'fail':function(res){
-                //     }
-                // })
-
             },this)
         }
 

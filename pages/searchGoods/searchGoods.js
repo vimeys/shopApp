@@ -42,10 +42,6 @@ Page({
               page:1
           })
       }
-
-      //   let page=this.data.page;
-      // let type=this.data.check;
-      //   this.ajax(page,type);
     },
     //点击请求
     search:function (e) {

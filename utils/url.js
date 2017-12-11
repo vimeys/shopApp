@@ -54,7 +54,8 @@ url.my_brand    = allUrl + 'Personalhome/my_brand';//品牌管理
 url.my_factory_brand = allUrl + 'Personalhome/Manufacturer_brand_list';//我代理的厂商品牌
 url.complan     = allUrl + 'Personalhome/Complaint_factory'; //投诉厂家
 url.take_over   = allUrl + 'order/take_over';   //确认收货
-
+url.pay_user    = allUrl + 'user/pay_user';  //缴费成功
+url.pay_success = allUrl + 'order/pay_success'; //微信支付成功
 
 
 

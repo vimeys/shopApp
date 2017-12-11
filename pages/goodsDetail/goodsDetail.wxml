@@ -11,6 +11,7 @@
 <!--活动价-->
 <view class="goods_title" wx:if="{{promotion}}">
     <view class="title">{{goodsName}}</view>
+    <text class='chang-name'>小龟王-小龟王</text>
     <view class="main">
         <text class="new_price">活动价：{{goodsPrice}}元</text>
         <text class="del_price">原价：{{goodsDelPrice}}</text>
@@ -32,12 +33,15 @@
 
 <!--众筹-->
 <view class="TBD" wx:if="{{TBD}}">
+    <view class='one-all'>
+         <text class='one'>众筹中.剩21天</text>
+    </view>
     <view class="title">{{goodsName}}</view>
+    <text class='chang-name'>小龟王-小龟王</text>
     <view class="progress">
         <progress percent="{{percentage_funding}}" color="#00a79e" stroke-width="10" style="width: 600rpx; display: inline-block"/><text class="point">{{percentage_funding}}%</text>
     </view>
     <view class="TBD_people">{{crowd_raise_number}}人支持/已筹{{Raise_the_total_price}}万</view>
-    <view class="TBD_price"><text class="money">{{goods_crowd_raise_price}}元起</text> <text class="time">{{crowd_start_time}}至{{crowd_end_time}}</text></view>
 </view>
 
 <view style="margin-bottom: 100rpx;margin-top: 30rpx">
@@ -45,7 +49,7 @@
         <image src="{{item}}" style="width: 100%;height:{{height[index]}}rpx" ></image>
     </block>
 </view>
-
+<!--活动普通购物车结算-->
 <view class="show-popup" hidden="{{hideShopPopup}}">
     <view class="popup-mask" bindtap="close"></view>
     <view class="popup-contents">
@@ -55,34 +59,22 @@
             </view>
             <view class="pop-goods-des">
                 <view class="pop-goods-title">{{goodsName}}</view>
-                <view class="pop-goods-price">¥{{goodsPrice}}</view>
+                <view class="pop-goods-price">¥{{SIZEID[index].price}}</view>
             </view>
             <view class="pop-goods-close" bindtap="close"></view>
         </view>
         <view class="size-label-box">
-                <view class="label">颜色</view>
+                <view class="label">规格</view>
                 <view class="label-item-box">
-                    <view class="label-item {{active==index+1? 'active' : '' }}" wx:for="{{color}}" wx:for-index="index" wx:key="id" bindtap="chooseColor" data-name="{{item}}" data-num="{{index}}">
-                        {{item}}
+                    <view class="label-item {{item.active? 'active' : '' }}" wx:for="{{SIZEID}}" wx:for-index="index" wx:key="id" bindtap="chooseSize" data-id="{{item.id}}" data-num="{{index}}">
+                        {{item.spec}}
                     </view>
                 </view>
-                <view class="label">电压</view>
-                <view class="label-item-box">
-                    <view class="label-item {{active? 'active' : '' }}" wx:for="{{voltage}}" wx:key="id" bindtap="chooseVoltage" data-name="{{item}}" data-num="{{index}}">
-                        {{item}}
-                    </view>
-                </view>
-                <view class="label">功率</view>
-                <view class="label-item-box">
-                    <view class="label-item {{active? 'active' : '' }}" wx:for="{{power}}" wx:key="id" bindtap="choosePower" data-name="{{item}}" data-num="{{index}}">
-                        {{item}}
-                    </view>
-                </view>
-            <!--</block>-->
+
         </view>
         <view class="buy-num-box">
-            <view class="num-label">购买数量 </view>
-            <view class="num-label">库存剩余：{{goodsStorage}}</view>
+            <view class="num-label"> 库存剩余：{{goodsStorage}}</view>
+            <view class="num-label">购买数量</view>
             <view class="num-box">
                 <view class="num-jian {{buyNumber == buyNumMin ? 'hui': ''}}" bindtap="numJianTap">-</view>
                 <view class="num-input">
@@ -94,11 +86,11 @@
         <view class="popup-join-btn" bindtap="joinCart">
             加入购物车
         </view>
-        <!--<view class="popup-join-btn"  wx:if="{{TBD}}"  bindtap="joinCart">-->
-            <!--立即购买-->
-        <!--</view>-->
+
     </view>
 </view>
+
+<!--众筹购物车-->
 <view class="show-popup" hidden="{{hideShopTBD}}">
     <view class="popup-mask" bindtap="closeTBD"></view>
     <view class="popup-contents">
@@ -113,29 +105,17 @@
             <view class="pop-goods-close" bindtap="closeTBD"></view>
         </view>
         <view class="size-label-box">
-                <view class="label">颜色</view>
+                <view class="label">规格</view>
                 <view class="label-item-box">
-                    <view class="label-item active" wx:for="{{color}}" wx:for-index="index" wx:key="id"  data-name="{{item}}" data-num="{{index}}">
-                        {{item}}
-                    </view>
-                </view>
-                <view class="label">电压</view>
-                <view class="label-item-box">
-                    <view class="label-item active" wx:for="{{voltage}}" wx:key="id"  data-name="{{item}}" data-num="{{index}}">
-                        {{item}}
-                    </view>
-                </view>
-                <view class="label">功率</view>
-                <view class="label-item-box">
-                    <view class="label-item active" wx:for="{{power}}" wx:key="id"  data-name="{{item}}" data-num="{{index}}">
-                        {{item}}
+                    <view class="label-item active" wx:for="{{SIZEID}}" wx:for-index="index" wx:key="id"  data-name="{{item}}" data-num="{{index}}">
+                        {{item.spec}}
                     </view>
                 </view>
             <!--</block>-->
         </view>
         <view class="buy-num-box">
-            <view class="num-label">购买数量 </view>
-            <view class="num-label">库存剩余：{{goodsStorage}}</view>
+            <view class="num-label"> 库存剩余：{{goodsStorage}}</view>
+            <view class="num-label">购买数量</view>
             <view class="num-box">
                 <view class="num-jian {{buyNumber == buyNumMin ? 'hui': ''}}" bindtap="numJianTap">-</view>
                 <view class="num-input">

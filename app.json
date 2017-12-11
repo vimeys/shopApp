@@ -1,12 +1,13 @@
 {
     "pages": [
+      
         "pages/index/index",
         "pages/searchGoods/searchGoods",
       "pages/shoppingcart/shoppingcart",
         "pages/login/login",
         "pages/sign/sign",
         "pages/Checkedout/Checkedout",
-        
+        "pages/news/news",
         "pages/payWay/payWay",
         
         "pages/CheckedoutTBD/CheckedoutTBD",
@@ -44,8 +45,8 @@
         "navigationBarTextStyle": "black"
     },
     "tabBar": {
-        "font-size": "42rpx",
-        "color": "#1a1a1a",
+        "font-size": "38rpx",
+        "color": "#eb4735",
         "selectedColor": "#eb4735",
         "list": [
             {

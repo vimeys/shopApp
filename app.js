@@ -47,6 +47,9 @@ App({
                                     if(res.data.code==204){
                                         wx.setStorageSync('open_id',res.data.data.openid);
                                         wx.setStorageSync('user_id',res.data.data.user_id);
+                                        // wx.reLaunch({
+                                        //   url: '../vip/vip'
+                                        // })
                                     }
                                 },
                                 fail: function () {

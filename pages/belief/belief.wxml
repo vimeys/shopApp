@@ -1,6 +1,6 @@
 <!--pages/belief/belief.wxml-->
 <view class='body'>
-      <view wx:for="{{news}}">
+      <navigator url='../news/news' wx:for="{{news}}">
           <view  class='body-news' bindtap='open_news' data-index='{{index}}'>
             <view class='body-news-top'>
                 <view class='body-img'>
@@ -14,5 +14,5 @@
                 <text class='body-time-time'>{{item.create_time}} </text>
             </view>
           </view>
-      </view>
+      </navigator>
 </view>

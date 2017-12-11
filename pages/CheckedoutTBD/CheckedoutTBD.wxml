@@ -22,7 +22,7 @@
         <view class="title">
             <view>
                 <view class="promotion_main">{{Data.goods_name}}</view>
-                <view class='promotion_ Standard '>{{size.color}}， {{size. voltage}}，{{size.power}}</view>
+                <view class='promotion_ Standard '>{{size.spec}}</view>
                 <!--<view class='promotion_scale'>降价50%</view>-->
             </view>
             <view class="promotion_button">

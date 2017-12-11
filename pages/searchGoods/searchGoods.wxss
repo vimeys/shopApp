@@ -78,6 +78,12 @@
     margin-top: 25rpx;
     margin-left: 20rpx;
 }
+.name{
+    overflow: hidden;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+    margin-top: 20rpx;
+}
 .price{
     line-height: 40rpx;
     margin-top: 25rpx;

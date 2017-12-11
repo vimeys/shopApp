@@ -1,5 +1,5 @@
 <!-- 搜索页头页面 -->
-<view class="search" bindtap="search">
+<view class="search" bindtap="search" style="margin-top: {{marginTop}}rpx">
   <view class="input" >
     <!--<image src="../image/searcwhite.png"></image>-->
     <icon type="search" size="18" color="#ccc"/>

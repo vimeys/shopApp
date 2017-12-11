@@ -12,6 +12,7 @@
                 <image src="../image/promto.png" ></image>
             </view>
             <view class="title">{{item.goods_name}}</view>
+            <view class="name">12312313</view>
             <view class="price"><text class="new_price">￥{{item.goods_shopping_price}}</text> <text class="del_price">{{item.goods_activity_price}}</text></view>
             <view class="sales">销量：{{item.goods_sales}}</view>
         </view>

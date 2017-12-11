@@ -1,16 +1,27 @@
 /* pages/search/search.wxss */
-@import "../../template/search.wxss";
+@import "../../template/inputSearch.wxss";
 .search input{
-    width: 500rpx;
-    display: inline-block;padding-left: 20rpx;
+    line-height: 90rpx;
+    width: 450rpx;
+    display: inline-block;
+    padding-left: 20rpx;
 }
 .search{
-    background: #F0F0F0;
+    background: #fff;
 }
 .search .input{
-    border-bottom: 1rpx solid #000;
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
+    background-color: #eee;
+    border-radius: 40rpx;
+}
+.search .nomargin{
+    margin-top: 0;
 }
 /*导航条*/
+.margin{
+    margin-top: 100rpx;
+}
 .nav{
     width: 100%;
 

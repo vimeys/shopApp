@@ -1,7 +1,7 @@
 /* pages/my/my.wxss */
 .top{
     color: #fff;
-    background-color: #eb4735;
+    background-color: #1a1a1a;
 }
 .top-information{
     padding-top: 30rpx;
@@ -40,7 +40,7 @@
     width: 187rpx;
     height: 57rpx;
     border-radius: 40rpx;
-    background-color: #ff9388;
+    background-color: rgba(255, 255, 255, 0.5);
     font-size: 36rpx;
 }
 .member-grade{
@@ -63,24 +63,22 @@
     padding-left: 20rpx;
 }
 .Profit{
+    font-size: 26rpx;
     margin-top: 20rpx;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.profit-right{
-    display: flex;
-}
 .Profit-top{
-    color: #eb4735;
+    color: #fff;
     position: fixed;
-    top: 164rpx;
-    right: 162rpx;
+    top: 266rpx;
+    left: 162rpx;
     line-height: 36rpx;
     text-align: center;
     width: 36rpx;
     height: 36rpx;
-    background-color: #fff;
+    background-color: #eb4735;
     border-radius: 50%;
 }
 .Profit-image{
@@ -91,12 +89,52 @@
     font-size: 34rpx;
 }
 .Clothing{
+    margin-top: 20rpx;
     font-size: 30rpx;
-    padding-bottom: 50rpx;
+    color: rgba(255, 255, 255, 0.6);
+    padding-bottom: 30rpx;
 }
+/*顶部3个*/
+.Column-one{
+    border-bottom: 2rpx #eee solid;
+    display: flex;
+    justify-content: space-around;
+}
+.Column-one-image image{
+    width: 60rpx;
+    height: 60rpx;
+}
+.xian{
+    width: 2rpx;
+    height: 180rpx;
+    background-color: #eee;
+}
+.Column-one-san{
+    font-size: 32rpx;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.yuan{
+    position: fixed;
+    top: 254rpx;
+    left: 190rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eb4735;
+    border-radius: 50%;
+    width: 40rpx;
+    height: 40rpx;
+    color: #fff;
+    font-size: 30rpx;
+}
+/*顶部3个结束*/
 .Column-Unity{
     justify-content: space-between;
-    line-height: 120rpx;
+    line-height: 116rpx;
     display: flex;
     border-bottom: 2rpx #eee solid;
 }
@@ -112,9 +150,12 @@
     flex-direction: column;
     justify-content: center;
 }
+.image-box image{
+    width: 44rpx;height: 44rpx;
+}
 .Column-Unity-zhong{
+    font-size: 30rpx;
     display: flex;
-    padding-left: 40rpx;
 }
 .Column-Unity-right{
     padding-right: 30rpx;

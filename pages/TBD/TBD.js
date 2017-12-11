@@ -7,15 +7,17 @@ Page({
    */
   data: {
       Data:[],
-      page:0
+      page:0,
+      goodsName:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      let page=this.data.page
-      this.getList(page)
+      let page=this.data.page;
+      let name=this.data.goodsName;
+      this.getList(page,name)
   },
 
 
@@ -24,23 +26,34 @@ Page({
    */
   onReachBottom: function () {
       let page=this.data.page;
-      page++
-      this.getList(page)
+      page++;
+      this.setData({
+          page:page
+      })
+      let name=this.goodsName;
+      this.getList(page,name)
   },
-  getList:function (page) {
+  getList:function (page,name) {
     let that=this;
       wx.request({
           url:url.url.allTBD,
           method:'POST',
           data:{
-            page:page
+            page:page,
+              name:name
           },
           success:function (res) {
             console.log(page)
               if(res.data.code==200){
-                  that.setData({
-                      Data:res.data.data.commodity_goods_list
-                  })
+                let data=that.data.Data;
+                    let json=res.data.data.commodity_goods_list;
+                if(json.length>=1){
+                    data.push(json)
+                    that.setData({
+                        Data:res.data.data.commodity_goods_list
+                    })
+                }
+                 console.log(that.data.Data);
               }
           }
       })
@@ -55,6 +68,25 @@ Page({
         wx.navigateTo({
             url: '../goodsDetail/goodsDetail?id='+arr
         })
+    },
+    input:function (e) {
+        let value=e.detail.value;
+        if(value){
+            this.setData({
+                goodsName:value,
+                page:0
+            })
+        }
+    },
+
+    //点击请求
+    search:function (e) {
+        let page=this.data.page;
+        let name=this.data.goodsName;
+        this.setData({
+            page:0
+        });
+        this.getList(page,name)
     },
 
 })

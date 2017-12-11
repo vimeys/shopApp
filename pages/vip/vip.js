@@ -102,8 +102,36 @@ Page({
     }else{
       id=1;
     }
-    ajax.postAjax(url.url.Upgrade,{upgrade_id:id,user_id:user.user_id,open_id:user.open_id},function(that,json){
-       console.log(json);
+    ajax.postAjax(url.url.Upgrade,{upgrade_id:id,user_id:user.user_id,open_id:user.openid},function(that,json){
+        var pay=json.data;
+        wx.requestPayment({
+            timeStamp: pay.timeStamp,
+            nonceStr: pay.nonceStr,
+            package: pay.package,
+            signType: pay.signType,
+            paySign: pay.paySign,
+            success:function(res){
+                console.log(res);
+                ajax.postAjax(url.url.pay_user, { level_order_sn: pay.order, open_id: pay.openid},function(that,json){
+                    wx.showModal({
+                        title: '支付成功',
+                        content: '支付成功',
+                        success:function(){
+                            wx.navigateBack({
+                                detail:1
+                            })
+                        }
+                    })
+                },this)
+            },
+            fail:function(res){
+                wx.showModal({
+                    title: res.errMsg,
+                    content: res.errMsg,
+                })
+            }
+        })
+
     },this);
   }
 })

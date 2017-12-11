@@ -9,6 +9,7 @@ Page({
      */
     data: {
         list:[],//列表页面
+        marginTop:20
     },
 
     /**
@@ -58,5 +59,18 @@ Page({
         wx.navigateTo({
             url: '../searchGoods/searchGoods'
         })
+    },
+    // 页面滚动
+    onPageScroll:function (e) {
+        console.log(e.scrollTop);
+        if(e.scrollTop>200){
+            this.setData({
+                marginTop:0
+            })
+        }else{
+            this.setData({
+                marginTop:20
+            })
+        }
     }
 })
