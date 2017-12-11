@@ -41,6 +41,6 @@
     background-color: #eee;
     border-radius: 40rpx;
 }
-.search .nomargin{
+.search .noMargin{
     margin-top: 0;
 }
