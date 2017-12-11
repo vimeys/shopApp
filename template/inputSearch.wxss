@@ -25,3 +25,22 @@
     line-height: 90rpx;
     color:#999;
 }
+
+.search input{
+    line-height: 90rpx;
+    width: 450rpx;
+    display: inline-block;
+    padding-left: 20rpx;
+}
+.search{
+    background: #fff;
+}
+.search .input{
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
+    background-color: #eee;
+    border-radius: 40rpx;
+}
+.search .nomargin{
+    margin-top: 0;
+}
